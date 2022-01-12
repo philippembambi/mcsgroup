@@ -1,0 +1,25 @@
+/*============================================================================================*/
+/* Your custom styles below */
+/*============================================================================================*/
+
+@media (min-width: 360px) {
+
+    .barre-recherche input[type="submit"] {
+        float: right;
+        width: 130px;
+    }
+
+  }
+
+  #adstag{
+      color: black;
+  }
+
+  @font-face {
+    font-family: 'persofont';
+    src: url('../fonts/customsfonts/BacktoBlackDemo.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+
