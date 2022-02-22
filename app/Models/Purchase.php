@@ -15,24 +15,26 @@ class Purchase extends Model
      * @var string[]
      */
     protected $fillable = [
-        'client',
-        'article',
         'quantity',
         'total_price',
+        'delivery_mode',
+        'payment_mode',
+        'user_id',
+        'article_id'
     ];
 
     protected static function boot()
 	{
 		parent::boot();
         static::created(function ($purchase) {
-          	$purchase->client()->associate(auth()->user()->id);
-            $purchase->article()->associate(request()->article->id);
+          	$purchase->user()->associate(auth()->user()->id);
+           // $purchase->article()->associate(request()->article->id);
             $purchase->save();
         });
 
 		self::updating(function($purchase){
-		$purchase->client()->associate(auth()->user()->id);
-        $purchase->article()->associate(request()->article->id);
+		$purchase->user()->associate(auth()->user()->id);
+       // $purchase->article()->associate(request()->article->id);
         });
 	}
 
@@ -41,7 +43,7 @@ class Purchase extends Model
 		return $this->belongsTo(Article::class);
 	}
 
-    public function client()
+    public function user()
 	{
 		return $this->belongsTo(User::class);
 	}

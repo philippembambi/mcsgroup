@@ -20,6 +20,7 @@ class Advertisement extends Model
         'image_1',
         'image_2',
         'image_3',
-        'pole'
+        'icon',
+        'desc'
     ];
 }

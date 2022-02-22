@@ -2297,11 +2297,79 @@ a.grid_item.small figure img {
 #reccomended {
   margin-top: 40px;
 }
-@media (max-width: 767px) {
+@media (max-width: 286px) {
   #reccomended {
-    margin-top: 0;
+    width: 300px;
   }
+  #reccomended .item {
+    float: left;
+    height: 500px;
+  }
+
+  #reccomended .item .img-fluid{
+        width: 300px;
+        height: 170px;
+        background-size:contain;
+  }
+
+  #reccomended .item .wrapper{
+    text-align: justify;
+    font-size: 12px;
+    padding-left: 4px;
+    padding-top: 2px;
+  }
+  #reccomended .item .loc_open{
+        padding-left: 4px;
+        font-size: 12px;
+  }
+  #reccomended .item .score{
+      margin-top: 3%;
+  }
+  #reccomended .item small{
+   font-size: 9px;
+    text-transform: lowercase;
 }
+}
+
+@media (max-width: 767px) {
+    #reccomended {
+    }
+    #reccomended .item {
+      height: 500px;
+      margin-bottom: -20%;
+    }
+
+    #reccomended .item .img-fluid{
+          width: 300px;
+          height: 170px;
+          background-size:contain;
+    }
+
+    #reccomended .item .wrapper{
+      text-align: center;
+      font-size: 12px;
+      padding-left: 0;
+      padding-right: 0;
+      padding-top: 2px;
+    }
+    #reccomended .item .loc_open{
+          padding-left: 2px;
+          font-size: 12px;
+    }
+    #reccomended .item .score{
+        margin-top: 3%;
+    }
+    #reccomended .item small{
+        font-size: 10px;
+        text-transform: lowercase;
+  }
+
+  #reccomended .item ul{
+      margin-top: -20%;
+  }
+  }
+
+
 #reccomended .item {
   margin: 0 15px;
 }
@@ -2341,8 +2409,7 @@ a.grid_item.small figure img {
 }
 @media (max-width: 767px) {
   .owl-theme .owl-dots {
-    margin-top: 0 !important;
-    margin-bottom: 20px;
+   visibility: hidden;
   }
 }
 
@@ -3169,6 +3236,7 @@ a.box_feat h3 {
     border-radius: 3px 3px 0 0;
   }
 }
+
 
 
 .strip.list_view figure small {
@@ -4113,6 +4181,7 @@ a.btn_search_mobile.map_view {
   width: 100%;
   text-align: center;
   z-index: 5;
+  visibility: visible;
 }
 @media (max-width: 767px) {
   #carousel_in .owl-dots {
@@ -4229,6 +4298,25 @@ section#reviews {
     margin-bottom: 10px;
   }
 }
+
+  @media (max-width: 767px) {
+    #autres_articles {
+         margin-top: -45%;
+     }
+   }
+
+   @media (max-width: 662px) {
+    #autres_articles {
+         margin-top: -50%;
+     }
+   }
+
+   @media (max-width: 468px) {
+    #autres_articles {
+         margin-top: -65%;
+     }
+   }
+
 .reviews-container .rev-content {
   position: relative;
   padding: 25px 25px 1px 25px;
@@ -4685,7 +4773,7 @@ ul.menu_list {
 }
 ul.menu_list li {
   position: relative;
-  padding: 5px 0 25px 120px;
+  padding: 5px 0 25px 150px;
   clear: both;
   font-size: 13px;
   font-size: 0.8125rem;
@@ -4700,8 +4788,8 @@ ul.menu_list li h6 span {
   float: right;
 }
 ul.menu_list li .thumb {
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   position: absolute;
   left: 0;
   top: 0;
@@ -4710,8 +4798,8 @@ ul.menu_list li .thumb {
   padding: 5px;
 }
 ul.menu_list li .thumb img {
-  width: 88px;
-  height: auto;
+  width: 100%;
+  height: 100%;
   text-align: center;
 }
 

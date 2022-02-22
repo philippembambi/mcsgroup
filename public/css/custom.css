@@ -17,7 +17,14 @@
 
   @font-face {
     font-family: 'persofont';
-    src: url('../fonts/customsfonts/BacktoBlackDemo.ttf') format('truetype');
+    src: url('../fonts/customsfonts/11S0BLTI.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'costafont';
+    src: url('../fonts/customsfonts/HPSimplified_Rg.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
   }

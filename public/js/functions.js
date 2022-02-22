@@ -228,7 +228,7 @@
 		margin: 10,
 		responsive: {
 			0: {
-				items: 1,
+				items: 2,
 				dots:false
 			},
 			600: {
@@ -251,7 +251,7 @@
 		margin: 0,
 		responsive: {
 			0: {
-				items: 1
+				items: 2
 			},
 			600: {
 				items: 2

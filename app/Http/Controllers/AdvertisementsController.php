@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Advertisement;
+use App\Models\Article;
+use App\Models\Category;
+use DB;
 
 class AdvertisementsController extends Controller
 {
@@ -14,7 +17,13 @@ class AdvertisementsController extends Controller
      */
 
 		public function __invoke()
-		{}
+		{
+            $categories = Category::all();
+
+            return view('admin.adverts.add', [
+                'categories' => $categories,
+            ]);
+        }
 
     /**
      * Display a listing of the resource.
@@ -23,7 +32,11 @@ class AdvertisementsController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::all();
+
+        return view('admin.adverts.add', [
+            'categories' => $categories,
+        ]);
     }
 
     /**
@@ -33,7 +46,11 @@ class AdvertisementsController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+
+        return view('admin.adverts.add', [
+            'categories' => $categories,
+        ]);
     }
 
     /**
@@ -44,7 +61,22 @@ class AdvertisementsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $imageName1 = rand(1, 1000).time().'.'.$request->image1->extension();
+        $request->image1->move(public_path('uploadedFiles'), $imageName1);
+
+        $this->validate($request, [
+            'tag' => 'required|max:255',
+            'description' => 'required|max:255'
+        ]);
+
+        Advertisement::create([
+            'tag' => $request->tag,
+            'category' => $request->category,
+            'desc' => $request->description,
+            'image_1' =>  $imageName1,
+            ]);
+
+            return view("admin.articles.index");
     }
 
     /**
@@ -56,7 +88,19 @@ class AdvertisementsController extends Controller
     public function show($id)
     {
         $ads = Advertisement::find($id);
-        return view('layouts.ads.show')->with('ads', $ads);
+
+        $articles = Article::where('articles.category', '=', $id)->simplePaginate(3);
+        //dd($articles);
+
+        $otherArticles = Article::latest()->simplePaginate(10);
+        $categories = Category::all();
+
+        return view('layouts.ads.details', [
+            'ads' => $ads,
+            'articles' =>  $articles,
+            'otherArticles' => $otherArticles,
+            'categories' => $categories,
+        ]);
     }
 
     /**

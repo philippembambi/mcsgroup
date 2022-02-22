@@ -21,15 +21,15 @@ function passwordStrengthCheck(password1, password2, passwordsInfo)
 	$(password1).on('keyup', function(e) {
 		if(VryStrongPass.test(password1.val()))
 		{
-			passwordsInfo.removeClass().addClass('vrystrongpass').html("Très efficace ! (Parfait, N'oubliez pas svp votre mot de passe !)");
+			passwordsInfo.removeClass().addClass('vrystrongpass').html("Très efficace ! (Merci de bien retenir votre mot de passe.)");
 		}
 		else if(StrongPass.test(password1.val()))
 		{
-			passwordsInfo.removeClass().addClass('strongpass').html("Efficace ! (Au moins un caractère spécial est souhaitable");
+			passwordsInfo.removeClass().addClass('strongpass').html("Efficace ! (Un caractère spécial le rendra très efficace");
 		}
 		else if(MediumPass.test(password1.val()))
 		{
-			passwordsInfo.removeClass().addClass('goodpass').html("Passable ! (Au moins une lettre majuscule est souhaitable)");
+			passwordsInfo.removeClass().addClass('goodpass').html("Passable ! (Une lettre majuscule est souhaitable)");
 		}
 		else if(WeakPass.test(password1.val()))
     	{

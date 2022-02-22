@@ -16,7 +16,7 @@
       <link rel="stylesheet" href="{{ asset('admin/assets/libs/ckeditor/samples/toolbarconfigurator/lib/codemirror/neo.css') }}">
       <link rel="stylesheet" href="{{ asset('admin/assets/libs/ckeditor/samples/css/samples.css') }}">
 
-    <title>admin BACK-OFFICE</title>
+    <title>Mcs Group Back Office</title>
 
     @stack('scripts.header')
     @stack('styelesheets')
@@ -25,7 +25,7 @@
 
 @font-face {
     font-family: 'persofont';
-    src: url('../fonts/customsfonts/sloe.ttf') format('truetype');
+    src: url('../fonts/customsfonts/11S0BLTI.TTF') format('truetype');
     font-weight: normal;
     font-style: normal;
   }
@@ -47,6 +47,13 @@
 
         @include('admin.components._header')
         @include('admin.components._menu')
+
+        <div class="preloader">
+            <div class="lds-ripple">
+                <div class="lds-pos"></div>
+                <div class="lds-pos"></div>
+            </div>
+        </div>
 
         @yield('content')
 
@@ -86,6 +93,10 @@
 
 <script src="{{ asset('admin/assets/libs/ckeditor/ckeditor.js') }}"></script>
 <script src="{{ asset('admin/assets/libs/ckeditor/samples/js/sample.js') }}"></script>
+
+<script src="{{ asset('admin/assets/libs/chartist/dist/js/app-style-switcher.js') }}"></script>
+<script src="{{ asset('admin/dist/js/chat/pages/chat.js') }}"></script>
+
 </body>
 
 </html>

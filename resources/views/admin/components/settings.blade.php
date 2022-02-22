@@ -24,15 +24,15 @@
                     <h5 class="font-medium mb-2 mt-2">Layout Settings</h5>
                     <div class="checkbox checkbox-info mt-3">
                         <input type="checkbox" name="theme-view" class="material-inputs" id="theme-view">
-                        <label for="theme-view"> <span>Dark Theme</span> </label>
+                        <label for="theme-view"> <span>Mode sombre</span> </label>
                     </div>
                     <div class="checkbox checkbox-info mt-2">
                         <input type="checkbox" class="sidebartoggler material-inputs" name="collapssidebar" id="collapssidebar">
-                        <label for="collapssidebar"> <span>Collapse Sidebar</span> </label>
+                        <label for="collapssidebar"> <span>Elargir le contenu</span> </label>
                     </div>
                     <div class="checkbox checkbox-info mt-2">
                         <input type="checkbox" name="sidebar-position" class="material-inputs" id="sidebar-position">
-                        <label for="sidebar-position"> <span>Fixed Sidebar</span> </label>
+                        <label for="sidebar-position"> <span>Fixer la bar des tâches</span> </label>
                     </div>
                     <div class="checkbox checkbox-info mt-2">
                         <input type="checkbox" name="header-position" class="material-inputs" id="header-position">
@@ -40,10 +40,48 @@
                     </div>
                     <div class="checkbox checkbox-info mt-2">
                         <input type="checkbox" name="boxed-layout" class="material-inputs" id="boxed-layout">
-                        <label for="boxed-layout"> <span>Boxed Layout</span> </label>
+                        <label for="boxed-layout"> <span>Affichage en retrait</span> </label>
                     </div>
                 </div>
 
+                <div class="p-3 border-bottom">
+                    <!-- Logo BG -->
+                    <h5 class="font-medium mb-2 mt-2">Couleur de fond du logo</h5>
+                    <ul class="theme-color m-0 p-0">
+                        <li class="theme-item list-inline-item mr-1"><a href="javascript:void(0)" class="theme-link rounded-circle d-block"
+                                data-logobg="skin1"></a></li>
+                        <li class="theme-item list-inline-item mr-1"><a href="javascript:void(0)" class="theme-link rounded-circle d-block"
+                                data-logobg="skin2"></a></li>
+                        <li class="theme-item list-inline-item mr-1"><a href="javascript:void(0)" class="theme-link rounded-circle d-block"
+                                data-logobg="skin3"></a></li>
+                        <li class="theme-item list-inline-item mr-1"><a href="javascript:void(0)" class="theme-link rounded-circle d-block"
+                                data-logobg="skin4"></a></li>
+                        <li class="theme-item list-inline-item mr-1"><a href="javascript:void(0)" class="theme-link rounded-circle d-block"
+                                data-logobg="skin5"></a></li>
+                        <li class="theme-item list-inline-item mr-1"><a href="javascript:void(0)" class="theme-link rounded-circle d-block"
+                                data-logobg="skin6"></a></li>
+                    </ul>
+                    <!-- Logo BG -->
+                </div>
+                <div class="p-3 border-bottom">
+                    <!-- Logo BG -->
+                    <h5 class="font-medium mb-2 mt-2">Couleur de fond du menu</h5>
+                    <ul class="theme-color m-0 p-0">
+                        <li class="theme-item list-inline-item mr-1"><a href="javascript:void(0)" class="theme-link rounded-circle d-block"
+                                data-sidebarbg="skin1"></a></li>
+                        <li class="theme-item list-inline-item mr-1"><a href="javascript:void(0)" class="theme-link rounded-circle d-block"
+                                data-sidebarbg="skin2"></a></li>
+                        <li class="theme-item list-inline-item mr-1"><a href="javascript:void(0)" class="theme-link rounded-circle d-block"
+                                data-sidebarbg="skin3"></a></li>
+                        <li class="theme-item list-inline-item mr-1"><a href="javascript:void(0)" class="theme-link rounded-circle d-block"
+                                data-sidebarbg="skin4"></a></li>
+                        <li class="theme-item list-inline-item mr-1"><a href="javascript:void(0)" class="theme-link rounded-circle d-block"
+                                data-sidebarbg="skin5"></a></li>
+                        <li class="theme-item list-inline-item mr-1"><a href="javascript:void(0)" class="theme-link rounded-circle d-block"
+                                data-sidebarbg="skin6"></a></li>
+                    </ul>
+                    <!-- Logo BG -->
+                </div>
 
             </div>
             <!-- End Tab 1 -->

@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}" type="image/x-icon">
+        <link rel="shortcut icon" href="{{ asset('image/logourl.png') }}" type="image/png">
         <link rel="apple-touch-icon" type="image/x-icon" href="{{ asset('img/apple-touch-icon-57x57-precomposed.png') }}">
         <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="{{ asset('img/apple-touch-icon-72x72-precomposed.png') }}">
         <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="{{ asset('img/apple-touch-icon-114x114-precomposed.png') }}">
@@ -18,7 +18,7 @@
         <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
         <link rel="stylesheet" href="{{ asset('js/modernizr.js') }}">
 
-        <title>Mcs Group</title>
+        <title><?php echo isset($title)?$title:'';  ?></title>
 
     </head>
 
@@ -28,7 +28,11 @@
 
         @yield('content')
 
+        <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
+        @include('flashy::message')
+
         @stack('scripts.foot')
+
 
     </body>
 
@@ -39,16 +43,20 @@
     <script src="{{ asset('js/pw_strenght.js') }}"></script>
     <script src="{{ asset('assets/validate.js') }}"></script>
     <script src="{{ asset('js/jquery.cookiebar.js') }}"></script>
-
+    <script src="{{ asset('js/ajax.js') }}"></script>
   	<!-- SPECIFIC SCRIPTS -->
 	<script>
 		$(document).ready(function() {
+
+            getTerminal();
+
 			'use strict';
 			$.cookieBar({
 				fixed: true
 			});
-		});
+        });
 	</script>
+
 
 	<script>
 		$('#carousel_in').owlCarousel({

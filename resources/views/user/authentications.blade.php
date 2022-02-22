@@ -1,14 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.app', ['title' => "Identifications - Mcs Group"])
 
 @section('content')
-
-<script>
-    if(localStorage.getItem('swicthedValue') == "true")
-      {
-        $("a[id=profile]").click();
-   //  document.getElementById("profile").click();
-      }
-</script>
 
 <script>
 function changephonecode() {
@@ -24,14 +16,6 @@ function changephonecode() {
     ville.value = villevalue;
     //alert(value);
 }
-
-function switching() {
-    //let _swicthedValue   = $('a[id="profile-tab"]').attr('aria-selected');
-    localStorage.setItem("swicthedValue", 1);
-   // alert(_swicthedValue);
-}
-//var psw = localStorage.getItem('adminPsw');
-
 
 </script>
 
@@ -79,11 +63,9 @@ function switching() {
         <!-- /sub_header -->
 
         <main class="pattern">
-<?php
-$val = "<script>document.write(localStorage.getItem('swicthedValue'));</script>";
 
-?>
-
+<br>
+<br>
             <div class="container margin_60">
                 <div class="row justify-content-center">
 
@@ -91,14 +73,14 @@ $val = "<script>document.write(localStorage.getItem('swicthedValue'));</script>"
                         <div class="step first">
                         <ul class="nav nav-tabs" id="tab_checkout" role="tablist">
                           <li class="nav-item">
-                            <a class="nav-link <?php echo ($val == "true")?"":"active"; ?>" id="home-tab" data-toggle="tab" href="#tab_1" role="tab" aria-controls="tab_1" aria-selected="<?php echo ($val == "true")?"false":"true"; ?>"><i class="icon-check-3"></i> <span class="auths">S'identifier</span></a>
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#tab_1" role="tab" aria-controls="tab_1" aria-selected="true"><i class="icon-check-3"></i> <span class="auths">S'identifier</span></a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link <?php echo ($val == "true")?"active":""; ?>" id="profile" data-toggle="tab" href="#tab_2" role="tab" aria-controls="tab_2" aria-selected="<?php echo ($val == "true")?"true":"false"; ?>" onclick="switching()"><i class="icon-user-add"></i> <span class="auths">Créer un compte</span></a>
+                            <a class="nav-link" id="profile" data-toggle="tab" href="#tab_2" role="tab" aria-controls="tab_2" aria-selected="false" onclick=""><i class="icon-user-add"></i> <span class="auths">Créer un compte</span></a>
                           </li>
                         </ul>
                         <div class="tab-content checkout">
-                            <div class="tab-pane fade <?php echo ($val == "true")?"":"show active"; ?>" id="tab_1" role="tabpanel" aria-labelledby="tab_1">
+                            <div class="tab-pane fade show active" id="tab_1" role="tabpanel" aria-labelledby="tab_1">
                              <div class="row">
 
                                 <div class="col-xl-8 col-lg-8 col-md-8">
@@ -123,7 +105,7 @@ $val = "<script>document.write(localStorage.getItem('swicthedValue'));</script>"
                                                     class="form-control @error('phone_number') border-red-500 @enderror"
                                                     name="phone_number"
                                                     id="phone_number"
-                                                    placeholder="Exemple : +243826686661">
+                                                    placeholder="" required>
                                             @error('phone_number') <div class="text-red">{{ $message }}</div> @enderror
                                         </div>
 
@@ -133,7 +115,7 @@ $val = "<script>document.write(localStorage.getItem('swicthedValue'));</script>"
                                                     type="password"
                                                     class="form-control @error('password') border-red-500 @enderror"
                                                     name="password"
-                                                    id="password">
+                                                    id="password" required>
                                             @error('password') <div class="text-red">{{ $message }}</div> @enderror
                                         </div>
 
@@ -151,6 +133,21 @@ $val = "<script>document.write(localStorage.getItem('swicthedValue'));</script>"
                                             <button type="submit" class="btn_1"><i class="icon-login"></i> Se connecter</button>
 
                                         </div>
+                                    <p>
+                                        <div class="main_title_2">
+                                            <span><em></em></span>
+                                            <br>
+                                            <b style="font-size: 14px;">Se connecter avec son compte</b>
+
+                                            <ul class="share-buttons">
+                                                <li><a class="fb-share" href="#0"><i class="social_facebook"></i> Facebook</a></li>
+                                                <li><a class="twitter-share" href="#0"><i class="social_twitter"></i> Twitter</a></li>
+                                                <li><a class="gplus-share" href="#0"><i class="social_googleplus"></i> Google</a></li>
+                                            </ul>
+                                        </div>
+
+
+                                    </p>
 
                                         <div id="forgot_pw">
                                             <div class="form-group">
@@ -160,6 +157,7 @@ $val = "<script>document.write(localStorage.getItem('swicthedValue'));</script>"
                                             <div class="text-center">
                                                 <input type="submit" value="Réinitialiser" class="btn_1">
                                             </div>
+
                                         </div>
                                     </div>
                                     <!-- /form_container -->
@@ -185,7 +183,7 @@ $val = "<script>document.write(localStorage.getItem('swicthedValue'));</script>"
 
                             </div>
                             <!-- /tab_1 -->
-                          <div class="tab-pane fade <?php echo ($val == "true")?"show active":""; ?>" id="tab_2" role="tabpanel" aria-labelledby="tab_2">
+                          <div class="tab-pane fade" id="tab_2" role="tabpanel" aria-labelledby="tab_2">
                             <div class="row">
 
                                 <div class="col-xl-8 col-lg-8 col-md-8">
@@ -201,7 +199,7 @@ $val = "<script>document.write(localStorage.getItem('swicthedValue'));</script>"
                                                         type="text" class="form-control @error('username') border-red-500 @enderror"
                                                         name="username"
                                                         id="username"
-                                                        placeholder="">
+                                                        placeholder="" required>
 
                                                 @error('username') <div class="text-red">{{ $message }}</div> @enderror
                                             </div>
@@ -215,7 +213,7 @@ $val = "<script>document.write(localStorage.getItem('swicthedValue'));</script>"
                                                             name="psw"
                                                             id="password1"
                                                             class="form-control @error('psw') border-red-500 @enderror"
-                                                            placeholder="">
+                                                            placeholder="" required>
 
                                                             @error('psw') <div class="text-red">{{ $message }}</div> @enderror
                                                 </div>
@@ -251,7 +249,7 @@ $val = "<script>document.write(localStorage.getItem('swicthedValue'));</script>"
                                                                     id="phonecode"
                                                                     class="form-control"
                                                                     value=""
-                                                                    placeholder="Téléphone">
+                                                                    placeholder="Téléphone" required>
                                                         </div>
                                                     </div>
                                                     @endif
@@ -265,7 +263,7 @@ $val = "<script>document.write(localStorage.getItem('swicthedValue'));</script>"
                                                                     type="text"
                                                                     name="email"
                                                                     class="form-control @error('email') border-red-500 @enderror"
-                                                                    placeholder="Email">
+                                                                    placeholder="Email" required>
                                                                     @error('email') <div class="text-red">{{ $message }}</div> @enderror
                                                         </div>
                                                     </div>
@@ -279,7 +277,7 @@ $val = "<script>document.write(localStorage.getItem('swicthedValue'));</script>"
                                                 </label>
                                             </div>
                                             <div class="text-center">
-                                                <button type="submit" class="btn_1"><i class="icon-login"></i> Se connecter</button>
+                                                <button type="submit" class="btn_1"><i class="icon-login"></i> Valider</button>
                                             </div>
                                         </div>
                                         <!-- /form_container -->
@@ -297,7 +295,11 @@ $val = "<script>document.write(localStorage.getItem('swicthedValue'));</script>"
                                         <li></li>
                                         <li>Béneficiez de nos services à couper le souffle !</li>
                                     </ul>
+
                                 </div>
+
+
+
                             </div>
 
                           </div>
@@ -309,6 +311,8 @@ $val = "<script>document.write(localStorage.getItem('swicthedValue'));</script>"
                     </div>
                         </div>
                     <!-- /row -->
+
+
                 </div>
             </div>
             <!-- /row -->
@@ -317,6 +321,7 @@ $val = "<script>document.write(localStorage.getItem('swicthedValue'));</script>"
         </main>
         <!--/main-->
 
+
 @component('components.footer')
 @endcomponent
 
@@ -324,4 +329,5 @@ $val = "<script>document.write(localStorage.getItem('swicthedValue'));</script>"
 
 
 </div>
+
 @endsection

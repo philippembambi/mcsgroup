@@ -31,15 +31,14 @@
             </div>
 
             <div class="col-lg-3 col-md-6 col-sm-6">
-                <h3>Nos Contacts Kinshasa</h3>
+                <h3>&Eacute;crivez-nous</h3>
                 <div>
-                    <ul class="contacts">
-                        <li><i class="ti-home"></i>Kinshasa / Lemba <br>
-                                                    Av Colonnel MOBAYA</li>
-
-                        <li><i class="ti-headphone-alt"></i>+243 826686661</li>
-                        <li><i class="ti-email"></i><a href="#0">groupmcs@gmail.com</a></li>
-                    </ul>
+                    <form action="{{ route('feedback.post') }}" method="post">
+                        @csrf
+                        <textarea name="content" class="form-control" id="" cols="5" rows="3"></textarea>
+                        <br>
+                        <button class="btn btn-default" style="background-color: rgb(197, 6, 6);color: white;"><i class="fa fa-send"></i> Envoyer</button>
+                    </form>
                 </div>
             </div>
 
@@ -48,7 +47,8 @@
                 <div  id="collapse_ft_4">
                     <div id="newsletter">
                         <div id="message-newsletter"></div>
-                        <form method="post" action="assets/newsletter.php" name="newsletter_form" id="newsletter_form">
+                        <form method="post" action="{{route('new-mail')}}" name="" id="">
+                            @csrf
                             <div class="form-group">
                                 <input type="email" name="email_newsletter" id="email_newsletter" class="form-control" placeholder="Entrer votre adresse email">
                                 <input type="submit" value="S'abonner" id="submit-newsletter">

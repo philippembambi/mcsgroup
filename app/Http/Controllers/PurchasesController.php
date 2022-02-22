@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Purchase;
+use App\Models\Article;
+use Flashy;
+use DB;
 
 class PurchasesController extends Controller
 {
@@ -13,7 +17,21 @@ class PurchasesController extends Controller
      */
     public function index()
     {
-        //
+        if(isset(auth()->user()->id)){
+        $savedart = DB::table('purchases')
+        ->leftJoin('users', 'users.id', '=', 'purchases.user_id')
+        ->leftJoin('articles', 'articles.id', '=', 'purchases.article_id')
+        ->where('users.id', "=", auth()->user()->id)
+        ->orderBy('purchases.id', 'desc')
+        ->get(['purchases.id AS idpurchase', 'picture_1', 'tag', 'total_price', 'state', 'purchases.created_at as date']);
+
+        //dd($savedart);
+        return view("layouts.baskets.purchases")->with('savedart', $savedart);
+        }
+        else{
+        Flashy::error("Veillez vous authentifier avant de créer un panier");
+        return redirect()->route("user.authenticate");
+        }
     }
 
     /**
@@ -45,7 +63,17 @@ class PurchasesController extends Controller
      */
     public function show($id)
     {
-        //
+        $purchase = Purchase::find($id);
+
+        $article = DB::table('articles')
+        ->leftJoin('purchases', 'articles.id', '=', 'purchases.article_id')
+        ->where('purchases.id', "=", $id)
+        ->get(['articles.tag as libelle'])->take(1);
+
+        return view("layouts.purchase.show", [
+            'purchase' => $purchase,
+            'article' => $article
+        ]);
     }
 
     /**
@@ -77,8 +105,18 @@ class PurchasesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Purchase $purchase, Request $request)
     {
-        //
+        $purchase->delete();
+
+        $savedart = DB::table('purchases')
+        ->leftJoin('users', 'users.id', '=', 'purchases.user_id')
+        ->leftJoin('articles', 'articles.id', '=', 'purchases.article_id')
+        ->where('users.id', "=", auth()->user()->id)
+        ->orderBy('purchases.id', 'desc')
+        ->get(['purchases.id AS idpurchase', 'picture_1', 'tag', 'total_price', 'state', 'purchases.created_at as date']);
+
+        Flashy::error("Vous venez de supprimer une commande");
+        return redirect()->route('basket.purchases')->with('savedart', $savedart);
     }
 }

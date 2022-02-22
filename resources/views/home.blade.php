@@ -1,6 +1,19 @@
-@extends('layouts.app')
+@extends('layouts.app', ['title' => "Page d'accueil - Mcs Group"])
 
 @section('content')
+
+<style>
+    @media (max-width: 767px)  {
+    .main_categories {
+        width: 90%;
+        margin-left: 4%;
+    }
+    .advertimage{
+        height: 300px;
+    }
+    }
+
+</style>
 
 <div id="page">
 
@@ -17,21 +30,21 @@
 
                         <div style="position: relative; height: 500px;">
                             <div style="position: absolute; z-index: 1;">
-                                <img src="{{ asset("image/$item->image_1") }}" style="height: 500px;">
+                                <img class="advertimage" src="{{ asset("uploadedFiles/$item->image_1") }}" style="height: 500px;" >
                             </div>
-                            <div style="position: absolute;top: 18%;z-index: 2;width: 100%;">
+                            <div style="position: absolute;top: 32%;z-index: 2;width: 100%;">
 
                                <div class="main_categories">
-                                    <ul class="clearfix" style="width: 300px;height: 50px;">
+                                    <ul class="clearfix" style="height: 60px;">
                                         <li>
                                             <a href="ads/{{ $item->id }}">
-                                                <i class="fa fa-tag fa-1x"></i>
+                                                <i class="{{    $item->icon }}"></i>
                                             </a>
                                         </li>
 
-                                        <a href="ads/{{ $item->id }}" style="color: black;">
-                                            <p style="text-align: justify;">
-                                                <?php  echo substr($item->tag, 0, 31)."...";  ?>
+                                        <a href="ads/{{ $item->id }}" style="color: black;font-family:costafont;">
+                                            <p style="text-align: center;">
+                                                <?php  echo substr($item->tag, 0, 40)."...";  ?>
                                             </p>
                                         </a>
                                     </ul>
@@ -67,8 +80,8 @@
                                 <figure>
                                     <a href="#">
                                         <img
-                                                src="image/presentation.png"
-                                                class="img-fluid" alt="">
+                                                src="image/computer-312476_1280.png"
+                                                class="img-fluid" alt="" style="background-size: cover;height: 200px;">
                                                 <div class="read_more"><span>Plus d'informations</span>
                                                 </div></a>
                                     <small>High-tech</small>
@@ -78,8 +91,9 @@
                                 <div class="wrapper">
                                     <a href="#0" class="wish_bt">
                                         <i class="icon-windows" style="font-size: 18px;"></i></a>
-                                    <h3><a href="#">MCS IT</a></h3>
+                                    <h3><a href="#" style="font-family: costafont;">MCS IT</a></h3>
                                     <p>
+                                        <br>
                                         Acheter des produits informatiques (neufs ou recondionnés),
                                         Suivez une formation dans tous les domaines de l'informatique
                                     </p>
@@ -98,18 +112,20 @@
                                 <figure>
                                     <a href="#">
                                         <img
-                                                src="img/post_h_2.jpg"
+                                                src="image/film-g1e27da02a_1280.png"
                                                 class="img-fluid" alt="">
                                                 <div class="read_more"><span>Plus d'informations</span>
                                                 </div></a>
+                                                <small>Audio-visuel</small>
                                 </figure>
                             </div>
                             <div class="col-lg-7">
                                 <div class="wrapper">
                                     <a href="#0" class="wish_bt">
                                         <i class="icon-videocam-5" style="font-size: 18px;"></i></a>
-                                    <h3><a href="#">MCS PROD</a></h3>
+                                    <h3><a href="#" style="font-family: costafont;">MCS PROD</a></h3>
                                     <p>
+                                        <br>
                                     Production audio-visuel et prise des vues post-production (montage vidéo et sonore)
                                     </p>
 
@@ -130,13 +146,14 @@
                                                 class="img-fluid" alt="">
                                                 <div class="read_more"><span>Plus d'informations</span>
                                                 </div></a>
+                                                <small>Online Shop</small>
                                 </figure>
                             </div>
                             <div class="col-lg-7">
                                 <div class="wrapper">
                                     <a href="#0" class="wish_bt">
                                         <i class="icon-shop" style="font-size: 18px;"></i></a>
-                                    <h3><a href="#">MCS SHOP</a></h3>
+                                    <h3><a href="#" style="font-family: costafont;">MCS SHOP</a></h3>
                                     <p>
                                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet recusandae, iste exercitationem doloribus inventore saepe
                                     </p>
@@ -158,13 +175,14 @@
                                                 class="img-fluid" alt="">
                                                 <div class="read_more"><span>Plus d'informations</span>
                                                 </div></a>
+                                                <small>Business</small>
                                 </figure>
                             </div>
                             <div class="col-lg-7">
                                 <div class="wrapper">
                                     <a href="#0" class="wish_bt">
                                         <i class="icon-globe-1" style="font-size: 18px;"></i></a>
-                                    <h3><a href="#">MCS POINT COM</a></h3>
+                                    <h3><a href="#" style="font-family: costafont;">MCS POINT COM</a></h3>
                                     <p>
                                         Découvrez le meilleur de la communication digitale et des stratégies marketing pour vos affaires
                                     </p>
@@ -183,38 +201,51 @@
 			<div class="wrapper">
 				<div class="container margin_80_55">
 					<div class="main_title_2">
-						<span><em></em></span>
+                        <span><em></em></span>
 						<h2>Group Mcs</h2>
-						<p>Cum doctus civibus efficiantur in imperdiet deterruisset.</p>
+						<p>Nous sommes une société multi-services pour l'univers de vos besoins.</p>
+
+                        <p style="color: #eec855;">
+                            Que faisons-nous grosso modo ?
+                        </p>
 					</div>
 					<div class="row">
 
 						<div class="col-md-4">
 							<div class="box_how">
-								<i class="fa fa-home fa-2x"></i>
-								<h3>Kinshasa</h3>
-								<p>An nec placerat repudiare scripserit, temporibus complectitur at sea, vel ignota fierent eloquentiam id.</p>
+								<i class="icon-basket-1 fa-2x"></i>
+								<h3>Ventes des produits</h3>
+								<p>
+                                    Achetez des matériels informatiques (Ordinateurs, accessoires etc.);
+                                    Visitez notre maison d'habillement en ligne pour décrocher la tenue qui vous capte.
+                                </p>
 								<span></span>
 							</div>
 						</div>
 						<div class="col-md-4">
 							<div class="box_how">
-								<i class="fa fa-bank"></i>
-								<h3>Paris</h3>
-								<p>An nec placerat repudiare scripserit, temporibus complectitur at sea, vel ignota fierent eloquentiam id.</p>
+								<i class="icon-cog-alt"></i>
+								<h3>Services digitaux</h3>
+								<p>
+                                    A vous de tenter notre professionalisme sur :
+                                       La production audio-visuelle et graphique; la conception des applications sur-mesure; la couverture des événements par des prises des vues.
+
+                                </p>
 								<span></span>
 							</div>
 						</div>
 						<div class="col-md-4">
 							<div class="box_how">
-								<i class="fa fa-globe"></i>
-								<h3>Partout ailleurs</h3>
-								<p>A Lubumbashi, Goma Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+								<i class="icon-network"></i>
+								<h3>Accompagnement numérique</h3>
+								<p style="text-align: center;">
+                                    Nous vous proposons des formations professionnelles dans les domaines informatiques d'actualités (marketing digital, réseaux, bureautique à tous les niveaux, formations sur demande, programmations etc.), le consulting ainsi que d'autres.
+                                </p>
 							</div>
 						</div>
 					</div>
 					<!-- /row -->
-					<p class="text-center add_top_30 wow bounceIn" data-wow-delay="0.5"><a href="./account.html" class="btn_1 rounded">Rejoignez-nous</a></p>
+					<p class="text-center add_top_30 wow bounceIn" data-wow-delay="0.5"><a href="{{  route("user.authenticate")  }}" class="btn_1 rounded">Rejoignez-nous</a></p>
 				</div>
 			</div>
 			<!-- /wrapper -->
@@ -223,156 +254,161 @@
 		<div class="container-fluid margin_80_55">
 			<div class="main_title_2">
 				<span><em></em></span>
-				<h2>Découvrez plus des produits</h2>
-				<p>Faites défiler la bande passante de nos services d'actualité</p>
+				<h2>Notre meilleure collection</h2>
+				<p style="font-size: 18px;">Trouvez ce que vous désirez dans la file déroulante !</p>
 			</div>
+
 			<div id="reccomended" class="owl-carousel owl-theme">
 
+                @if ($articles->count() > 0)
+			    @foreach ($articles as $article)
+
 				<div class="item">
 					<div class="strip grid">
+                        <div class="magnific-gallery">
+
 						<figure>
-							<a href="#" class="wish_bt"></a>
-							<a href="#">
-								<img src="image/IMG-20211109-WA0026.jpg" class="img-fluid" alt="" width="400" height="266"><div class="read_more"><span>Voir plus</span></div></a>
-							<small>Produits informatiques</small>
+							 <div class="caption-content">
+                                <a href="{{  asset("uploadedFiles/$article->picture_1") }}" data-effect="mfp-zoom-in" class="wish_bt"></a>
+
+							<a href="{{  asset("uploadedFiles/$article->picture_1") }}" data-effect="mfp-zoom-in">
+								<img src="{{  asset("uploadedFiles/$article->picture_1") }}" class="img-fluid" alt="" width="400" height="266"><div class="read_more"><span>Zoom</span></div>
+                            </a>
+                            </div>
+							<small> {{$article->tag}}</small>
 						</figure>
-						<div class="wrapper">
-							<h3><a href="#">Mcs IT</a></h3>
-							<p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cu.</p>
-							<a class="address" href="">Voir plus</a>
-						</div>
-						<ul>
-							<li><span class="loc_open">En cours</span></li>
-							<li><div class="score"><strong>8.9</strong></div></li>
+                    </div>
+                    	<ul>
+							<li>
+                                <a href="article/{{ $article->id }}">
+                                <span class="loc_open"> Ouvrir</span>
+                                 </a>
+
+                            </li>
+
+                            <li>
+
+                            </li>
+
+                            <li>
+                                <form action="{{ route("basket.add") }}" method="POST" name="">
+                                   @csrf
+                                    <input type="hidden" id="art_id" name="art_id" value="{{ $article->id }}">
+
+
+                                    <div class="score">
+                                        <strong>
+                                            <button type="submit"><i class="fa fa-shopping-basket"></i>
+                                            </button>
+
+                                        </strong>
+                                    </div>
+                                    </a>
+                                </form>
+                            </li>
 						</ul>
 					</div>
 				</div>
 
-				<!-- /item -->
-				<div class="item">
-					<div class="strip grid">
-						<figure>
-							<a href="detail-restaurant.html" class="wish_bt"></a>
-							<a href="detail-restaurant.html"><img src="img/blog1_2.jpg" class="img-fluid" alt="" width="400" height="266"><div class="read_more"><span>Voir plus</span></div></a>
-							<small>Mcs Prod</small>
-						</figure>
-						<div class="wrapper">
-							<h3><a href="detail-restaurant.html">Production visuelle</a></h3>
-							<p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cu.</p>
-							<a class="address" href="">Voir plus</a>
-						</div>
-						<ul>
-							<li><span class="loc_closed">Suspendu</span></li>
-							<li><div class="score"><span>Good<em>350 Reviews</em></span><strong>7.0</strong></div></li>
-						</ul>
-					</div>
-				</div>
-				<!-- /item -->
-				<div class="item">
-					<div class="strip grid">
-						<figure>
-							<a href="" class="wish_bt"></a>
-							<a href=""><img src="img/hh.jpg" class="img-fluid" alt="" width="400" height="266"><div class="read_more"><span>Voir plus</span></div></a>
-							<small>Mcs Prod</small>
-						</figure>
-						<div class="wrapper">
-							<h3><a href="">Montez vos vidéos</a></h3>
-							<p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cu.</p>
-							<a class="address" href="">Get directions</a>
-						</div>
-						<ul>
-							<li><span class="loc_open">En cours</span></li>
-							<li><div class="score"><span>Good<em>350 Reviews</em></span><strong>7.0</strong></div></li>
-						</ul>
-					</div>
-				</div>
-				<!-- /item -->
-				<div class="item">
-					<div class="strip grid">
-						<figure>
-							<a href="#" class="wish_bt"></a>
-							<a href="#"><img src="image/iastragan_internet.jpg" class="img-fluid" alt="" width="400" height="266"><div class="read_more"><span>Voir plus</span></div></a>
-							<small>Mcs IT</small>
-						</figure>
-						<div class="wrapper">
-							<h3><a href="detail-restaurant.html">IT Network</a></h3>
-							<p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cu.</p>
-							<a class="address" href="https://www.google.com/maps/dir//Assistance+%E2%80%93+H%C3%B4pitaux+De+Paris,+3+Avenue+Victoria,+75004+Paris,+Francia/@48.8606548,2.3348734,14z/data=!4m15!1m6!3m5!1s0x47e66e1de36f4147:0xb6615b4092e0351f!2sAssistance+Publique+-+H%C3%B4pitaux+de+Paris+(AP-HP)+-+Si%C3%A8ge!8m2!3d48.8568376!4d2.3504305!4m7!1m0!1m5!1m1!1s0x47e67031f8c20147:0xa6a9af76b1e2d899!2m2!1d2.3504327!2d48.8568361">Get directions</a>
-						</div>
-						<ul>
-							<li><span class="loc_open">En cours</span></li>
-							<li><div class="score"><span>Good<em>350 Reviews</em></span><strong>7.0</strong></div></li>
-						</ul>
-					</div>
-				</div>
-
-				<div class="item">
-					<div class="strip grid">
-						<figure>
-							<a href="detail-restaurant.html" class="wish_bt"></a>
-							<a href="detail-restaurant.html"><img src="image/iastragan_internet.jpg" class="img-fluid" alt="" width="400" height="266"><div class="read_more"><span>Voir plus</span></div></a>
-							<small>Produits informatiques</small>
-						</figure>
-						<div class="wrapper">
-							<h3><a href="detail-restaurant.html">Mcs IT</a></h3>
-							<p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cu.</p>
-							<a class="address" href="https://www.google.com/maps/dir//Assistance+%E2%80%93+H%C3%B4pitaux+De+Paris,+3+Avenue+Victoria,+75004+Paris,+Francia/@48.8606548,2.3348734,14z/data=!4m15!1m6!3m5!1s0x47e66e1de36f4147:0xb6615b4092e0351f!2sAssistance+Publique+-+H%C3%B4pitaux+de+Paris+(AP-HP)+-+Si%C3%A8ge!8m2!3d48.8568376!4d2.3504305!4m7!1m0!1m5!1m1!1s0x47e67031f8c20147:0xa6a9af76b1e2d899!2m2!1d2.3504327!2d48.8568361">Get directions</a>
-						</div>
-						<ul>
-							<li><span class="loc_open">En cours</span></li>
-							<li><div class="score"><strong>8.9</strong></div></li>
-						</ul>
-					</div>
-				</div>
+                @endforeach
+                @endif
 
 			</div>
 			<!-- /carousel -->
-			<div class="container">
-				<div class="btn_home_align"><a href="#" class="btn_1 rounded">Afficher plus</a></div>
-			</div>
+
 			<!-- /container -->
 		</div>
+
+        <div class="container" id="autres_articles">
+            <div class="row">
+                <div class="col-lg-4 col-md-12">
+                    <ul class="menu_list">
+
+                        @if ($someArticles->count() > 0)
+                        @foreach ($someArticles as $article)
+
+                        <li>
+                             <div class="thumb">
+                                <a href="article/{{ $article->id }}">
+                                 <img src="{{  asset("uploadedFiles/$article->picture_1") }}" alt="">
+                                </a>
+                                </div>
+                            <a href="article/{{ $article->id }}">
+                            <h6>{{$article->tag}} <span>{{$article->price}} $</span></h6>
+                        </a>
+                            <p>
+                                <?php echo substr($article->desc, 0, 80)." ...";  ?>
+
+                            </p>
+                        </li>
+                        @endforeach
+
+                        @endif
+                    </ul>
+                </div>
+
+                <div class="col-lg-4 col-md-12">
+                    <ul class="menu_list">
+
+                        @if ($otherArticles->count() > 0)
+                        @foreach ($otherArticles as $article)
+
+                        <li>
+                             <div class="thumb">
+                                <a href="article/{{ $article->id }}">
+                               <img src="{{  asset("uploadedFiles/$article->picture_1") }}" alt="">
+                                </a>
+                            </div>
+                            <a href="article/{{ $article->id }}">
+                            <h6>{{$article->tag}} <span>{{$article->price}}</span></h6>
+                            </a>
+                            <p>
+                                <?php echo substr($article->desc, 0, 80)." ...";  ?>
+
+                            </p>
+                        </li>
+                        @endforeach
+                        @endif
+                    </ul>
+                </div>
+
+                <div class="col-lg-4 col-md-12">
+                    <ul class="menu_list">
+
+                        @if ($otherArticles->count() > 0)
+                        @foreach ($otherArticles as $article)
+
+                        <li>
+                             <div class="thumb">
+                                <a href="article/{{ $article->id }}">
+                                <img src="{{  asset("uploadedFiles/$article->picture_1") }}" alt="">
+                                </a>
+                            </div>
+                            <a href="article/{{ $article->id }}">
+                            <h6>{{$article->tag}} <span>{{$article->price}}</span></h6>
+                            </a>
+                            <p>
+                                <?php echo substr($article->desc, 0, 80)." ...";  ?>
+
+                            </p>
+                        </li>
+                        @endforeach
+
+                        {{ $otherArticles->links() }}
+                        @endif
+
+                    </ul>
+                </div>
+
+            </div>
+            <!-- /row -->
+        </div>
+<br>
+
 
 		<!--/call_section-->
 
 
-		<div class="main_categories" style="">
-			<div class="container">
-				<ul class="clearfix">
-					<li>
-						<a href="#">
-							<i class="fa fa-desktop"></i>
-							<h3>Mcs IT</h3>
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<i class="fa fa-home"></i>
-							<h3>Shop Mcs</h3>
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<i class="fa fa-th-large"></i>
-							<h3>Point Com Mcs</h3>
-						</a>
-					</li>
-					<li>
-						<a href="">
-							<i class="fa fa-tags"></i>
-							<h3>Mcs Prod</h3>
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<i class="icon-dot-3"></i>
-							<h3>Voir plus</h3>
-						</a>
-					</li>
-				</ul>
-			</div>
-			<!-- /container -->
-		</div>
 		<!-- /container -->
 	</main>
 

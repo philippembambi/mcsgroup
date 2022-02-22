@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Basket;
+use DB;
+use Flashy;
 
 class BasketsController extends Controller
 {
@@ -13,7 +16,19 @@ class BasketsController extends Controller
      */
     public function index()
     {
-        //
+        if(isset(auth()->user()->id)){
+        $savedart = DB::table('baskets')
+        ->leftJoin('users', 'users.id', '=', 'baskets.user_id')
+        ->leftJoin('articles', 'articles.id', '=', 'baskets.article_id')
+        ->where('users.id', "=", auth()->user()->id)
+        ->simplePaginate(6);
+
+        return view("layouts.baskets.show")->with('savedart', $savedart);
+        }
+        else{
+            Flashy::error("Veillez vous authentifier avant de créer un panier");
+            return redirect()->route("user.authenticate");
+        }
     }
 
     /**
@@ -23,7 +38,7 @@ class BasketsController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -34,7 +49,22 @@ class BasketsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        /*
+        try {
+            $id_user = auth()->user()->id;
+
+        } catch (\Throwable $th) {
+            $id_user = 0;
+        }
+        */
+      //  dd($request->ip());
+     // abort(404);
+        Basket::create([
+            'article_id' => $request->art_id,
+            'user_id' => auth()->user()->id
+            ]);
+        Flashy::success("Vous venez d'ajouter un article au panier");
+        return back();
     }
 
     /**

@@ -1,3 +1,5 @@
+@inject('categories', App\Utilities\Category::class)
+
 <style>
     @media (max-width: 767px) {
         .submitbtn{
@@ -14,25 +16,25 @@
     }
 </style>
 <div class="container">
-        <form method="post" action="">
+        <form method="post" action="{{  route("search.index")   }}">
+            @csrf
+
             <div class="row no-gutters custom-search-input-2">
 
                 <div class="col-lg-6">
                     <div class="form-group">
-                        <input class="form-control" type="text" placeholder="Que cherchez-vous ...">
+                        <input class="form-control" name="searchText" type="text" placeholder="Que cherchez-vous ...">
                         <i class="icon_search"></i>
                     </div>
                 </div>
 
                 <div class="col-lg-4">
-                    <select class="wide">
-                        <option>Choisir une catégorie</option>
-                        <option>Shops</option>
-                        <option>Hotels</option>
-                        <option>Restaurants</option>
-                        <option>Bars</option>
-                        <option>Events</option>
-                        <option>Fitness</option>
+                    <select class="wide" name="category">
+                        @foreach ($categories->data as $category)
+
+                        <option value="{{ $category->id }}">{{ $category->label }}</option>
+
+                        @endforeach
                     </select>
                 </div>
 

@@ -1,6 +1,11 @@
+<style>
+#entete{
+    background-color: rgb(197, 6, 6);
+}
+</style>
 <header class="topbar">
     <nav class="navbar top-navbar navbar-expand-md navbar-dark">
-        <div class="navbar-header" style="background-color: rgb(211, 1, 1);">
+        <div class="navbar-header" id="entete" style="">
             <!-- This is for the sidebar toggle which is visible on mobile only -->
             <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i
                     class="ti-menu ti-close"></i></a>
@@ -12,7 +17,7 @@
                 <!-- Logo text -->
                 <span class="logo-text" style="font-weight: bold;">
                     <!-- Light Logo text -->
-                    <strong style="font-family: persofont;font-size: 35px;">Mcs Group Admin</strong>
+                    <strong style="font-family: persofont;font-size: 30px;">Mcs Group Admin</strong>
                 </span>
             </a>
             <!-- ============================================================== -->
