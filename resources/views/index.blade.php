@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => "Page d'accueil - Mcs Group"])
+@extends('layouts.app', ['title' => "Mcs Group - Page Acceuil"])
 
 @section('content')
 
@@ -7,10 +7,29 @@
     .main_categories {
         width: 90%;
         margin-left: 4%;
+        font-size: 11px;
     }
     .advertimage{
         height: 300px;
+        object-fit: cover;
+
     }
+    .pole{
+        max-height: 150px;
+        max-width: 50%;
+        margin-top: -13%;
+    }
+    .col-lg-5{
+        height: 170px;
+    }
+    .col-lg-6{
+        width: 85%;
+        margin-left: 8%;
+    }
+    .col-lg-7{
+        margin-top: -12%;
+    }
+
     }
 
 </style>
@@ -30,15 +49,15 @@
 
                         <div style="position: relative; height: 500px;">
                             <div style="position: absolute; z-index: 1;">
-                                <img class="advertimage" src="{{ asset("uploadedFiles/$item->image_1") }}" style="height: 500px;" >
+                                <img class="advertimage" src="{{ asset("uploadedFiles/$item->image_1") }}" style="height: 440px;" >
                             </div>
-                            <div style="position: absolute;top: 32%;z-index: 2;width: 100%;">
+                            <div style="position: absolute;top: 22%;z-index: 2;width: 100%;">
 
                                <div class="main_categories">
                                     <ul class="clearfix" style="height: 60px;">
                                         <li>
                                             <a href="ads/{{ $item->id }}">
-                                                <i class="{{    $item->icon }}"></i>
+                                                <i id="mcsicon" class="{{    $item->icon }}"></i>
                                             </a>
                                         </li>
 
@@ -68,8 +87,8 @@
 		<div class="container margin_80_55">
 			<div class="main_title_2">
 				<span><em></em></span>
-				<h2>Pôles MCS</h2>
-				<p>Les meilleurs services de votre choix</p>
+				<h2>Pôles</h2>
+				<p>Les meilleurs services de votre choix que vous offrent Group-Mcs</p>
 			</div>
 			<div class="row">
 
@@ -80,8 +99,8 @@
                                 <figure>
                                     <a href="#">
                                         <img
-                                                src="image/computer-312476_1280.png"
-                                                class="img-fluid" alt="" style="background-size: cover;height: 200px;">
+                                                src="image/businessman-3300891_1920.jpg"
+                                                class="pole" alt="" style="">
                                                 <div class="read_more"><span>Plus d'informations</span>
                                                 </div></a>
                                     <small>High-tech</small>
@@ -92,8 +111,9 @@
                                     <a href="#0" class="wish_bt">
                                         <i class="icon-windows" style="font-size: 18px;"></i></a>
                                     <h3><a href="#" style="font-family: costafont;">MCS IT</a></h3>
-                                    <p>
+                                    <p class="">
                                         <br>
+                                        <i class="icon_info_alt"></i>
                                         Acheter des produits informatiques (neufs ou recondionnés),
                                         Suivez une formation dans tous les domaines de l'informatique
                                     </p>
@@ -112,8 +132,8 @@
                                 <figure>
                                     <a href="#">
                                         <img
-                                                src="image/film-g1e27da02a_1280.png"
-                                                class="img-fluid" alt="">
+                                                src="image/woman-1446557_1920.jpg"
+                                                class="pole" alt="">
                                                 <div class="read_more"><span>Plus d'informations</span>
                                                 </div></a>
                                                 <small>Audio-visuel</small>
@@ -126,6 +146,7 @@
                                     <h3><a href="#" style="font-family: costafont;">MCS PROD</a></h3>
                                     <p>
                                         <br>
+                                        <i class="icon_info_alt"></i>
                                     Production audio-visuel et prise des vues post-production (montage vidéo et sonore)
                                     </p>
 
@@ -142,8 +163,8 @@
                                 <figure>
                                     <a href="#">
                                         <img
-                                                src="image/ecommerce.jpg"
-                                                class="img-fluid" alt="">
+                                                src="image/online-6404937_1920.jpg"
+                                                class="pole" alt="">
                                                 <div class="read_more"><span>Plus d'informations</span>
                                                 </div></a>
                                                 <small>Online Shop</small>
@@ -155,6 +176,7 @@
                                         <i class="icon-shop" style="font-size: 18px;"></i></a>
                                     <h3><a href="#" style="font-family: costafont;">MCS SHOP</a></h3>
                                     <p>
+                                        <i class="icon_info_alt"></i>
                                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet recusandae, iste exercitationem doloribus inventore saepe
                                     </p>
 
@@ -172,7 +194,7 @@
                                     <a href="#">
                                         <img
                                                 src="image/online.png"
-                                                class="img-fluid" alt="">
+                                                class="pole" alt="">
                                                 <div class="read_more"><span>Plus d'informations</span>
                                                 </div></a>
                                                 <small>Business</small>
@@ -184,6 +206,7 @@
                                         <i class="icon-globe-1" style="font-size: 18px;"></i></a>
                                     <h3><a href="#" style="font-family: costafont;">MCS POINT COM</a></h3>
                                     <p>
+                                        <i class="icon_info_alt"></i>
                                         Découvrez le meilleur de la communication digitale et des stratégies marketing pour vos affaires
                                     </p>
 
@@ -197,7 +220,162 @@
 			<!-- /row -->
 		</div>
 
-		<div class="call_section pattern">
+        <div class="container-fluid margin_80_55">
+			<div class="main_title_2">
+				<span><em></em></span>
+				<h2>Notre meilleure collection</h2>
+				<p style="font-size: 18px;">Trouvez ce que vous désirez dans la file déroulante !</p>
+			</div>
+
+			<div id="reccomended" class="owl-carousel owl-theme">
+
+
+                @if ($articles->count() > 0)
+			    @foreach ($articles as $article)
+
+				<div class="item">
+					<div class="strip grid">
+                        <div class="magnific-gallery">
+
+						<figure>
+							 <div class="caption-content">
+                                <a href="{{  asset("uploadedFiles/$article->picture_1") }}" data-effect="mfp-zoom-in" class="wish_bt"></a>
+
+							<a href="{{  asset("uploadedFiles/$article->picture_1") }}" data-effect="mfp-zoom-in">
+								<img src="{{  asset("uploadedFiles/$article->picture_1") }}" style="object-fit: contain;" class="img-fluid" alt="" width="400" height="266"><div class="read_more"><span>Zoom</span></div>
+                            </a>
+                            </div>
+							<small> {{$article->tag}}</small>
+						</figure>
+                    </div>
+                    	<ul>
+
+                            <li>
+
+                            </li>
+
+                            <li>
+
+                                <a href="article/{{ $article->id }}">
+                                    <div class="score">
+                                        <strong><i class="fa fa-tag"> Détails</i>
+                                        </strong>
+                                    </div>
+                                </a>
+                                    </a>
+                            </li>
+						</ul>
+					</div>
+				</div>
+
+                @endforeach
+                @endif
+
+			</div>
+			<!-- /carousel -->
+
+			<!-- /container -->
+		</div>
+
+        <div class="container" id="autres_articles">
+            <div class="row">
+                <div class="col-lg-4 col-md-12">
+                    <ul class="menu_list">
+
+                        @if ($someArticles->count() > 0)
+                        @foreach ($someArticles as $article)
+
+                        <a href="article/{{ $article->id }}">
+                        <li>
+
+                             <div class="thumb">
+                                <img src="{{  asset("uploadedFiles/$article->picture_1") }}" alt="">
+
+                                </div>
+
+                            <a href="article/{{ $article->id }}">
+                            <h6>{{$article->tag}} <span>{{$article->price}} $</span></h6>
+                             </a>
+
+                             <a href="article/{{ $article->id }}">
+
+                             <p>
+                                <?php echo substr($article->desc, 0, 80)." ...";  ?>
+                             </p>
+                             </a>
+                        </li>
+                    </a>
+                        @endforeach
+
+                        @endif
+                    </ul>
+                </div>
+
+                <div class="col-lg-4 col-md-12">
+                    <ul class="menu_list">
+
+                        @if ($otherArticles->count() > 0)
+                        @foreach ($otherArticles as $article)
+
+
+                        <li>
+                             <div class="thumb">
+                                <a href="article/{{ $article->id }}">
+                               <img src="{{  asset("uploadedFiles/$article->picture_1") }}" alt="">
+                                </a>
+                            </div>
+                            <a href="article/{{ $article->id }}">
+                            <h6>{{$article->tag}} <span>{{$article->price}}</span></h6>
+                            </a>
+                            <a href="article/{{ $article->id }}">
+
+                            <p>
+                                <?php echo substr($article->desc, 0, 80)." ...";  ?>
+
+                            </p>
+                            </a>
+                        </li>
+                        @endforeach
+                        @endif
+                    </ul>
+                </div>
+
+                <div class="col-lg-4 col-md-12">
+                    <ul class="menu_list">
+
+                        @if ($otherArticles->count() > 0)
+                        @foreach ($otherArticles as $article)
+
+                        <li>
+                             <div class="thumb">
+                                <a href="article/{{ $article->id }}">
+                                <img src="{{  asset("uploadedFiles/$article->picture_1") }}" alt="">
+                                </a>
+                            </div>
+                            <a href="article/{{ $article->id }}">
+                            <h6>{{$article->tag}} <span>{{$article->price}}</span></h6>
+                            </a>
+                            <a href="article/{{ $article->id }}">
+                            <p>
+                                <?php echo substr($article->desc, 0, 80)." ...";  ?>
+
+                            </p>
+                            </a>
+                        </li>
+                        @endforeach
+
+                        {{ $otherArticles->links() }}
+                        @endif
+
+                    </ul>
+                </div>
+
+            </div>
+            <!-- /row -->
+        </div>
+<br>
+
+        <div class="call_section pattern">
 			<div class="wrapper">
 				<div class="container margin_80_55">
 					<div class="main_title_2">
@@ -251,159 +429,6 @@
 			<!-- /wrapper -->
 		</div>
 
-		<div class="container-fluid margin_80_55">
-			<div class="main_title_2">
-				<span><em></em></span>
-				<h2>Notre meilleure collection</h2>
-				<p style="font-size: 18px;">Trouvez ce que vous désirez dans la file déroulante !</p>
-			</div>
-
-			<div id="reccomended" class="owl-carousel owl-theme">
-
-                @if ($articles->count() > 0)
-			    @foreach ($articles as $article)
-
-				<div class="item">
-					<div class="strip grid">
-                        <div class="magnific-gallery">
-
-						<figure>
-							 <div class="caption-content">
-                                <a href="{{  asset("uploadedFiles/$article->picture_1") }}" data-effect="mfp-zoom-in" class="wish_bt"></a>
-
-							<a href="{{  asset("uploadedFiles/$article->picture_1") }}" data-effect="mfp-zoom-in">
-								<img src="{{  asset("uploadedFiles/$article->picture_1") }}" class="img-fluid" alt="" width="400" height="266"><div class="read_more"><span>Zoom</span></div>
-                            </a>
-                            </div>
-							<small> {{$article->tag}}</small>
-						</figure>
-                    </div>
-                    	<ul>
-							<li>
-                                <a href="article/{{ $article->id }}">
-                                <span class="loc_open"> Ouvrir</span>
-                                 </a>
-
-                            </li>
-
-                            <li>
-
-                            </li>
-
-                            <li>
-                                <form action="{{ route("basket.add") }}" method="POST" name="">
-                                   @csrf
-                                    <input type="hidden" id="art_id" name="art_id" value="{{ $article->id }}">
-
-
-                                    <div class="score">
-                                        <strong>
-                                            <button type="submit"><i class="fa fa-shopping-basket"></i>
-                                            </button>
-
-                                        </strong>
-                                    </div>
-                                    </a>
-                                </form>
-                            </li>
-						</ul>
-					</div>
-				</div>
-
-                @endforeach
-                @endif
-
-			</div>
-			<!-- /carousel -->
-
-			<!-- /container -->
-		</div>
-
-        <div class="container" id="autres_articles">
-            <div class="row">
-                <div class="col-lg-4 col-md-12">
-                    <ul class="menu_list">
-
-                        @if ($someArticles->count() > 0)
-                        @foreach ($someArticles as $article)
-
-                        <li>
-                             <div class="thumb">
-                                <a href="article/{{ $article->id }}">
-                                 <img src="{{  asset("uploadedFiles/$article->picture_1") }}" alt="">
-                                </a>
-                                </div>
-                            <a href="article/{{ $article->id }}">
-                            <h6>{{$article->tag}} <span>{{$article->price}} $</span></h6>
-                        </a>
-                            <p>
-                                <?php echo substr($article->desc, 0, 80)." ...";  ?>
-
-                            </p>
-                        </li>
-                        @endforeach
-
-                        @endif
-                    </ul>
-                </div>
-
-                <div class="col-lg-4 col-md-12">
-                    <ul class="menu_list">
-
-                        @if ($otherArticles->count() > 0)
-                        @foreach ($otherArticles as $article)
-
-                        <li>
-                             <div class="thumb">
-                                <a href="article/{{ $article->id }}">
-                               <img src="{{  asset("uploadedFiles/$article->picture_1") }}" alt="">
-                                </a>
-                            </div>
-                            <a href="article/{{ $article->id }}">
-                            <h6>{{$article->tag}} <span>{{$article->price}}</span></h6>
-                            </a>
-                            <p>
-                                <?php echo substr($article->desc, 0, 80)." ...";  ?>
-
-                            </p>
-                        </li>
-                        @endforeach
-                        @endif
-                    </ul>
-                </div>
-
-                <div class="col-lg-4 col-md-12">
-                    <ul class="menu_list">
-
-                        @if ($otherArticles->count() > 0)
-                        @foreach ($otherArticles as $article)
-
-                        <li>
-                             <div class="thumb">
-                                <a href="article/{{ $article->id }}">
-                                <img src="{{  asset("uploadedFiles/$article->picture_1") }}" alt="">
-                                </a>
-                            </div>
-                            <a href="article/{{ $article->id }}">
-                            <h6>{{$article->tag}} <span>{{$article->price}}</span></h6>
-                            </a>
-                            <p>
-                                <?php echo substr($article->desc, 0, 80)." ...";  ?>
-
-                            </p>
-                        </li>
-                        @endforeach
-
-                        {{ $otherArticles->links() }}
-                        @endif
-
-                    </ul>
-                </div>
-
-            </div>
-            <!-- /row -->
-        </div>
-<br>
 
 
 		<!--/call_section-->

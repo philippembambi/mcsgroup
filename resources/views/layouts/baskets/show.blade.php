@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => "Mon panier - Mcs Group @".auth()->user()->fullname])
+@extends('layouts.app', ['title' => "Group-mcs : Mon panier"])
 
 @section('content')
 <style>
@@ -23,7 +23,7 @@
                 <div class="main_categories">
                         <ul class="clearfix">
                             <li style="width: 50%;">
-                                <a href="#">
+                                <a href="{{ route("basket.show") }}">
                                     <i class="fa fa-shopping-basket"></i>
                                     <h6>Mon panier</h6>
                                 </a>
@@ -49,9 +49,9 @@
     @foreach ($savedart as $article)
 
         <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6">
-            <a class="box_topic" href="article/{{ $article->article_id }}">
+            <a class="box_topic" href="../article/{{ $article->article_id }}">
                 <span>
-                    <img src="uploadedFiles/{{  $article->picture_1 }}"
+                    <img src="../uploadedFiles/{{  $article->picture_1 }}"
                             alt="" style="height: 100px;">
                 </span>
                 <h3>{{  $article->tag    }}</h3>

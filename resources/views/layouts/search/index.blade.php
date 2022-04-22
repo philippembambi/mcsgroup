@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['title' => "Mcs Group - Résultat de recherche pour % $searchText %"])
 
 @section('content')
 
@@ -29,15 +29,7 @@
 						<div class="collapse show" id="collapseFilters">
 							<div class="filter_type">
 								<h6>Résultats pour <span style="font-weight: bold;color:rgb(197, 6, 6);">{{$searchText}}</span></h6>
-								<ul>
-									<li>
-										<label class="container_check">Restaurants <small>245</small>
-										  <input type="checkbox">
-										  <span class="checkmark"></span>
-										</label>
-									</li>
 
-								</ul>
 							</div>
 							<div class="filter_type">
                                 <div class="distance"> Nombre des résultats <span></span></div>
@@ -100,7 +92,7 @@
 	</main>
     @component('components.footer')
     @endcomponent
-
+    <div id="toTop"></div><!-- Back to top button -->
 </div>
 
 @endsection

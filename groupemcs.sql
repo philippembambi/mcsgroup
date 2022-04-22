@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : dim. 20 fév. 2022 à 19:39
+-- Généré le : ven. 22 avr. 2022 à 05:23
 -- Version du serveur : 10.4.21-MariaDB
 -- Version de PHP : 8.0.10
 
@@ -60,30 +60,32 @@ CREATE TABLE `articles` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `tag` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `category` int(11) DEFAULT NULL,
-  `price` decimal(10,2) NOT NULL,
+  `price` decimal(10,2) DEFAULT NULL,
   `solde_price` decimal(10,2) DEFAULT NULL,
   `desc` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `nbre_exemplaire` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nbre_exemplaire` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `picture_1` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `picture_2` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `picture_3` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `disk` varchar(25) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `model` varchar(25) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `ram` varchar(25) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `processor` varchar(25) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `disk` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `pouce` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `ram` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `processor` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `articles`
 --
 
-INSERT INTO `articles` (`id`, `tag`, `category`, `price`, `solde_price`, `desc`, `nbre_exemplaire`, `picture_1`, `picture_2`, `picture_3`, `created_at`, `updated_at`, `disk`, `model`, `ram`, `processor`) VALUES
-(1, 'Pc Acer 2022', 1, '300.00', '250.00', 'Lorme ipsum Lorme ipsum Lorme ipsum Lorme ipsum Lorme ipsum Lorme ipsum Lorme ipsum Lorme ipsum Lorme ipsum', '20', '9581642895840.jpg', '2581642895840.jpg', '5941642895840.jpg', '2022-01-22 22:57:20', '2022-01-22 22:57:20', NULL, NULL, NULL, NULL),
-(2, 'Acer Hybride', 1, '400.00', '300.00', 'Lorme ipsum Lorme ipsum Lorme ipsum Lorme ipsum Lorme ipsum Lorme ipsum Lorme ipsum Lorme ipsum Lorme ipsum', '10', '2981642896036.jpg', '1211642896036.png', '7721642896036.jpg', '2022-01-22 23:00:36', '2022-01-22 23:00:36', NULL, NULL, NULL, NULL),
-(3, 'HP Elitebook 840', 1, '350.00', '300.00', 'Lorem ispum Lorem ispum Lorem ispum Lorem ispum Lorem ispum Lorem ispum Lorem ispum Lorem ispum Lorem ispum', '5', '5701642896126.jpg', '5861642896126.jpg', '401642896126.png', '2022-01-22 23:02:06', '2022-01-22 23:02:06', NULL, NULL, NULL, NULL),
-(4, 'Msi', 1, '250.00', '200.00', 'Lorem ispum Lorem ispum Lorem ispum Lorem ispum Lorem ispum Lorem ispum Lorem ispum Lorem ispum Lorem ispum', '12', '2171642896197.jpg', '5871642896197.jpg', '4551642896197.jpg', '2022-01-22 23:03:17', '2022-01-22 23:03:17', NULL, NULL, NULL, NULL);
+INSERT INTO `articles` (`id`, `tag`, `category`, `price`, `solde_price`, `desc`, `nbre_exemplaire`, `picture_1`, `picture_2`, `picture_3`, `created_at`, `updated_at`, `disk`, `pouce`, `ram`, `processor`) VALUES
+(1, 'LENOVO ThinkPad X240', 1, NULL, NULL, 'Processeur Intel Core i3-4030U 1.9Ghz / RAM 4Go /320 Go HDD/ 12.5\" HD LED / / Windows 10 PRO /', NULL, '291650584637.webp', '2551650584638.jpg', '5411650584638.jpg', '2022-04-21 22:43:58', '2022-04-21 22:43:58', '320 Go HDD', '12.5\" HD LED', '4Go', 'Core i3-4030U 1.9Ghz'),
+(2, 'Lenovo Thinkpad x250', 1, NULL, NULL, 'Processeur: Intel Core i5 - 5300U 2.3Ghz (5 ème génération)\nMémoire: 8Go DDR3 \nDisque dur: 500GB HDD\nWIFI - USB 3.0 - CAMERA - HDMI (Display port)\nÉcran : 12.5 pouce LED\nOS: Windows 10', NULL, '5591650585196.jpg', '3991650585197.webp', '8641650585197.webp', '2022-04-21 22:53:17', '2022-04-21 22:53:17', '500 GB HDD', '12.5 pouce LED', '8Go DDR3', 'Intel Core i5 - 5300U 2.3Ghz (5 ème génération)'),
+(3, 'HP ELITEBOOK 840 G1, G2', 1, NULL, NULL, 'Disposition clavier : AZERTY FR\r\nProcesseur : Core i5-5300U 2.3GHz\r\nMémoire RAM : 8Go DDR3\r\nDisque dur : 240 Go SSD\r\nContrôleur vidéo : Intel HD Graphics 5500\r\nLecteur optique : Non\r\nPorts : 1x jack, 1x Display Port, 1x RJ45, 4x USB 3.0, 1x VGA\r\nBluetooth : Oui\r\nWebcam : Oui\r\nLecteur cartes SD : Oui\r\nDimensions : 33,9 x 23,7 x 2,1 cm\r\nPoids : 1,5 kg', NULL, '4911650586108.jpg', '4891650586109.jpg', '5411650586109.jpg', '2022-04-21 23:08:29', '2022-04-21 23:08:29', '240 Go SSD', '33,9 x 23,7 x 2,1 cm', '8Go DDR3', 'Core i5-5300U 2.3GHz'),
+(4, 'Hp elitebook 820', 1, NULL, NULL, 'Intel Core i5-5300U, 8GB (2x4GB) DDR3L 2.30Ghz, 500GB HDD SATA + 32GB Flash Cache, 12.5\" AG FHD LED (1920 x 1080), Intel HD Graphics 5500, Gigabit Ethernet, Wi-Fi 802.11a/b/g/n, Bluetooth 4.0, 720p HD webcam, USB 3.0, DisplayPort 1.2, VGA, Windows 10 Professional 64', NULL, '5761650586849.jpg', '6601650586849.png', '3141650586849.jpg', '2022-04-21 23:20:49', '2022-04-21 23:20:49', '500GB HDD SATA + 32GB Flash Cache', '12.5\" AG FHD LED (1920 x 1080)', '8GB (2x4GB) DDR3L', 'Core i5-5300U 2.30Ghz'),
+(5, 'Hp probook 640', 1, NULL, NULL, 'Description longue HP ProBook 640 G2 Ordinateur portable 35,6 cm (14\") Intel® Core™ i5 8 Go DDR4-SDRAM 500 Go HDD Noir, Argent:\r\nHP ProBook 640 G2. Type de produit: Ordinateur portable, Format: Clapet. Famille de processeur: Intel® Core™ i5, Modèle de processeur: i5-6300U, Fréquence du processeur: 2,5 GHz. Taille de l\'écran: 35,6 cm (14\"). Mémoire interne: 8 Go, Type de mémoire interne: DDR4-SDRAM. Capacité totale de stockage: 500 Go, Supports de stockage: HDD. Modèle d\'adaptateur graphique inclus: Intel® HD Graphics 520. Couleur du produit: Noir, Argent. Poids: 1,95 kg', NULL, '8441650593133.jpg', '2181650593133.jpg', '6621650593133.jpg', '2022-04-22 01:05:33', '2022-04-22 01:05:33', '500 Go HDD', '35,6 cm (14\")', '8 Go', 'Core i5-6300U 2,5 GHz'),
+(6, 'Lenovo ThinkPad T440', 1, NULL, NULL, 'Description longue Lenovo ThinkPad T440 Ordinateur portable 35,6 cm (14\") Intel® Core™ i5 DDR3L-SDRAM Noir:\r\nLenovo ThinkPad T440. Type de produit: Ordinateur portable, Format: Clapet. Famille de processeur: Intel® Core™ i5, Modèle de processeur: i5-4300U, Fréquence du processeur: 1,9 GHz. Taille de l\'écran: 35,6 cm (14\"). Type de mémoire interne: DDR3L-SDRAM. Modèle d\'adaptateur graphique inclus: Intel® HD Graphics 4400. Couleur du produit: Noir', NULL, '8161650593435.jpg', '4111650593435.jpg', '851650593435.webp', '2022-04-22 01:10:35', '2022-04-22 01:10:35', '500 Go HDD Noir', '35,6 cm (14\")', '8 Go', 'Core i5-4300U 1,9 GHz');
 
 -- --------------------------------------------------------
 
@@ -104,12 +106,7 @@ CREATE TABLE `baskets` (
 --
 
 INSERT INTO `baskets` (`id`, `user_id`, `article_id`, `created_at`, `updated_at`) VALUES
-(1, 1, 4, '2022-01-22 23:18:27', '2022-01-22 23:18:27'),
-(2, 3, 3, '2022-01-23 03:47:19', '2022-01-23 03:47:19'),
-(3, 1, 1, '2022-01-23 14:44:01', '2022-01-23 14:44:01'),
-(4, 1, 3, '2022-01-23 14:44:50', '2022-01-23 14:44:50'),
-(5, 1, 4, '2022-02-01 21:06:15', '2022-02-01 21:06:15'),
-(6, 1, 1, '2022-02-02 03:38:24', '2022-02-02 03:38:24');
+(1, 29, 1, '2022-04-22 01:31:01', '2022-04-22 01:31:01');
 
 -- --------------------------------------------------------
 
@@ -311,15 +308,6 @@ CREATE TABLE `purchases` (
   `state` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT 'En attente'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Déchargement des données de la table `purchases`
---
-
-INSERT INTO `purchases` (`id`, `quantity`, `total_price`, `delivery_mode`, `payment_mode`, `created_at`, `updated_at`, `user_id`, `article_id`, `state`) VALUES
-(1, 3, '1200.00', 'Adomicile', 'espece', '2022-01-22 23:20:22', '2022-01-22 23:20:22', 1, 2, 'Validé'),
-(2, 2, '500.00', 'Adomicile', 'espece', '2022-02-01 21:17:35', '2022-02-01 21:17:35', 1, 4, 'Validé'),
-(5, 4, '350.00', 'Adomicile', 'espece', '2022-02-02 01:19:05', '2022-02-02 01:19:05', 1, 3, 'Validé');
-
 -- --------------------------------------------------------
 
 --
@@ -342,7 +330,8 @@ CREATE TABLE `terminals` (
 
 INSERT INTO `terminals` (`id`, `id_user`, `mac_addres`, `ip_addres`, `user_agent`, `created_at`, `updated_at`) VALUES
 (1, 1, '62-67-20-F8-A6-F0   N/A', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:93.0) Gecko/20100101 Firefox/93.0', '2022-02-17 17:29:08', '2022-02-17 17:29:08'),
-(7, 0, '62-67-20-F8-A6-F0   N/A', '192.168.137.129', 'Mozilla/5.0 (Linux; Android 5.0.2; SM-G360F Build/LRX22G) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.91 Mobile Safari/537.36', '2022-02-17 18:22:53', '2022-02-17 18:22:53');
+(7, 0, '62-67-20-F8-A6-F0   N/A', '192.168.137.129', 'Mozilla/5.0 (Linux; Android 5.0.2; SM-G360F Build/LRX22G) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.91 Mobile Safari/537.36', '2022-02-17 18:22:53', '2022-02-17 18:22:53'),
+(18, 0, '62-67-20-F8-A6-F0   N/A', '192.168.137.251', 'Mozilla/5.0 (Linux; Android 5.0.2; SM-G360F Build/LRX22G) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.91 Mobile Safari/537.36', '2022-02-24 17:52:38', '2022-02-24 17:52:38');
 
 -- --------------------------------------------------------
 
@@ -392,17 +381,20 @@ CREATE TABLE `users` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
-  `town` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL
+  `town` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `fb_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `profile_photo_path` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `users`
 --
 
-INSERT INTO `users` (`id`, `fullname`, `sexe`, `phone_number`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `deleted_at`, `town`) VALUES
-(1, 'Philippe Mbambi', NULL, '+243826686661', 'philippembambi413@gmail.com', NULL, '$2y$10$2ANn2nX.LBFIvSntnevIn.WDiM2457wdWXlHaBqB89fKVUxpzSaWS', '7ui2UPFSjTc6Ci1K0VLG3aziTcDTGoFxdNXjdXszmOLOed1oP08Pn6ygPQWV', '2021-12-22 02:21:17', '2021-12-22 02:21:17', NULL, 'Kinshasa'),
-(2, 'Ben', NULL, '+243826686665', 'ben43@gmail.com', NULL, '$2y$10$y4s3qB0Mzz3JNnKhGH8aQuiYbR7s3amu.Zu7jtl6Saiw6tUOcD1EK', 'BpSXVaCZBoH1DO8dI8w6flyFb9QGwvvHOVPeZvCxXPcxaxdrHAEhIAozqxIN', '2022-01-23 03:26:09', '2022-01-23 03:26:09', NULL, 'Kinshasa'),
-(3, 'Espe', NULL, '+3333333333', 'Espe45@gmail.com', NULL, '$2y$10$vRwigpjwsCfNxqla8SK8lel32ept7K5sxKVRM/6IrCXbLNhjC1X2m', 'VNF9zzCAJ5EzApWXZn3PjrwrghtcYUn2lDv0F0uMP65cho8pUr6u4wf2UsKe', '2022-01-23 03:45:24', '2022-01-23 03:45:24', NULL, 'Lyon');
+INSERT INTO `users` (`id`, `fullname`, `sexe`, `phone_number`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `deleted_at`, `town`, `fb_id`, `profile_photo_path`) VALUES
+(1, 'Philippe Mbambi', NULL, '+243826686661', 'philippembambi41@gmail.com', NULL, '$2y$10$2ANn2nX.LBFIvSntnevIn.WDiM2457wdWXlHaBqB89fKVUxpzSaWS', 'dZfpsHipu5lZLjo2ztzMVxyee7QwyW8v09en8cQinBsWiHqmS0GIcb4ONyfk', '2021-12-22 02:21:17', '2021-12-22 02:21:17', NULL, 'Kinshasa', '0', ''),
+(2, 'Ben', NULL, '+243826686665', 'ben43@gmail.com', NULL, '$2y$10$y4s3qB0Mzz3JNnKhGH8aQuiYbR7s3amu.Zu7jtl6Saiw6tUOcD1EK', 'BpSXVaCZBoH1DO8dI8w6flyFb9QGwvvHOVPeZvCxXPcxaxdrHAEhIAozqxIN', '2022-01-23 03:26:09', '2022-01-23 03:26:09', NULL, 'Kinshasa', '0', ''),
+(3, 'Espe', NULL, '+3333333333', 'Espe45@gmail.com', NULL, '$2y$10$vRwigpjwsCfNxqla8SK8lel32ept7K5sxKVRM/6IrCXbLNhjC1X2m', 'VNF9zzCAJ5EzApWXZn3PjrwrghtcYUn2lDv0F0uMP65cho8pUr6u4wf2UsKe', '2022-01-23 03:45:24', '2022-01-23 03:45:24', NULL, 'Lyon', '0', ''),
+(29, 'Mgr-Philippe Mbambi', NULL, '+243813456932', 'philippembambi413@gmail.com', NULL, '$2y$10$HCBT/q6LCQDxYEulRJ8x5.B.l9HLrnEa0y8g016Lee6y7ssNCE/JG', NULL, '2022-04-21 18:13:17', '2022-04-21 18:13:17', NULL, NULL, '3068017836849008', NULL);
 
 --
 -- Index pour les tables déchargées
@@ -524,13 +516,13 @@ ALTER TABLE `advertisements`
 -- AUTO_INCREMENT pour la table `articles`
 --
 ALTER TABLE `articles`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT pour la table `baskets`
 --
 ALTER TABLE `baskets`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `categories`
@@ -578,13 +570,13 @@ ALTER TABLE `poles`
 -- AUTO_INCREMENT pour la table `purchases`
 --
 ALTER TABLE `purchases`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `terminals`
 --
 ALTER TABLE `terminals`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 
 --
 -- AUTO_INCREMENT pour la table `towns`
@@ -596,7 +588,7 @@ ALTER TABLE `towns`
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- Contraintes pour les tables déchargées
@@ -606,15 +598,13 @@ ALTER TABLE `users`
 -- Contraintes pour la table `baskets`
 --
 ALTER TABLE `baskets`
-  ADD CONSTRAINT `baskets_article_id_foreign` FOREIGN KEY (`article_id`) REFERENCES `articles` (`id`),
   ADD CONSTRAINT `baskets_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
 -- Contraintes pour la table `purchases`
 --
 ALTER TABLE `purchases`
-  ADD CONSTRAINT `achat_article_constraint` FOREIGN KEY (`article_id`) REFERENCES `articles` (`id`),
-  ADD CONSTRAINT `achat_client_constraint` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+  ADD CONSTRAINT `achat_client_constraint` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `towns`

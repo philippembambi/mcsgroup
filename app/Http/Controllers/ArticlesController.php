@@ -57,7 +57,7 @@ class ArticlesController extends Controller
 
         $this->validate($request, [
             'label' => 'required|max:255',
-            'description' => 'required|max:255'
+            'description' => 'required'
         ]);
 
         Article::create([

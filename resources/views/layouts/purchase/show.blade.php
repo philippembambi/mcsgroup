@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['title' => "Mcs Group - Détails sur ".$article[0]->libelle])
 
 @section('content')
 

@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => $ads->tag])
+@extends('layouts.app', ['title' => "Group Mcs pub - ".$ads->tag])
 
 @section('content')
 
@@ -38,7 +38,7 @@
 				<div class="col-lg-8">
 					<div class="singlepost">
 						<figure>
-                            <img alt="" class="img-fluid" style="width: 100%;"
+                            <img alt="" class="img-fluid" style="width: 100%;object-fit: cover;"
                                  src="{{ asset("uploadedFiles/$ads->image_1") }}"></figure>
 						<h1>{{  $ads->tag  }}</h1>
 

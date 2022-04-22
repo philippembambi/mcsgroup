@@ -19,12 +19,14 @@
 
 
             <div class="col-lg-3 col-md-6 col-sm-6">
-                <h3 >Nos Contacts Paris</h3>
+                <h3 >Nos Contacts</h3>
                 <div>
                     <ul class="contacts">
-                        <li><i class="ti-home"></i>97845 Baker st. 567<br>Paris - France</li>
-                        <li><i class="ti-headphone-alt"></i>+39 06 97240120</li>
-                        <li><i class="ti-email"></i><a href="#0">groupmcs@gmail.com</a></li>
+                        <li><i class="ti-home"></i>97845 Baker st. 567</li>
+                        <li><i class="ti-home"></i>97845 Baker st. 567</li>
+                        <li><i class="ti-headphone-alt"></i>+33659598750</li>
+                        <li><i class="ti-headphone-alt"></i>+243822764142</li>
+                        <li><i class="ti-email"></i><a href="#0">groupmcs.it@gmail.com</a></li>
                         <li><i></i></li>
                     </ul>
                 </div>

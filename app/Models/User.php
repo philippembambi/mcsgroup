@@ -22,7 +22,8 @@ class User extends Authenticatable
         'town',
         'phone_number',
         'email',
-        'password'
+        'password',
+        'fb_id'
     ];
 
     /**

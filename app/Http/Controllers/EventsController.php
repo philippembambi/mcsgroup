@@ -11,7 +11,7 @@ class EventsController extends Controller
     {
         Event::create(['title' => $request->title, 'description' => $request->description]);
         Flashy::message('Welcome Aboard!', 'http://your-awesome-link.com');
-        return redirect()->route('home');
+        return redirect()->route('index');
 
         /*
 

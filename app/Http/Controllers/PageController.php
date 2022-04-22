@@ -12,14 +12,37 @@ class PageController extends Controller
 {
     public function __invoke()
     {
+        $rand = rand(1, 4);
+
+        switch ($rand) {
+            case 1:
+                $someArticles = Article::latest()->simplePaginate(3);
+                $otherArticles = Article::limit(3)->simplePaginate(3);
+                $articles = Article::all();
+                $ads = Advertisement::orderBy("id", 'DESC')->get();
+                break;
+            case 2:
+                $someArticles = Article::latest()->simplePaginate(3);
+                $otherArticles = Article::limit(3)->simplePaginate(3);
+                $articles = Article::all();
+                $ads = Advertisement::orderBy("id", 'ASC')->get();
+                break;
+            case 3:
+                $someArticles = Article::latest()->simplePaginate(3);
+                $otherArticles = Article::limit(3)->simplePaginate(3);
+                $articles = Article::all();
+                $ads = Advertisement::orderBy("tag", 'ASC')->get();
+                break;
+            case 4:
+                $someArticles = Article::latest()->simplePaginate(3);
+                $otherArticles = Article::limit(3)->simplePaginate(3);
+                $articles = Article::all();
+                $ads = Advertisement::orderBy("tag", 'DESC')->get();
+                break;
+        }
         // 				$results = Item::where('title', 'like', '%' . $request->get("search") .'%')->paginate(10);
 
-        $someArticles = Article::latest()->simplePaginate(3);
-        $otherArticles = Article::limit(3)->simplePaginate(3);
-
-        $articles = Article::all();
-        $ads = Advertisement::orderBy("id", 'DESC')->get();
-        return view('home', [
+        return view('index', [
             'ads' => $ads,
             'articles' => $articles,
             'someArticles' => $someArticles,
@@ -32,9 +55,9 @@ class PageController extends Controller
         $someArticles = Article::latest()->limit(3);
         $otherArticles = Article::limit(3)->paginate(3);
 
-        $articles = Article::all();
+        $articles = Article::all()->orderBy("id", 'desc');
         $ads = Advertisement::all();
-        return view('home', [
+        return view('index', [
             'ads' => $ads,
             'articles' => $articles,
             'someArticles' => $someArticles,

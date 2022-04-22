@@ -105,7 +105,7 @@ function changephonecode() {
                                                     class="form-control @error('phone_number') border-red-500 @enderror"
                                                     name="phone_number"
                                                     id="phone_number"
-                                                    placeholder="" required>
+                                                    placeholder="" value="+243" required>
                                             @error('phone_number') <div class="text-red">{{ $message }}</div> @enderror
                                         </div>
 
@@ -140,7 +140,7 @@ function changephonecode() {
                                             <b style="font-size: 14px;">Se connecter avec son compte</b>
 
                                             <ul class="share-buttons">
-                                                <li><a class="fb-share" href="#0"><i class="social_facebook"></i> Facebook</a></li>
+                                                <li><a class="fb-share" href="{{ url('auth/facebook')}}"><i class="social_facebook"></i> Facebook</a></li>
                                                 <li><a class="twitter-share" href="#0"><i class="social_twitter"></i> Twitter</a></li>
                                                 <li><a class="gplus-share" href="#0"><i class="social_googleplus"></i> Google</a></li>
                                             </ul>

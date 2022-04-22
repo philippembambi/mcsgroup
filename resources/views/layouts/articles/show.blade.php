@@ -40,7 +40,7 @@
                         <div class="item" id="{{ $article->id }}">
                             <div>
                                 <div>
-                                    <img src="{{ asset("uploadedFiles/$article->picture_3") }}" style="height: 350px;">
+                                    <img src="{{ asset("uploadedFiles/$article->picture_3") }}" style="height: 250px;">
                                 </div>
 
                             </div>

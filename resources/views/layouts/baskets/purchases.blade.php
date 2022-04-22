@@ -49,9 +49,9 @@
     @foreach ($savedart as $article)
 
         <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6">
-            <a class="box_topic" href="purchase/{{ $article->idpurchase }}">
+            <a class="box_topic" href="../purchase/{{ $article->idpurchase }}">
                 <span>
-                    <img src="uploadedFiles/{{  $article->picture_1 }}"
+                    <img src="../uploadedFiles/{{  $article->picture_1 }}"
                             alt="" style="height: 100px;">
                 </span>
 
