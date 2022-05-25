@@ -140,9 +140,7 @@ function changephonecode() {
                                             <b style="font-size: 14px;">Se connecter avec son compte</b>
 
                                             <ul class="share-buttons">
-                                                <li><a class="fb-share" href="{{ url('auth/facebook')}}"><i class="social_facebook"></i> Facebook</a></li>
-                                                <li><a class="twitter-share" href="#0"><i class="social_twitter"></i> Twitter</a></li>
-                                                <li><a class="gplus-share" href="#0"><i class="social_googleplus"></i> Google</a></li>
+                                                <li><a class="fb-share" href="{{ url('auth/facebook')}}" style="width: 200px;"><i class="social_facebook"></i> Facebook</a></li>
                                             </ul>
                                         </div>
 
@@ -211,7 +209,7 @@ function changephonecode() {
                                                     <input
                                                             type="password"
                                                             name="psw"
-                                                            id="password1"
+                                                            id="password"
                                                             class="form-control @error('psw') border-red-500 @enderror"
                                                             placeholder="" required>
 
@@ -279,6 +277,21 @@ function changephonecode() {
                                             <div class="text-center">
                                                 <button type="submit" class="btn_1"><i class="icon-login"></i> Valider</button>
                                             </div>
+
+                                            <p>
+                                                <div class="main_title_2">
+                                                    <span><em></em></span>
+                                                    <br>
+                                                    <b style="font-size: 14px;">Utiliser son compte facebook</b>
+
+                                                    <ul class="share-buttons">
+                                                        <li><a class="fb-share" href="{{ url('auth/facebook')}}" style="width: 200px;"><i class="social_facebook"></i> Facebook</a></li>
+                                                    </ul>
+                                                </div>
+
+
+                                            </p>
+
                                         </div>
                                         <!-- /form_container -->
                                     </form>

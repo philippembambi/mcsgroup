@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
 use App\Mail\TestMail;
+use App\Mail\SignupMail;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class MailController extends Controller
 {
@@ -30,8 +32,20 @@ class MailController extends Controller
             'body' => 'Just to test this functionnality'
         ];
 
-        Mail::to('philippembambi413@gmail.com')->send(new TestMail($details));
+        Mail::to(auth()->user()->email)->send(new TestMail($details));
         return "Email sent";
+    }
+
+    public function signUp()
+    {
+        $details = [
+            'title' => "Nouveau compte Mcs",
+            'body' => "Vous venez de créer un compte sur le site www.group-mcs.com vous permettant de bénéficier des services numériques divers notamment l'achats des consommables informatiques. Merci de nous rejoindre !"
+        ];
+
+        Mail::to(auth()->user()->email)->send(new SignupMail($details));
+        Flashy::success("Votre compte a été créé avec succès !");
+        return redirect()->route('home');
     }
 
     /**

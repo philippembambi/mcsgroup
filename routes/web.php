@@ -1,6 +1,6 @@
 <?php
-use App\Mail\Notification;
 use Illuminate\Support\Facades\Route;
+use App\Mail\Notification;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\UserController;
@@ -8,6 +8,7 @@ use App\Http\Controllers\SearchController;
 use App\Http\Controllers\SocialController;
 use App\Http\Controllers\BasketsController;
 use App\Http\Controllers\ArticlesController;
+use App\Http\Controllers\PaymentController;
 
 use App\Http\Controllers\FeedBackController;
 use App\Http\Controllers\TerminalController;
@@ -46,7 +47,7 @@ Route::resource('ads', AdvertisementsController::class);
 Route::resource('/article', ArticlesController::class);
 Route::post("/article.buy", [ArticlesController::class, 'buy'])->name("article.buy");
 
-Route::get('/index', PageController::class)->name("index");
+Route::get('/home', PageController::class)->name("home");
 
 Route::get('/user/authenticate', UserController::class)->name('user.authenticate');
 Route::get('/user/logout', [UserController::class, 'logout'])->name('user.logout');
@@ -65,11 +66,12 @@ Route::get('/basket/purchases', [PurchasesController::class, 'index'])->name('ba
 Route::resource('purchase', PurchasesController::class);
 
 Route::post('/search/index', [SearchController::class, 'index'])->name('search.index');
+Route::get('/search/index', [SearchController::class, 'index'])->name('search.index');
 
 Route::post('feedback/post', [FeedBackController::class, 'store'])->name("feedback.post");
 
 /* management authentifications */
-Route::get('login', UserController::class)->name('login');
+Route::get('/login', UserController::class)->name('login');
 
 Route::get('/getTerminal', [TerminalController::class, 'index'])->name('getTerminal');
 
@@ -77,14 +79,16 @@ Route::get("send-mail", function(){
     return new Notification("Philippe Mbambi", "philippembambi413@gmail.com", "hello world");
 });
 
-Route::get("transfert-mail", [MailController::class, 'create']);
-
+Route::get("transfert-mail", [MailController::class, 'create'])->name("transfert-mail");
 Route::post("new-mail", [NotificationController::class, 'store'])->name("new-mail");
+# Send mail to the client
+Route::get("/send-signupMail", [MailController::class, 'signUp'])->name("send-signupMail");
 
-Route::get('payment', 'PaymentController@index');
-Route::post('charge', 'PaymentController@charge');
-Route::get('paymentsuccess', 'PaymentController@payment_success');
-Route::get('paymenterror', 'PaymentController@payment_error');
+
+Route::get('payment', [PaymentController::class, 'index']);
+Route::post('charge', [PaymentController::class, 'charge']);
+Route::get('paymentsuccess', [PaymentController::class, 'payment_success']);
+Route::get('paymenterror', [PaymentController::class, 'payment_error']);
 
 Route::get('auth/facebook', [SocialController::class, 'redirectFacebook']);
 Route::get('auth/facebook/callback', [SocialController::class, 'callbackFacebook']);
@@ -93,3 +97,33 @@ Route::get('test', function(){
     $slug = Str::slug("Hello world, où pourrais-je trouver à manger");
     return $slug;
 });
+
+Route::get('/{order?}', [
+    'name' => 'PayPal Express Checkout',
+    'as' => 'app.home',
+    'uses' => 'PayPalController@form',
+]);
+
+Route::post('/checkout/payment/{order}/paypal', [
+    'name' => 'PayPal Express Checkout',
+    'as' => 'checkout.payment.paypal',
+    'uses' => 'PayPalController@checkout',
+]);
+
+Route::get('/paypal/checkout/{order}/completed', [
+    'name' => 'PayPal Express Checkout',
+    'as' => 'paypal.checkout.completed',
+    'uses' => 'PayPalController@completed',
+]);
+
+Route::get('/paypal/checkout/{order}/cancelled', [
+    'name' => 'PayPal Express Checkout',
+    'as' => 'paypal.checkout.cancelled',
+    'uses' => 'PayPalController@cancelled',
+]);
+
+Route::post('/webhook/paypal/{order?}/{env?}', [
+    'name' => 'PayPal Express IPN',
+    'as' => 'webhook.paypal.ipn',
+    'uses' => 'PayPalController@webhook',
+]);

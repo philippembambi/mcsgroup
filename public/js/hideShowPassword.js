@@ -167,10 +167,10 @@
         props: { type: 'text' },
         toggle: {
           className: 'hideShowPassword-toggle-hide',
-          content: 'Hide',
+          content: 'Masquer',
           attr: {
             'aria-pressed': 'true',
-            title: 'Hide Password'
+            title: 'Masquer le mot de passe'
           }
         }
       },
@@ -180,10 +180,10 @@
         props: { type: 'password' },
         toggle: {
           className: 'hideShowPassword-toggle-show',
-          content: 'Show',
+          content: 'Afficher',
           attr: {
             'aria-pressed': 'false',
-            title: 'Show Password'
+            title: 'Afficher le mot de passe'
           }
         }
       }

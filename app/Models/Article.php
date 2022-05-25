@@ -23,6 +23,11 @@ class Article extends Model
         'nbre_exemplaire',
         'picture_1',
         'picture_2',
-        'picture_3'
+        'picture_3',
+        'disk',
+        'pouce',
+        'ram',
+        'processor',
+        'id_ordi'
     ];
 }

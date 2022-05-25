@@ -224,6 +224,8 @@
 	$('#carousel').owlCarousel({
 		center: true,
 		items: 2,
+		autoplay: true,
+		autoplayTimeout: 500,
 		loop: true,
 		margin: 10,
 		responsive: {
@@ -247,11 +249,13 @@
 	$('#reccomended').owlCarousel({
 		center: true,
 		items: 2,
+		autoplay: true,
+		autoplayTimeout: 1500,
 		loop: true,
 		margin: 0,
 		responsive: {
 			0: {
-				items: 2
+				items: 1
 			},
 			600: {
 				items: 2

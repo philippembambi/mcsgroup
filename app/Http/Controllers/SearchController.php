@@ -16,9 +16,16 @@ class SearchController extends Controller
      */
     public function index(Request $request)
     {
+        $montant = $request->amount;
+        $amount = $request->amount;
+
+        if($montant == null)
+        {
+            $amount = 550;
+        }
         $expression = $request->get("searchText");
         $results = Article::query()
-        ->when($expression, fn ($query) => $query->where('tag', 'like', "%{$expression}%"))
+        ->when($expression, fn ($query) => $query->where('tag', 'like', "%{$expression}%"))->Where('price', '<=', (int) $amount + 50)
         ->simplePaginate(6);
 
         return view('layouts.search.index', [

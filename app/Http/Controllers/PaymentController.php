@@ -20,7 +20,7 @@ class PaymentController extends Controller
 
     public function index()
     {
-        return view('payment');
+        return view('layouts.payments.index');
     }
 /*
 Dans les étapes précédentes, nous envoyons le montant à payer sur PayPal. Vous pouvez également envoyer des informations sur le produit. L’utilisateur peut voir ces détails de produit sur la page de paiement avant d’effectuer un paiement.

@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class TestMail extends Mailable
+class SignupMail extends Mailable
 {
     use Queueable, SerializesModels;
     public $details;
@@ -29,6 +29,6 @@ class TestMail extends Mailable
      */
     public function build()
     {
-        return $this->subject("Fil d'actualité de vos achats")->view("emails.messages.mail");
+        return $this->markdown('emails.messages.signupMailed');
     }
 }

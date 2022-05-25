@@ -36,7 +36,7 @@ class SocialController extends Controller
             {
                 Auth::login($findUser);
                 Flashy::error("Facebook user created successfully");
-                return redirect()->route('index');
+                return redirect()->route('home');
             }
             else{
                 $newUser =  User::create([
@@ -54,11 +54,11 @@ class SocialController extends Controller
                     ])){
 
                         Flashy::success("Facebook user created successfully");
-                        return redirect()->route('index');
+                        return redirect()->route('home');
                     }
                     else{
                         Flashy::error("Facebook Error user encountered");
-                        return redirect()->route('index');
+                        return redirect()->route('home');
                     }
 
 

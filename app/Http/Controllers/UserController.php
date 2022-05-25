@@ -54,7 +54,6 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-
         $this->validate($request, [
             'username' => 'required',
             'email' => 'email',
@@ -85,6 +84,9 @@ class UserController extends Controller
             Flashy::error("Ce numéro de téléphone est déjà utilisé par un autre utilisateur");
             return redirect()->back();
            }
+           else{
+               dd($ex);
+           }
         }
 
 
@@ -93,23 +95,23 @@ class UserController extends Controller
             'email' => $request->email,
         ], $request->remember)){
 
-            $subject = "Mcs Notification";
-            $body = "Merci de faire confiance à Mcs Group";
-            $email_data = [
-                'recipient' => 'philippembambi413@gmail.com',
-                'fromEmail' => $request->email,
-                'fromName' => $request->username,
-                'subject' => $subject,
-                'body' => $body
-            ];
-            \Mail::send('email-template', $email_data, function($message) use ($email_data){
-                $message->to($email_data['recipient'])
-                        ->from($email_data['fromEmail'], $email_data['fromName'])
-                        ->subject($email_data['$subject']);
-            });
-
-            Flashy::success("Merci ".$request->username." de nous avoir rejoint !");
-            return redirect()->route('index');
+            /*
+                $subject = "Mcs Notification";
+                $body = "Merci de faire confiance à Mcs Group";
+                $email_data = [
+                    'recipient' => 'philippembambi413@gmail.com',
+                    'fromEmail' => $request->email,
+                    'fromName' => $request->username,
+                    'subject' => $subject,
+                    'body' => $body
+                ];
+                \Mail::send('email-template', $email_data, function($message) use ($email_data){
+                    $message->to($email_data['recipient'])
+                            ->from($email_data['fromEmail'], $email_data['fromName'])
+                            ->subject($email_data['$subject']);
+                });
+            */
+            return redirect()->route('send-signupMail');
         }
 
 /*
@@ -136,7 +138,7 @@ class UserController extends Controller
 			$request->session()->regenerate();
 
             Flashy::success('Vous êtes actuellement connecté');
-            return redirect()->route('index');
+            return redirect()->route('home');
 		}
         Flashy::error("Erreur de connexion !");
 		return back()->with('status', 'Numéro de téléphone ou Mot de passe incorrects');

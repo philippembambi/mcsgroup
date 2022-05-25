@@ -8,7 +8,7 @@
 
 </style>
 
-<aside class="left-sidebar">
+<aside class="left-sidebar" style="background-color: black;">
     <!-- Sidebar scroll-->
 
         <ul class="navbar-nav bg-gradient-default sidebar sidebar-dark accordion" id="accordionSidebar" style="width: 100%;">
@@ -29,7 +29,7 @@
               </a>
               <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                  <a class="collapse-item" href="{{ route('management') }}">Vue synoptique</a>
+                  <a class="collapse-item" href="{{ route('management') }}">Accueil</a>
 
                 </div>
               </div>

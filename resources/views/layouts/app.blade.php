@@ -13,7 +13,6 @@
         <link rel="stylesheet" href="{{ asset('css/vendors.css') }}">
         <link rel="stylesheet" href="{{ asset('css/font-awesome.css') }}">
         <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
-        <link rel="stylesheet" href="{{ asset('js/modernizr.js') }}">
 
         <title><?php echo isset($title)?$title:'';  ?></title>
 
@@ -35,12 +34,14 @@
 
     <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/owl.carousel.js') }}"></script>
     <script src="{{ asset('js/common_scripts.js') }}"></script>
     <script src="{{ asset('js/functions.js') }}"></script>
     <script src="{{ asset('js/pw_strenght.js') }}"></script>
     <script src="{{ asset('assets/validate.js') }}"></script>
     <script src="{{ asset('js/jquery.cookiebar.js') }}"></script>
     <script src="{{ asset('js/ajax.js') }}"></script>
+    <script src="{{ asset('js/modernizr.js')}}"></script>
   	<!-- SPECIFIC SCRIPTS -->
 	<script>
 		$(document).ready(function() {
@@ -59,6 +60,7 @@
 		$('#carousel_in').owlCarousel({
 		   center: true,
 		   items:1,
+           autoplay: true,
 		   loop:true,
 		   margin:3,
 		   responsive:{

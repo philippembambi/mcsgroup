@@ -12,7 +12,7 @@
             <!-- ============================================================== -->
             <!-- Logo -->
             <!-- ============================================================== -->
-            <a class="navbar-brand" href="">
+            <a class="navbar-brand" href="" style="background-color: black">
 
                 <!-- Logo text -->
                 <span class="logo-text" style="font-weight: bold;">
@@ -141,8 +141,10 @@
                                 <div class="dw-user-box p-3 d-flex">
                                     <div class="u-img"><img src="{{asset('admin/img/avatar.png')}}" alt="user" class="rounded" width="50" height="50"></div>
                                     <div class="u-text ml-2">
+                                        @auth
                                         <h4 class="mb-0">{{  auth()->user()->name  }}</h4>
                                         <p class="text-muted mb-1 font-14">{{  auth()->user()->email  }}</p>
+                                        @endauth
 
                                     </div>
                                 </div>

@@ -1,17 +1,53 @@
-@extends('layouts.app', ['title' => "Mcs Group - Page Acceuil"])
+@extends('layouts.app', ['title' => "Mcs Group - Page d'acceuil"])
 
 @section('content')
 
 <style>
-
+    @media (max-width: 576px)  {
+        .moreArticleDetails{
+            display:none;
+        }
+        .lessArticleDetails{
+            display:block;
+        }
+    #extraArticleContainer{
+        margin-top: -80%;
+        margin-bottom: 85%;
+    }
+    #extraArticleContainer2{
+        margin-top: -80%;
+        margin-bottom: 85%;
+    }
+    .extraArtcile{
+        width: 50%;
+    }
+    .arTitle{
+        font-size: 13px;
+    }
+    .extraArtcile img{
+        object-fit:fill;
+        width: 100%;
+    }
+    }
+    @media (min-width: 767px)  {
+        .moreArticleDetails{
+            display:block;
+        }
+        .lessArticleDetails{
+            display: none;
+        }
+    }
     @media (max-width: 767px)  {
+        .moreArticleDetails{
+            display:none;
+        }
+        .lessArticleDetails{
+            display:block;
+        }
     .main_categories {
         width: 90%;
         margin-left: 4%;
         font-size: 11px;
-    }
-    #extraArtcile{
-        background-color: red;
     }
     .advertimage{
         height: 300px;
@@ -89,6 +125,7 @@
         @component('components.search-bar')
         @endcomponent
     </div>
+
 		<!-- /main_categories -->
 		<div class="container margin_80_55">
 			<div class="main_title_2">
@@ -229,8 +266,8 @@
         <div class="container-fluid margin_80_55">
 			<div class="main_title_2">
 				<span><em></em></span>
-				<h2>Notre meilleure</h2>
-				<p style="font-size: 18px;">Trouvez ce que vous désirez dans la file déroulante !</p>
+				<h2>Collection promotionnelle</h2>
+				<p style="font-size: 18px;">Profitez de nos prix promotionnels pour ce mois !</p>
 			</div>
 
 			<div id="reccomended" class="owl-carousel owl-theme">
@@ -248,28 +285,28 @@
                                 <a href="{{  asset("uploadedFiles/$article->picture_1") }}" data-effect="mfp-zoom-in" class="wish_bt"></a>
 
 							<a href="{{  asset("uploadedFiles/$article->picture_1") }}" data-effect="mfp-zoom-in">
-								<img src="{{  asset("uploadedFiles/$article->picture_1") }}" style="object-fit: contain;" class="img-fluid" alt="" width="400" height="266"><div class="read_more"><span>Zoom</span></div>
+								<img src="{{  asset("uploadedFiles/$article->picture_1") }}" style="object-fit:cover;" class="img-fluid" alt="" width="400" height="266"><div class="read_more"><span>Zoom</span></div>
                             </a>
                             </div>
 							<small> {{$article->tag}}</small>
 						</figure>
+
+                        <div class="moreArticleDetails wrapper">
+                            <h3><a href="detail-restaurant.html">{{$article->tag}}</a></h3>
+                            <p>{{   substr($article->desc, 0, 100).'...'  }}</p>
+                            <a class="address" href="article/{{ $article->id }}">Plus de détails</a>
+                        </div>
+                        <ul class="moreArticleDetails">
+                            <li><a href="article/{{ $article->id }}"><span class="loc_open">Détails</span></a></li>
+                            <li><div class="score"><strong>{{ $article->price }} $</strong></div></li>
+                        </ul>
+
                     </div>
-                    	<ul>
+                    	<ul class="lessArticleDetails">
+<li></li>
+                            <li><a class="address" href="article/{{ $article->id }}"><span class="loc_open">Ouvrir</span></a></li>
 
-                            <li>
 
-                            </li>
-
-                            <li>
-
-                                <a href="article/{{ $article->id }}">
-                                    <div class="score">
-                                        <strong><i class="fa fa-tag"> Détails</i>
-                                        </strong>
-                                    </div>
-                                </a>
-                                    </a>
-                            </li>
 						</ul>
 					</div>
 				</div>
@@ -279,29 +316,76 @@
 
 			</div>
 			<!-- /carousel -->
+<div class="container" id="extraArticleContainer">
+
+    <div class="main_title_2">
+        <span><em></em></span>
+        <h2>Collection {{ $randomOrdi[0]->name }}</h2>
+        <p style="font-size: 18px;">Le quel des {{ $randomOrdi[0]->name }} vous intéresse ?</p>
+    </div>
+
     <div class="row">
-            @if ($articles->count() > 0)
-            @foreach ($articles as $article)
-            <div id="" class="col-lg-4 col-md-6 col-sm-6 col-xs-4">
-                <a class="box_topic" href="../purchase/{{ $article->idpurchase }}">
+            @if ($randomOrdi->count() > 0)
+            @foreach ($randomOrdi as $ordi)
+            <div id="" class="col-lg-4 col-md-6 col-sm-6 col-xs-6 extraArtcile">
+                <a class="box_topic" href="article/{{ $ordi->id }}">
                     <span>
-                        <img src="../uploadedFiles/{{  $article->picture_1 }}"
-                                alt="" style="height: 200px;">
+                        <img src="./uploadedFiles/{{  $ordi->picture_1 }}"
+                                alt="" style="height: 150px;">
                     </span>
 
-                    <h3>{{  $article->ta    }}</h3>
-                     <p>
-                         {{ substr($article->desc, 0, 80)." ..."    }}
+                    <h4 class="arTitle">{{  $ordi->tag    }}</h4>
+                     <p class="artDesc">
+                         {{ substr($ordi->desc, 0, 40)." ..."    }}
                      </p>
                 </a>
             </div>
             @endforeach
             @endif
         </div>
+    </div>
+
+
+<div class="container" id="extraArticleContainer2">
+
+    <div class="main_title_2">
+        <span><em></em></span>
+        <h2>{{ $randomComputer[0]->name }}</h2>
+        <p style="font-size: 18px;">Que dites vous des {{ $randomComputer[0]->name }} ?</p>
+    </div>
+
+    <div class="row">
+            @if ($randomComputer->count() > 0)
+            @foreach ($randomComputer as $computer)
+            <div id="" class="col-lg-4 col-md-6 col-sm-6 col-xs-6 extraArtcile">
+                <a class="box_topic" href="article/{{ $ordi->id }}">
+                    <span>
+                        <img src="./uploadedFiles/{{  $ordi->picture_1 }}"
+                                alt="" style="height: 150px;">
+                    </span>
+
+                    <h4 class="arTitle">{{  $computer->tag    }}</h4>
+                     <p class="artDesc">
+                         {{ substr($computer->desc, 0, 40)." ..."    }}
+                     </p>
+                </a>
+            </div>
+            @endforeach
+            @endif
+        </div>
+    </div>
+
 			<!-- /container -->
 		</div>
 
         <div class="container" id="autres_articles">
+
+                <div class="main_title_2">
+        <span><em></em></span>
+        <h2>Collection Offre spéciale pour vous !</h2>
+        <p style="font-size: 18px;">L'univers de vos besoins</p>
+    </div>
+
             <div class="row">
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <ul class="menu_list">
@@ -466,5 +550,6 @@
 
     <div id="toTop"></div><!-- Back to top button -->
 </div>
+
 
 @endsection

@@ -15,6 +15,7 @@
       <link rel="stylesheet" href="{{ asset('admin/assets/libs/select2/dist/css/select2.min.css') }}">
       <link rel="stylesheet" href="{{ asset('admin/assets/libs/ckeditor/samples/toolbarconfigurator/lib/codemirror/neo.css') }}">
       <link rel="stylesheet" href="{{ asset('admin/assets/libs/ckeditor/samples/css/samples.css') }}">
+      <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
 
     <title>Mcs Group Back Office</title>
 

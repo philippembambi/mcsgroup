@@ -18,35 +18,61 @@ class PageController extends Controller
             case 1:
                 $someArticles = Article::latest()->simplePaginate(3);
                 $otherArticles = Article::limit(3)->simplePaginate(3);
-                $articles = Article::all();
+                $articles = Article::orderBy("id", 'DESC')->get();
                 $ads = Advertisement::orderBy("id", 'DESC')->get();
+
+                $randInt = rand(1, 2);
+                $randomOrdi = Article::leftJoin("ordinateur", "ordinateur.id_ordi", '=', 'articles.id_ordi')->where('articles.id_ordi', '=', $randInt)->limit(6)->get();
+
+                $randInt2 = rand(3, 5);
+                $randomComputer = Article::leftJoin("ordinateur", "ordinateur.id_ordi", '=', 'articles.id_ordi')->where('articles.id_ordi', '=', $randInt2)->limit(6)->get();
                 break;
             case 2:
                 $someArticles = Article::latest()->simplePaginate(3);
                 $otherArticles = Article::limit(3)->simplePaginate(3);
-                $articles = Article::all();
+                $articles = Article::orderBy("id", 'DESC')->get();
                 $ads = Advertisement::orderBy("id", 'ASC')->get();
+
+                $randInt = rand(1, 2);
+                $randomOrdi = Article::leftJoin("ordinateur", "ordinateur.id_ordi", '=', 'articles.id_ordi')->where('articles.id_ordi', '=', $randInt)->limit(6)->get();
+
+                $randInt2 = rand(3, 5);
+                $randomComputer = Article::leftJoin("ordinateur", "ordinateur.id_ordi", '=', 'articles.id_ordi')->where('articles.id_ordi', '=', $randInt2)->limit(6)->get();
                 break;
             case 3:
                 $someArticles = Article::latest()->simplePaginate(3);
                 $otherArticles = Article::limit(3)->simplePaginate(3);
-                $articles = Article::all();
+                $articles = Article::orderBy("id", 'DESC')->get();
                 $ads = Advertisement::orderBy("tag", 'ASC')->get();
+
+                $randInt = rand(1, 2);
+                $randomOrdi = Article::leftJoin("ordinateur", "ordinateur.id_ordi", '=', 'articles.id_ordi')->where('articles.id_ordi', '=', $randInt)->limit(6)->get();
+
+                $randInt2 = rand(3, 5);
+                $randomComputer = Article::leftJoin("ordinateur", "ordinateur.id_ordi", '=', 'articles.id_ordi')->where('articles.id_ordi', '=', $randInt2)->limit(6)->get();
                 break;
             case 4:
                 $someArticles = Article::latest()->simplePaginate(3);
                 $otherArticles = Article::limit(3)->simplePaginate(3);
-                $articles = Article::all();
+                $articles = Article::orderBy("id", 'DESC')->get();
                 $ads = Advertisement::orderBy("tag", 'DESC')->get();
+
+                $randInt = rand(1, 2);
+                $randomOrdi = Article::leftJoin("ordinateur", "ordinateur.id_ordi", '=', 'articles.id_ordi')->where('articles.id_ordi', '=', $randInt)->limit(6)->get();
+
+                $randInt2 = rand(3, 5);
+                $randomComputer = Article::leftJoin("ordinateur", "ordinateur.id_ordi", '=', 'articles.id_ordi')->where('articles.id_ordi', '=', $randInt2)->limit(6)->get();
                 break;
         }
         // 				$results = Item::where('title', 'like', '%' . $request->get("search") .'%')->paginate(10);
-
-        return view('index', [
+//dd($randomComputer);
+        return view('home', [
             'ads' => $ads,
             'articles' => $articles,
             'someArticles' => $someArticles,
             'otherArticles' => $otherArticles,
+            'randomOrdi' => $randomOrdi,
+            'randomComputer' => $randomComputer
         ]);
     }
 
@@ -55,13 +81,21 @@ class PageController extends Controller
         $someArticles = Article::latest()->limit(3);
         $otherArticles = Article::limit(3)->paginate(3);
 
-        $articles = Article::all()->orderBy("id", 'desc');
+                $randInt = rand(1, 2);
+                $randomOrdi = Article::leftJoin("ordinateur", "ordinateur.id_ordi", '=', 'articles.id_ordi')->where('articles.id_ordi', '=', $randInt)->limit(6);
+
+                $randInt2 = rand(3, 5);
+                $randomComputer = Article::leftJoin("ordinateur", "ordinateur.id_ordi", '=', 'articles.id_ordi')->where('articles.id_ordi', '=', $randInt2)->limit(6);
+
+        $articles = Article::orderBy("id", 'DESC')->get();
         $ads = Advertisement::all();
-        return view('index', [
+        return view('home', [
             'ads' => $ads,
             'articles' => $articles,
             'someArticles' => $someArticles,
             'otherArticles' => $otherArticles,
+            'randomOrdi' => $randomOrdi,
+            'randomComputer' => $randomComputer
         ]);
     }
     public function admin_manage()
@@ -100,7 +134,7 @@ class PageController extends Controller
         $usermail = auth()->user()->email;
         $privatemails = [
             "philippembambi413@gmail.com",
-            "Costa@gmail.com"
+            "z.dgemmanuelzwabudi@gmail.com"
         ];
 
         if(in_array($usermail, $privatemails)){

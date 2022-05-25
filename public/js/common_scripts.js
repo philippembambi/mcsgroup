@@ -121,7 +121,7 @@ function(e){var t="mmenu",n="counters";e[t].addons[n]={setup:function(){var a=th
  * Copyright (c) Fred Heusschen
  */
 function(e){var t="mmenu",n="fixedElements";e[t].addons[n]={setup:function(){if(this.opts.offCanvas){var s=(this.opts[n],this.conf[n]);o=e[t].glbl;var a=function(t){var a=this.conf.classNames[n].fixed,r=t.find("."+a);this.__refactorClass(r,a,"slideout"),r[s.elemInsertMethod](s.elemInsertSelector);var l=this.conf.classNames[n].sticky,d=t.find("."+l);this.__refactorClass(d,l,"sticky"),d=t.find("."+i.sticky),d.length&&(this.bind("open:before",function(){var t=o.$wndw.scrollTop()+s.sticky.offset;d.each(function(){e(this).css("top",parseInt(e(this).css("top"),10)+t)})}),this.bind("close:finish",function(){d.css("top","")}))};this.bind("setPage:after",a)}},add:function(){i=e[t]._c,s=e[t]._d,a=e[t]._e,i.add("sticky")},clickAnchor:function(e,t){}},e[t].configuration[n]={sticky:{offset:0},elemInsertMethod:"appendTo",elemInsertSelector:"body"},e[t].configuration.classNames[n]={fixed:"Fixed",sticky:"Sticky"};var i,s,a,o}(jQuery),/*
- 
+
  * jQuery mmenu lazySubmenus add-on
  * mmenu.frebsite.nl
  *

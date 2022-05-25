@@ -130,9 +130,9 @@ INSERT INTO `categories` (`id`, `label`, `description`, `created_at`, `updated_a
 (1, 'Ordinateur', 'Le consommable informatique le plus disponible chez Mcs Group', '2022-01-22 22:01:59', '2022-01-22 22:01:59'),
 (3, 'Smartphone', '', '2022-01-22 22:04:34', '2022-01-22 22:04:34'),
 (4, 'Équipement Réseau', '', '2022-01-22 22:04:34', '2022-01-22 22:04:34'),
-(5, 'Article vestimentaire', 'Boutique d\'habillement', '2022-01-22 22:06:33', '2022-01-22 22:06:33'),
+(5, 'Article vestimentaire', "Boutique d'habillement", '2022-01-22 22:06:33', '2022-01-22 22:06:33'),
 (6, 'Walkers', 'Casques, Ecouteurs, etc.', '2022-01-22 22:06:33', '2022-01-22 22:06:33'),
-(7, 'Accessoires d\'ordinateurs', 'Disque dur, RAM, Carte réseau etc.', '2022-01-22 22:07:55', '2022-01-22 22:07:55'),
+(7, "Accessoires d'ordinateurs", 'Disque dur, RAM, Carte réseau etc.', '2022-01-22 22:07:55', '2022-01-22 22:07:55'),
 (8, 'Multi-média', '', '2022-01-22 23:01:47', '2022-01-22 23:01:47');
 
 -- --------------------------------------------------------
@@ -163,7 +163,7 @@ INSERT INTO `countries` (`id`, `c_name`, `phonecode`, `created_at`, `updated_at`
 (7, 'Cameroun', '+237', NULL, NULL),
 (8, 'Canada', '+1', NULL, NULL),
 (9, 'République du Congo', '+242', NULL, NULL),
-(10, 'Côte d\'Ivoire', '+225', NULL, NULL),
+(10, "Côte d\'Ivoire", '+225', NULL, NULL),
 (11, 'Égypte', '+20', NULL, NULL),
 (12, 'France', '+33', NULL, NULL),
 (13, 'Gabon', '+241', NULL, NULL),

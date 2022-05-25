@@ -55,21 +55,22 @@
 
                                     <li>
                                          <div class="thumb">
-                                            <a href="article/{{ $article->id }}">
+                                            <a href="../article/{{ $article->id }}">
                                              <img src="{{  asset("uploadedFiles/$article->picture_1") }}" alt="">
                                             </a>
                                             </div>
-                                        <a href="article/{{ $article->id }}">
+                                        <a href="../article/{{ $article->id }}">
                                         <h6>{{$article->tag}} <span>{{$article->price}} $</span></h6>
                                     </a>
+                                     <a href="../article/{{ $article->id }}">
                                         <p>
                                             <?php echo substr($article->desc, 0, 80)." ...";  ?>
 
                                         </p>
+                                     </a>
                                     </li>
                                 </ul>
                             </div>
-                            {{  $results->links()    }}
 
                             @endforeach
                             @else
@@ -78,6 +79,8 @@
                                     <i class="pe pe-7s-refresh-cloud" style="font-size: 120px;margin-left: 35%;"></i>
                                 </div>
                             @endif
+
+                            {{  $results->links()    }}
                         </div>
                         <!-- /row -->
 

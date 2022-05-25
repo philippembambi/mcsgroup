@@ -2,6 +2,19 @@
 
 @section('content')
 
+<script>
+    function appearOrdi() {
+        var combo = document.getElementById("select2-with-icons");
+
+        if(combo.value == "2"){
+            document.getElementById("blocCatOrdi").style.display = "flex";
+        }
+        else{
+            document.getElementById("blocCatOrdi").style.display = "none";
+        }
+    }
+</script>
+
 <div class="page-wrapper">
 
     <div class="row page-titles">
@@ -62,12 +75,34 @@
                                     <select
                                             data-placeholder="Selectionner un état civil..."
                                             class="select2-with-icons form-control"
-                                            id="select2-with-icons"
+                                            id="select2-with-icons" onchange="appearOrdi()"
                                             style="width: 100%; height:36px;"
                                             name="category">
                                             @if ($categories->count() > 0)
                                                 @foreach ($categories as $category)
                                                     <option value="{{ $category->id }}">{{ $category->label }}</option>
+                                                @endforeach
+                                            @endif
+                                    </select>
+
+
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row" id="blocCatOrdi" style="display: none;">
+                                <label for="category" class="col-sm-3 control-label">Marque Ordinateur</label>
+                                <div class="col-sm-9">
+
+                                    <select
+                                            data-placeholder="Selectionner un état civil..."
+                                            class="select2-with-icons form-control"
+                                            id="catOrdi"
+                                            style="width: 100%; height:36px;"
+                                            name="MarqueOrdinateur">
+                                            @if ($ordinateurs->count() > 0)
+                                                @foreach ($ordinateurs as $ordinateur)
+                                                    <option value="{{ $ordinateur->id_ordi }}">{{ $ordinateur->name }}</option>
                                                 @endforeach
                                             @endif
                                     </select>
@@ -156,6 +191,46 @@
                                 </div>
                             </div>
 
+
+                            <div class="form-group row">
+                                <label for="disk" class="col-sm-3 control-label">Capacité disque dur</label>
+                                <div class="col-sm-9">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-tag"></i></span></div>
+                                        <input
+                                                type="text"
+                                                class="form-control @error('disk') has-error @enderror"
+                                                value="{{   old('disk')   }}"
+                                                id="disk"
+                                                name="disk" placeholder="">
+                                    </div>
+
+                                    @error('disk')
+                                    <span class="help-block" style="color: red;">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row">
+                                <label for="pouce" class="col-sm-3 control-label">Taille écran en pouce</label>
+                                <div class="col-sm-9">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-tag"></i></span></div>
+                                        <input
+                                                type="text"
+                                                class="form-control @error('pouce') has-error @enderror"
+                                                value="{{   old('pouce')   }}"
+                                                id="pouce"
+                                                name="pouce" placeholder="">
+                                    </div>
+
+                                    @error('pouce')
+                                    <span class="help-block" style="color: red;">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -165,6 +240,45 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="form-horizontal pt-3">
+
+                            <div class="form-group row">
+                                <label for="ram" class="col-sm-3 control-label">Capacité RAM</label>
+                                <div class="col-sm-9">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-tag"></i></span></div>
+                                        <input
+                                                type="text"
+                                                class="form-control @error('ram') has-error @enderror"
+                                                value="{{   old('ram')   }}"
+                                                id="ram"
+                                                name="ram" placeholder="">
+                                    </div>
+
+                                    @error('ram')
+                                    <span class="help-block" style="color: red;">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row">
+                                <label for="processeur" class="col-sm-3 control-label">Capacité Processeur</label>
+                                <div class="col-sm-9">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-tag"></i></span></div>
+                                        <input
+                                                type="text"
+                                                class="form-control @error('processeur') has-error @enderror"
+                                                value="{{   old('processeur')   }}"
+                                                id="processeur"
+                                                name="processeur" placeholder="">
+                                    </div>
+
+                                    @error('processeur')
+                                    <span class="help-block" style="color: red;">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div>
 
                             <div class="form-group row">
                                 <label for="description" class="col-sm-3 control-label">Description</label>

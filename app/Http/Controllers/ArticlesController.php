@@ -35,7 +35,8 @@ class ArticlesController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return view("admin.articles.add", ['categories' => $categories]);
+        $ordinateur = DB::table("ordinateur")->get(['id_ordi', 'name']);
+        return view("admin.articles.add", ['categories' => $categories, 'ordinateurs' => $ordinateur]);
     }
 
     /**
@@ -69,7 +70,12 @@ class ArticlesController extends Controller
             'nbre_exemplaire'=> $request->itemNumber,
             'picture_1' =>  $imageName1,
             'picture_2' =>  $imageName2,
-            'picture_3' =>  $imageName3
+            'picture_3' =>  $imageName3,
+            'disk' => $request->disk,
+            'pouce' => $request->pouce,
+            'ram' => $request->ram,
+            'processor' => $request->processeur,
+            'id_ordi' => $request->MarqueOrdinateur
             ]);
 
             // $results = Item::where('title', 'like', "%{$term}%")->paginate(10);

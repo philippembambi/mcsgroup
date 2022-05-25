@@ -6,7 +6,7 @@
 </style>
 <header class="header_in is_sticky menu_fixed" style="height: 70px;">
     <div id="logo" style="margin-top: -1%">
-        <a href="{{ route("index") }}" title="Votre partenaire business" style="margin-left: 5px;">
+        <a href="{{ route("home") }}" title="Votre partenaire business" style="margin-left: 5px;">
             <strong style=",height: 120px;font-family:persofont;font-size: 35px;">Mcs Group</strong>
 
             <div class="main_title_2">
@@ -39,7 +39,7 @@
         <ul>
             <li><span><a href="#0" style="font-weight: bold;font-size: 16px;"><i class="fa fa-ellipsis-v menu-icon"></i>&nbsp;&nbsp; Index</a></span>
                 <ul>
-                    <li><a href="{{ route("index") }}">Page d'accueil</a></li>
+                    <li><a href="{{ route("home") }}">Page d'accueil</a></li>
                     <li><a href="">Mcs IT</a></li>
                     <li><a href="">Shop Mcs</a></li>
                     <li><a href="">Point Com Mcs</a></li>
@@ -61,7 +61,7 @@
             <li><span><a href="{{   route("basket.purchases") }}" style="font-weight: bold;font-size: 16px;"><i class="fa fa-shopping-bag menu-icon"></i><sup style="font-size: 16px;color:rgb(197, 6, 6);">{{  $purchase->countPurchases() }}</sup> Mes achats</a></span> </li>
             @auth
 
-            <li><span><a href="#" style="font-weight: bold;font-size: 16px;"><i class="fa fa-user menu-icon"></i>&nbsp;&nbsp; <?php echo str_replace("gmail.com", " ", auth()->user()->email); ?></a></span>
+            <li><span><a href="#" style="font-weight: bold;font-size: 16px;"><i class="fa fa-user menu-icon"></i>&nbsp;&nbsp; {{auth()->user()->fullname}}</a></span>
                 <ul>
                     <li><a href="{{ route("user.logout") }}"> <i class="fa fa-sign-in menu-icon"></i> Déconnexion</a></li>
                 </ul>

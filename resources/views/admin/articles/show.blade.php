@@ -92,11 +92,16 @@
                                                     <span class="text-muted">Prix unitaire ::: {{$article->price}}</span>
                                                 </li>
                                                 <li>
-                                                    <span class="text-muted">Nbre d'exemplaire ::: {{$article->nbre_exemplaire}}</span>
+                                                    <span class="text-muted">Quantité ::: {{$article->nbre_exemplaire}}</span>
                                                 </li>
 
                                                 <li>
                                                     <span class="text-muted">Date d'acquisition ::: {{$article->created_at->format("d-m-Y")}}</span>
+                                                </li>
+                                                <li>
+                                                    <span class="text-muted">
+                                                        {{$article->desc}}
+                                                    </span>
                                                 </li>
                                             </ul>
 
