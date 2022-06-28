@@ -88,8 +88,7 @@ class AdvertisementsController extends Controller
     public function show($id)
     {
         $ads = Advertisement::find($id);
-
-        $articles = Article::where('articles.category', '=', $id)->simplePaginate(3);
+        $articles = Article::where('category', '=', (int) $ads->category)->simplePaginate(3);
         //dd($articles);
 
         $otherArticles = Article::latest()->simplePaginate(10);

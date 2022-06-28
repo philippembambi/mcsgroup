@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Purchase;
 use DB;
 use Flashy;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class ArticlesController extends Controller
 {
@@ -100,6 +101,15 @@ class ArticlesController extends Controller
         ]);
     }
 
+    public function categorize($id)
+    {
+        $category = Category::find($id);
+        $articles = Article::where('category', '=', $id)->simplePaginate(12);
+        return view("layouts.articles.categorized", [
+            'articles' => $articles,
+            'category' => $category
+        ]);
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -110,6 +120,9 @@ class ArticlesController extends Controller
     public function buy(Request $request)
     {
         $total_price = $request->qte * $request->prixUnitaire;
+        $code = substr(md5(time()), 0, 10);
+        $mcs_adresses = DB::table("mcs_adresses")->get();
+        $article_details = Article::where("id", "=", $request->articleId)->get();
 
         Purchase::create([
             'quantity' => $request->qte,
@@ -117,12 +130,17 @@ class ArticlesController extends Controller
             'delivery_mode' => $request->modeLivraison,
             'payment_mode' => $request->modePaiement,
             'user_id'=> auth()->user()->id,
-            'article_id'=> $request->articleId
+            'article_id'=> $request->articleId,
+            'code_purchase' => $code
             ]);
+        $content = "Vous avez commandé  ".$request->qte." ".$article_details[0]->tag." (N° ".$code.") pour ".$total_price." $"." le ".date("d-m-Y à H:m", time());
+        $qrcode = QrCode::size(200)->format('svg')->generate($content, 'qr-codes/'.$code.'.svg');
 
         Flashy::primary("Votre commande est en cours de validation !");
         return view("layouts.articles.purchasing", [
             'article' => $request,
+            'code' => $code,
+            'adresses' => $mcs_adresses
         ]);
     }
 

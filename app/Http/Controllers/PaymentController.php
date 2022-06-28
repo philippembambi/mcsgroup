@@ -4,11 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Omnipay\Omnipay;
-use App\Payment;
+use App\Models\Payment;
+use Flashy;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
+use DB;
 
 class PaymentController extends Controller
 {
     public $gateway;
+    public static $_article_tag;
+    public static $_article_code;
 
     public function __construct()
     {
@@ -33,40 +38,44 @@ Pour envoyer les informations sur le produit, vous devez transmettre le tableau 
             'amount' => $request->input('amount'),
             'items' => array(
                 array(
-                    'name' => 'Course Subscription',
+                    'name' => 'Achat article',
                     'price' => $request->input('amount'),
-                    'description' => 'Get access to premium courses.',
+                    'description' => 'Effectuer un achat en ligne via McsGroupe',
                     'quantity' => 1
                 ),
             ),
             'currency' => env('PAYPAL_CURRENCY'),
-            'returnUrl' => url('paymentsuccess'),
-            'cancelUrl' => url('paymenterror'),
+            'returnUrl' => url('paypal/paymentsuccess'),
+            'cancelUrl' => url('paypal/paymenterror'),
         ))->send();
     }
 
     public function charge(Request $request)
     {
-        if($request->input('submit'))
-        {
+        self::$_article_tag = $request->article_tag;
+        self::$_article_code = $request->code_article;
+        dd(self::$_article_code);
             try {
                 $response = $this->gateway->purchase(array(
                     'amount' => $request->input('amount'),
                     'currency' => env('PAYPAL_CURRENCY'),
-                    'returnUrl' => url('paymentsuccess'),
-                    'cancelUrl' => url('paymenterror'),
+                    'returnUrl' => url('paypal/paymentsuccess'),
+                    'cancelUrl' => url('paypal/paymenterror'),
                 ))->send();
 
                 if ($response->isRedirect()) {
                     $response->redirect(); // this will automatically forward the customer
                 } else {
                     // not successful
-                    return $response->getMessage();
+                    //dd($response->getMessage());
+                    Flashy::error($response->getMessage());
+                    return redirect()->route("basket.purchases");
                 }
             } catch(Exception $e) {
-                return $e->getMessage();
+                Flashy::error($e->getMessage());
+                return redirect()->route("basket.purchases");
+                //dd($e->getMessage());
             }
-        }
     }
 
     public function payment_success(Request $request)
@@ -99,18 +108,45 @@ Pour envoyer les informations sur le produit, vous devez transmettre le tableau 
                     $payment->payment_status = $arr_body['state'];
                     $payment->save();
                 }
+                $content = "Informations confidentielles de votre transaction : ID_TRANSACTION : ".$arr_body['id']."/ ID_PAYEUR : ".$arr_body['payer']['payer_info']['payer_id']."/ EMAIL_PAYEUR :".$arr_body['payer']['payer_info']['email']."/ Montant TTC : ".$arr_body['transactions'][0]['amount']['total'].env('PAYPAL_CURRENCY');
+                $name = $arr_body['id'];
+                $mcs_adresses = DB::table("mcs_adresses")->get();
+                $qrcode = QrCode::size(200)->format('svg')->generate($content, 'qr-codes/'.$name.'.svg');
+                $msg = "Paiement effectué avec succès. Votre ID de la transaction est : ". $arr_body['id'];
+                Flashy::success($msg);
 
-                return "Payment is successful. Your transaction id is: ". $arr_body['id'];
+                return view("layouts.purchase.purchaseCompleted", [
+                    'article_tag' => $this->_article_tag,
+                    'article_code' => $this->_article_code,
+                    'payment_id' => $arr_body['id'],
+                    'payer_id' => $arr_body['payer']['payer_info']['payer_id'],
+                    'payer_email' => $arr_body['payer']['payer_info']['email'],
+                    'amount' => $arr_body['transactions'][0]['amount']['total'],
+                    'currency' => env('PAYPAL_CURRENCY'),
+                    'payment_status' => $arr_body['state'],
+                    'adresses' => $mcs_adresses,
+                    'code' => $name
+                ]);
             } else {
-                return $response->getMessage();
+                Flashy::error($response->getMessage());
+                return redirect()->route("basket.purchases");
             }
         } else {
-            return 'Transaction is declined';
+            $msg = 'La transaction a été déclinée';
+            Flashy::error($msg);
+            return redirect()->route("basket.purchases");
         }
     }
 
     public function payment_error()
     {
-        return 'User is canceled the payment.';
+        $msg = 'Vous avez annulé le paiement.';
+        Flashy::error($msg);
+        return redirect()->route("basket.purchases");
+    }
+
+    public function payment_completed()
+    {
+
     }
 }

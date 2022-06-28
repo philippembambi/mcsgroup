@@ -20,7 +20,8 @@ class Purchase extends Model
         'delivery_mode',
         'payment_mode',
         'user_id',
-        'article_id'
+        'article_id',
+        'code_purchase'
     ];
 
     protected static function boot()
