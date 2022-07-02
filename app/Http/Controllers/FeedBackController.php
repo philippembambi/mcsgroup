@@ -15,8 +15,10 @@ class FeedBackController extends Controller
 //        $feedback = FeedBack::all();
         $feedback = DB::table("feed_backs")
         ->leftJoin('users', 'users.id', '=', 'feed_backs.user_id')
+        ->orderBy("feed_backs.id", "DESC")
+        ->limit(20)
         ->get(['fullname', 'feed_backs.created_at', 'content', 'feed_backs.id AS id_feedback']);
-
+        
         return view("admin.feedback", [
             'feedback' => $feedback
         ]);
@@ -28,7 +30,7 @@ class FeedBackController extends Controller
      */
     public function index()
     {
-        //
+        return view("layouts.feedback.index");
     }
 
     /**
@@ -49,20 +51,15 @@ class FeedBackController extends Controller
      */
     public function store(Request $request)
     {
-        if(isset(auth()->user()->id)){
-
-            FeedBack::create([
-                'user_id' => auth()->user()->id,
-                'content' => $request->content
+           FeedBack::create([
+                'user_id' => isset(auth()->user()->id)?auth()->user()->id:0,
+                'content' => $request->content,
+                'objet' => isset($request->objet)?$request->objet:"News letter",
+                'service' => isset($request->service)?$request->service:""
             ]);
 
-            Flashy::success("Votre message a été envoyé avec succès !");
-           return redirect()->back();
-        }
-        else{
-            Flashy::error("Veillez vous indentifier avant tout !");
-           return redirect()->back();
-        }
+            Flashy::success("Votre demande a été envoyée avec succès !");
+            return redirect()->back();
 
     }
 
@@ -108,6 +105,8 @@ class FeedBackController extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::insert("DELETE FROM feed_backs WHERE id = $id");
+        Flashy::success("Vous venez de supprimer un message");
+        return redirect()->back();
     }
 }

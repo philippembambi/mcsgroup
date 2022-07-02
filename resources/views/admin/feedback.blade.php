@@ -29,45 +29,22 @@
                 <div class="divider"></div>
                 <ul class="list-group">
                     <li>
-                        <small class="p-3 grey-text text-lighten-1 db">Folders</small>
+                        <small class="p-3 grey-text text-lighten-1 db">Sous-menu</small>
                     </li>
                     <li class="list-group-item border-0 p-0">
-                        <a href="javascript:void(0)" class="active list-group-item-action d-block"><i class="font-18 align-middle mr-1 mdi mdi-inbox"></i> Inbox <span class="badge py-1 badge-success float-right">6</span></a>
+                        <a href="javascript:void(0)" class="active list-group-item-action d-block"><i class="font-18 align-middle mr-1 mdi mdi-inbox"></i> Message reçus <span class="badge py-1 badge-success float-right">6</span></a>
                     </li>
                     <li class="list-group-item border-0 p-0">
-                        <a href="javascript:void(0)" class="list-group-item-action d-block"> <i class="font-18 align-middle mr-1 mdi mdi-star"></i> Starred </a>
-                    </li>
-                    <li class="list-group-item border-0 p-0">
-                        <a href="javascript:void(0)" class="list-group-item-action d-block"> <i class="font-18 align-middle mr-1 mdi mdi-send"></i> Draft <span class="badge py-1 badge-danger float-right">3</span></a></li>
-                    <li class="list-group-item border-0 p-0">
-                        <a href="javascript:void(0)" class="list-group-item-action d-block"> <i class="font-18 align-middle mr-1 mdi mdi-email"></i> Sent Mail </a>
+                        <a href="javascript:void(0)" class="list-group-item-action d-block"> <i class="font-18 align-middle mr-1 mdi mdi-email"></i> Messages envoyés </a>
                     </li>
                     <li class="list-group-item border-0 p-0">
                         <hr>
                     </li>
                     <li class="list-group-item border-0 p-0">
-                        <a href="javascript:void(0)" class="list-group-item-action d-block"> <i class="font-18 align-middle mr-1 mdi mdi-block-helper"></i> Spam </a>
-                    </li>
-                    <li class="list-group-item border-0 p-0">
-                        <a href="javascript:void(0)" class="list-group-item-action d-block"> <i class="font-18 align-middle mr-1 mdi mdi-delete"></i> Trash </a>
+                        <a href="javascript:void(0)" class="list-group-item-action d-block"> <i class="font-18 align-middle mr-1 mdi mdi-delete"></i> Corbeille </a>
                     </li>
                     <li class="list-group-item border-0 p-0">
                         <hr>
-                    </li>
-                    <li>
-                        <small class="p-3 grey-text text-lighten-1 db">Labels</small>
-                    </li>
-                    <li class="list-group-item border-0 p-0">
-                        <a href="javascript:void(0)" class="list-group-item-action d-block"><i class="font-18 align-middle mr-1 text-danger mdi mdi-checkbox-blank-circle"></i> Work </a>
-                    </li>
-                    <li class="list-group-item border-0 p-0">
-                        <a href="javascript:void(0)" class="list-group-item-action d-block"><i class="font-18 align-middle mr-1 text-cyan mdi mdi-checkbox-blank-circle"></i> Business </a>
-                    </li>
-                    <li class="list-group-item border-0 p-0">
-                        <a href="javascript:void(0)" class="list-group-item-action d-block"><i class="font-18 align-middle mr-1 text-warning mdi mdi-checkbox-blank-circle"></i> Family </a>
-                    </li>
-                    <li class="list-group-item border-0 p-0">
-                        <a href="javascript:void(0)" class="list-group-item-action d-block"><i class="font-18 align-middle mr-1 text-info mdi mdi-checkbox-blank-circle"></i> Friends </a>
                     </li>
                 </ul>
             </div>
@@ -82,27 +59,10 @@
             <div class="bg-light p-3 d-flex align-items-center do-block">
                 <div class="btn-group mt-1 mb-1">
                     <div class="checkbox checkbox-info">
-                        <input type="checkbox" class="sl-all material-inputs" id="cstall">
-                        <label for="cstall"> <span>Check all</span> </label>
+
                     </div>
                 </div>
-                <div class="ml-auto">
-                    <div class="btn-group mr-2" role="group" aria-label="Button group with nested dropdown">
-                        <button type="button" class="btn btn-outline-secondary font-18"><i class="mdi mdi-reload"></i></button>
-                        <button type="button" class="btn btn-outline-secondary font-18"><i class="mdi mdi-alert-octagon"></i></button>
-                        <button type="button" class="btn btn-outline-secondary font-18"><i class="mdi mdi-delete"></i></button>
-                    </div>
-                    <div class="btn-group mr-2" role="group" aria-label="Button group with nested dropdown">
-                        <div class="btn-group" role="group">
-                            <button id="btnGroupDrop1" type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="mdi mdi-folder font-18 "></i> </button>
-                            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1"> <a class="dropdown-item" href="javascript:void(0)">Dropdown link</a> <a class="dropdown-item" href="javascript:void(0)">Dropdown link</a> </div>
-                        </div>
-                        <div class="btn-group" role="group">
-                            <button id="btnGroupDrop1" type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="mdi mdi-label font-18"></i> </button>
-                            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1"> <a class="dropdown-item" href="javascript:void(0)">Dropdown link</a> <a class="dropdown-item" href="javascript:void(0)">Dropdown link</a> </div>
-                        </div>
-                    </div>
-                </div>
+             
             </div>
             <!-- Action part -->
             <!-- Mail list-->
@@ -122,7 +82,7 @@
                                 </div>
                             </td>
                             <!-- User -->
-                            <td class="user-image px-1 py-3"><img src="{{asset("image/user.png")}}" alt="user" class="rounded-circle" width="30"></td>
+                            <td class="user-image px-1 py-3"><img src="{{asset("image/iconGuest_Male_100px.png")}}" alt="user" class="rounded-circle" width="30"></td>
                             <td class="user-name px-1 py-3">
                                 <h6 class="mb-0 text-truncate no-wrap">{{   $item->fullname }}</h6>
                             </td>
@@ -133,6 +93,10 @@
                             <td class="max-texts px-1 py-3 no-wrap">
                                 <span class="blue-grey-text text-darken-4">{{   $item->content }}</span>
                             </td>
+                            <td>
+                            <a href="{{ url("feedback/delete/$item->id_feedback") }}" class="btn btn-info" title="Supprimer"><i class="fa fa-trash"></i></a>
+                            </td>
+
                             <!-- Time -->
                         </tr>
                         @endforeach

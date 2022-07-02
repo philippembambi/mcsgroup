@@ -2,19 +2,24 @@
 @inject('purchase', App\Utilities\Purchase::class)
 
 <style>
-
+    #logo{
+        margin-top: -1.2%;
+    }
+    @media (max-width: 400px)  {
+        #logo{
+            margin-top: -1.5%;
+        }
+    }
 </style>
 <header class="header_in is_sticky menu_fixed" style="height: 70px;">
-    <div id="logo" style="margin-top: -1%">
+    <div id="logo">
         <a href="{{ route("home") }}" title="Votre partenaire business" style="margin-left: 5px;">
-            <strong style=",height: 120px;font-family:persofont;font-size: 35px;">Mcs Group</strong>
-
+            <img src="{{ asset('image/logo1.png')}}" style="height: 50px;" alt="">
             <div class="main_title_2">
 				<span style="width: 200px;"><em></em></span>
                 <h5 style="font-family: costafont;color: rgb(139, 138, 138);font-size: 14px;">Votre partenaire business</h5>
 			<br>
             </div>
-
         </a>
     </div>
 
@@ -40,21 +45,23 @@
             <li><span><a href="#0" style="font-weight: bold;font-size: 16px;"><i class="fa fa-ellipsis-v menu-icon"></i>&nbsp;&nbsp; Index</a></span>
                 <ul>
                     <li><a href="{{ route("home") }}">Page d'accueil</a></li>
+                    <li><a href="{{ url("mcsIt") }}">Index Mcsgroupe</a></li>
                     <li><a href="">Mcs IT</a></li>
-                    <li><a href="">Shop Mcs</a></li>
-                    <li><a href="">Point Com Mcs</a></li>
-                    <li><a href="">Mcs Prod RDC & France</a></li>
-                    <li><a href="">Loc Mcs</a></li>
-                    <li><a href="">Mcs Invest</a></li>
+                    <li><a href="{{ url("mcsProd/index") }}">Mcs Prod</a></li>
+                    <li><a href="">Mcs Point Com</a></li>
                 </ul>
             </li>
 
             <li><span><a href="#2" style="font-weight: bold;font-size: 16px;"><i class="fa fa-bars menu-icon"></i>&nbsp;&nbsp; Activités</a></span>
                 <ul>
-                    <li><a href="">Ventes des consommables informatiques</a></li>
-                    <li><a href="">Formations sur demande</a></li>
-                    <li><a href="">Production audio-visuelle</a></li>
-                    <li><a href="">Communication digitale</a></li>
+                    @if (Route::is("home") || Route::is("./"))
+                    <li><a href="./article/category/{{2}}">Ventes des consommables informatiques</a></li>
+                    @else
+                    <li><a href="../article/category/{{2}}">Ventes des consommables informatiques</a></li>
+                    @endif
+                    <li><a href="{{ route('training.index') }}">Formations sur demande</a></li>
+                    <li><a href="{{ route('software.index') }}">Logiciel et site web pour vous</a></li>
+                    <li><a href="{{ route('feedback.index') }}">Accompagnement numérique</a></li>
                 </ul>
             </li>
             <li><span><a href="{{   route("basket.show") }}" style="font-weight: bold;font-size: 16px;"><i class="fa fa-shopping-basket menu-icon"></i><sup style="font-size: 16px;color:rgb(197, 6, 6);">{{  $basket->countItems() }}</sup> Mon panier</a></span> </li>

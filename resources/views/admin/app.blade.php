@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{{ asset('image/logo_groupemcs.png') }}" type="image/png">
       <link rel="stylesheet" href="{{ asset('admin/assets/libs/chartist/dist/chartist.min.css') }}">
       <link rel="stylesheet" href="{{ asset('admin/assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css') }}">
       <link rel="stylesheet" href="{{ asset('admin/dist/js/pages/chartist/chartist-init.css') }}">
@@ -17,7 +18,7 @@
       <link rel="stylesheet" href="{{ asset('admin/assets/libs/ckeditor/samples/css/samples.css') }}">
       <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
 
-    <title>Mcs Group Back Office</title>
+    <title>Espace d'administration</title>
 
     @stack('scripts.header')
     @stack('styelesheets')
@@ -41,8 +42,14 @@
             color: rgb(211, 1, 1);
         }
     </style>
+
+<script>
+        function  clickPurchase(){
+               document.getElementById("achats").click();
+           }
+</script>
   </head>
-<body  style="background-color: whitesmoke;">
+<body  style="background-color: whitesmoke;" onload="clickPurchase()">
 
     <div id="main-wrapper">
 
@@ -65,6 +72,9 @@
 
         @stack('scripts.footer')
 
+        <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
+        @include('flashy::message')
+
         <script src="{{ asset('admin/assets/libs/jquery/dist/jquery.min.js') }}"></script>
         <script src="{{ asset('admin/assets/libs/popper.js/dist/umd/popper.min.js') }}"></script>
         <script src="{{ asset('admin/assets/libs/bootstrap/dist/js/bootstrap.min.js') }}"></script>
@@ -76,28 +86,11 @@
         <script src="{{ asset('admin/dist/js/waves.js') }}"></script>
         <script src="{{ asset('admin/dist/js/sidebarmenu.js') }}"></script>
         <script src="{{ asset('admin/dist/js/custom.min.js') }}"></script>
-        <script src="{{ asset('admin/assets/libs/chartist/dist/chartist.min.js') }}"></script>
+        <script src="{{ asset('admin/dist/js/pages/forms/select2/select2.init.js') }}"></script>
 
-        <script src="{{ asset('admin/assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js') }}"></script>
-        <script src="{{ asset('admin/assets/libs/d3/dist/d3.min.js') }}"></script>
-        <script src="{{ asset('admin/assets/libs/c3/c3.min.js') }}"></script>
-        <script src="{{ asset('admin/assets/libs/jvectormap/jquery-jvectormap.min.js') }}"></script>
-        <script src="{{ asset('admin/assets/extra-libs/jvector/jquery-jvectormap-us-aea-en.js') }}"></script>
         <script src="{{ asset('admin/dist/js/pages/dashboards/dashboard2.js') }}"></script>
 
         <script src="{{ asset('admin/dist/js/pages/notes/notes.js') }}"></script>
-<script src="{{ asset('admin/dist/js/pages/forms/select2/select2.init.js') }}"></script>
-
-
-<script src="{{ asset('admin/assets/libs/echarts/dist/echarts-en.min.js') }}"></script>
-<script src="{{ asset('admin/dist/js/pages/echarts/bar/bar.js') }}"></script>
-
-<script src="{{ asset('admin/assets/libs/ckeditor/ckeditor.js') }}"></script>
-<script src="{{ asset('admin/assets/libs/ckeditor/samples/js/sample.js') }}"></script>
-
-<script src="{{ asset('admin/assets/libs/chartist/dist/js/app-style-switcher.js') }}"></script>
-<script src="{{ asset('admin/dist/js/chat/pages/chat.js') }}"></script>
-
 </body>
 
 </html>

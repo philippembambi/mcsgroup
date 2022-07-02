@@ -88,7 +88,7 @@
                       <td>{{    $article->price    }}</td>
                       <td>{{    $article->nbre_exemplaire    }}</td>
                       <td>{{    $article->created_at    }}</td>
-                      <td><a target="_blank" href="../adminArticle/{{ $article->id }}"><button class="btn btn-danger" style="width: 100%;"><i class="fa fa-plus"></i> Détails</button></a></td>
+                      <td><a target="_blank" href="{{ url("./backoffice/adminArticle/$article->id") }}"><button class="btn btn-danger" style="width: 100%;"><i class="fa fa-plus"></i> Détails</button></a></td>
                     </tr>
                 @endforeach
             @endif
@@ -107,7 +107,7 @@
 
     <!-- End of Content Wrapper -->
 
-    <div class="container" style="visibility: hidden;">
+    <div class="container" style="display: none;">
 
 
     <div class="row">

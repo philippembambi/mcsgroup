@@ -5,15 +5,20 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Omnipay\Omnipay;
 use App\Models\Payment;
+use App\Models\Purchase;
+use App\Models\Article;
 use Flashy;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use DB;
+use App\Mail\PurchaseMail;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class PaymentController extends Controller
 {
     public $gateway;
-    public static $_article_tag;
-    public static $_article_code;
+    public $_article_tag;
+    public $_article_code;
 
     public function __construct()
     {
@@ -52,9 +57,6 @@ Pour envoyer les informations sur le produit, vous devez transmettre le tableau 
 
     public function charge(Request $request)
     {
-        self::$_article_tag = $request->article_tag;
-        self::$_article_code = $request->code_article;
-        dd(self::$_article_code);
             try {
                 $response = $this->gateway->purchase(array(
                     'amount' => $request->input('amount'),
@@ -97,6 +99,9 @@ Pour envoyer les informations sur le produit, vous devez transmettre le tableau 
                 // Insert transaction data into the database
                 $isPaymentExist = Payment::where('payment_id', $arr_body['id'])->first();
 
+                $lastPurchase = Purchase::all()->last();
+                $lastPurchasedArticle = Article::where("id", "=", $lastPurchase->article_id)->get();
+
                 if(!$isPaymentExist)
                 {
                     $payment = new Payment;
@@ -106,9 +111,29 @@ Pour envoyer les informations sur le produit, vous devez transmettre le tableau 
                     $payment->amount = $arr_body['transactions'][0]['amount']['total'];
                     $payment->currency = env('PAYPAL_CURRENCY');
                     $payment->payment_status = $arr_body['state'];
+                    $payment->purchase_id = $lastPurchase->id;
                     $payment->save();
                 }
-                $content = "Informations confidentielles de votre transaction : ID_TRANSACTION : ".$arr_body['id']."/ ID_PAYEUR : ".$arr_body['payer']['payer_info']['payer_id']."/ EMAIL_PAYEUR :".$arr_body['payer']['payer_info']['email']."/ Montant TTC : ".$arr_body['transactions'][0]['amount']['total'].env('PAYPAL_CURRENCY');
+
+                $details = [
+                    'title' => "Confirmation de l'achat",
+                    'article_name' => "Vous venez d'effectuer un nouvel achat",
+                    'id_payement' => $arr_body['id'],
+                    'id_payer' => $arr_body['payer']['payer_info']['payer_id'],
+                    'amount' => $arr_body['transactions'][0]['amount']['total'],
+                    'currency' => env('PAYPAL_CURRENCY'),
+                    'state' => $arr_body['state'],
+                    'article_name' => $lastPurchasedArticle[0]->tag,
+                    'purchase_qte' => $lastPurchase->quantity,
+                    'purchase_date' => $lastPurchase->created_at
+                ];
+
+                try {
+                    Mail::to(auth()->user()->email)->send(new PurchaseMail($details));
+                } catch (Exception $ex) {
+                    //throw $th;
+                }
+                $content = "Informations de votre transaction : ID_TRANSACTION : ".$arr_body['id']."/ ID_PAYEUR : ".$arr_body['payer']['payer_info']['payer_id']."/ EMAIL_PAYEUR :".$arr_body['payer']['payer_info']['email']."/ Montant TTC : ".$arr_body['transactions'][0]['amount']['total'].env('PAYPAL_CURRENCY');
                 $name = $arr_body['id'];
                 $mcs_adresses = DB::table("mcs_adresses")->get();
                 $qrcode = QrCode::size(200)->format('svg')->generate($content, 'qr-codes/'.$name.'.svg');
@@ -116,8 +141,8 @@ Pour envoyer les informations sur le produit, vous devez transmettre le tableau 
                 Flashy::success($msg);
 
                 return view("layouts.purchase.purchaseCompleted", [
-                    'article_tag' => $this->_article_tag,
-                    'article_code' => $this->_article_code,
+                    'article_tag' => $lastPurchasedArticle[0]->tag,
+                    'article_code' => substr(md5(time()), 0, 7),
                     'payment_id' => $arr_body['id'],
                     'payer_id' => $arr_body['payer']['payer_info']['payer_id'],
                     'payer_email' => $arr_body['payer']['payer_info']['email'],

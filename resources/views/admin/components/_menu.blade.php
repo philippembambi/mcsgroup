@@ -78,8 +78,6 @@
                                 <div id="communepol" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                                   <div class="bg-white py-2 collapse-inner rounded">
                                     <a class="collapse-item" href="{{ route("management.user/index")}}">Histrorique de connexion</a>
-                                    <a class="collapse-item" href="">Ayant réservé un produit</a>
-                                    <a class="collapse-item" href="">Ayant acheté un produit</a>
                                   </div>
                                 </div>
                               </li>

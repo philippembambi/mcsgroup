@@ -23,35 +23,30 @@
                              <a href="javascript:void(0)" class="nav-link rounded-pill note-link d-flex align-items-center active px-2 px-md-3 mr-0 mr-md-2"  id="achats">
                                 <i class="fa fa-shopping-basket"></i> &nbsp;&nbsp;
                                 <span class="d-none d-md-block">
-                                    Achats
+                                    Achats effectués <strong style="color: black;">{{ $purchases->count() }}</strong>
                                 </span>
                             </a>
                          </li>
+
+                         <li class="nav-item"> <a href="javascript:void(0)" class="nav-link rounded-pill note-link d-flex align-items-center px-2 px-md-3 mr-0 mr-md-2" id="commande">
+                                <i class="fa fa-shopping-cart"></i> &nbsp;&nbsp;
+                                <span class="d-none d-md-block"> Commandes en cours <strong style="color: black;">{{ $cmd->count() }}</strong>
+                                 </span>
+                                 </a>
+                              </li>
+
                          <li class="nav-item"> <a href="javascript:void(0)" class="nav-link rounded-pill note-link d-flex align-items-center px-2 px-md-3 mr-0 mr-md-2" id="panier">
                            <i class="fa fa-shopping-bag"></i> &nbsp;&nbsp;
-                           <span class="d-none d-md-block"> Paniers
+                           <span class="d-none d-md-block"> Paniers <strong style="color: black;">{{ $basket->count() }}</strong>
                                </span>
                             </a>
                          </li>
-                         <li class="nav-item"> <a href="javascript:void(0)" class="nav-link rounded-pill note-link d-flex align-items-center px-2 px-md-3 mr-0 mr-md-2" id="commande">
-                           <i class="fa fa-shopping-cart"></i> &nbsp;&nbsp;
-                           <span class="d-none d-md-block"> Commandes
-                            </span>
-                            </a>
-                         </li>
+
 
                         <li class="nav-item"> <a href="javascript:void(0)" class="nav-link rounded-pill note-link d-flex align-items-center px-2 px-md-3 mr-0 mr-md-2" id="feedback">
                            <i class="fa fa-bell"></i>&nbsp;&nbsp;
-                           <span class="d-none d-md-block"> FeedBack
+                           <span class="d-none d-md-block"> FeedBack <strong style="color: black;">{{ $feedback->count() }}</strong>
                                </span></a>
-                         </li>
-
-                         <li class="nav-item"> <a href="javascript:void(0)" class="nav-link rounded-pill note-link d-flex align-items-center px-2 px-md-3 mr-0 mr-md-2" id="note-important">
-                           <i class="icon-tag mr-1"></i><span class="d-none d-md-block"> Autres articles</span></a>
-                         </li>
-
-                         <li class="nav-item ml-auto"> <a href="javascript:void(0)" class="nav-link btn-primary rounded-pill d-flex align-items-center px-3" id="add-notes">
-                           <i class="fa fa-tag"></i><span class="d-none d-md-block font-14"> 134 articles</span></a>
                          </li>
                </ul>
 
@@ -69,9 +64,12 @@
                                 <b class="note-date font-12 text-muted">Date de validation : {{ $purchase->date_validation }}</b>
                                 <div class="note-content">
 
-                                    <img src="{{ asset("uploadedFiles/$purchase->picture_1") }}" class="img-thumbnail" alt="" style="width: 60%; height: 100px;">
+                                    <img src="{{ asset("uploadedFiles/$purchase->picture_1") }}" class="img-thumbnail" alt="" style="width: 80%; height: 150px;">
                                             <p class="note-inner-content text-muted" data-noteContent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">
-                                                <ul style="list-style-type: square;">
+                                                <ul style="list-style-type: square;font-size: 14px;margin-left: -7%;">
+                                                    <li>Client : {{ $purchase->client_name }}</li>
+                                                    <li>Téléphone : {{ $purchase->client_number }}</li>
+                                                    <li>E-mail : {{ $purchase->client_email }}</li>
                                                     <li>
                                                         Livraison : {{ $purchase->delivery_mode }}
                                                     </li>
@@ -86,25 +84,14 @@
                                             </p>
                                       </div>
 
-                                      <div class="d-flex align-items-center">
-                                        <span class="mr-1"><i class="far fa-star favourite-note"></i></span>
-                                        <span class="mr-1"><i class="far fa-trash-alt remove-note"></i></span>
-                                        <div class="ml-auto">
-                                            <div class="category-selector btn-group">
-                                                        <a class="nav-link dropdown-toggle category-dropdown label-group p-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">
-                                                            <div class="category">
-                                                                <div class="category-business"></div>
-                                                                <div class="category-social"></div>
-                                                                <div class="category-important"></div>
-                                                                <span class="more-options text-dark"><i class="icon-options-vertical"></i></span>
-                                                            </div>
-                                                        </a>
-                                                        <div class="dropdown-menu dropdown-menu-right category-menu">
-                                                            <a class="note-business badge-group-item badge-business dropdown-item position-relative category-business text-success" href="javascript:void(0);"><i class="fa fa-trash mr-1"></i>Supprimer définitivement</a>
-                                                            <a class="note-social badge-group-item badge-social dropdown-item position-relative category-social text-info" href="javascript:void(0);"><i class="fa fa-envelope mr-1"></i> &Eacute;crire au client</a>
-                                                    </div>
-                                                </div>
-                                        </div>
+                                      <div>
+                                        <a href="./backoffice/purchase/delete/{{$purchase->id_purchase}}">
+                                            <span class="mr-1"><i class="far fa-trash-alt"></i>&nbsp; Supprimer</span>
+                                        </a>
+                                        &nbsp;&nbsp;
+                                        <a href="./backoffice/user/notify/{{$purchase->id_purchase}}">
+                                            <span class="mr-1"><i class="far fa-envelope"></i>&nbsp; Répondre</span>
+                                        </a>
                                       </div>
                             </div>
                         </div>
@@ -159,7 +146,7 @@
                     @endif
 
                     <div class="col-md-12 col-lg-12 feedback">
-                        <iframe src="{{ route("feedback")}}" frameborder="0" style="width: 100%;height: 600px;"></iframe>
+                        <iframe src="{{ route("feedback")}}" frameborder="0" style="width: 100%;height: 700px;"></iframe>
                     </div>
 
                     <div class="col-md-9 col-lg-9 commande">
@@ -178,6 +165,7 @@
                                                 <th>Date commande</th>
                                                 <th style="text-align:center">Quantité</th>
                                                 <th style="text-align:center">Prix total</th>
+                                                <th style="text-align:center">Etat de la commande</th>
                                                 <th style="text-align:center">Valider</th>
                                                 <th style="text-align: center;">Supprimer</th>
                                             </tr>
@@ -188,7 +176,7 @@
                                                 <tr>
                                                     <td width="150"><img src="{{ asset("uploadedFiles/$item->picture_1") }}" alt="iMac" width="80"></td>
                                                     <td>
-                                                       {{$item->payment_mode=="espece"?"En espèce":"Par carte de crédit" }}
+                                                       {{$item->payment_mode=="espece"?"En espèce":"Carte de crédit" }}
                                                     </td>
                                                     <td>{{ $item->delivery_mode=="Adomicile"?"A domicile":"Via nos points de vente" }}</td>
                                                     <td width="70">
@@ -196,6 +184,13 @@
                                                     </td>
                                                     <td width="80">{{ $item->quantity }}</td>
                                                     <td width="150" align="center" class="font-500">{{ $item->total_price }} $</td>
+                                                    <td width="150" align="center" class="font-500">
+                                                        @if ( isset($item->payment_id) && $item->payment_id != NULL)
+                                                            ID_TRANSACTION : <strong style="color: green">{{ $item->payment_code}}</strong>
+                                                        @else
+                                                          <strong style="color: red;">Non payéé</strong>
+                                                        @endif
+                                                    </td>
                                                     <td align="center">
 
                                                         <form action="{{ route('management.purchase') }}" method="post">
@@ -209,11 +204,15 @@
                                                     </td>
 
                                                     <td align="center">
-                                                        <a href="javascript:void(0)" class="text-inverse" title="" data-toggle="tooltip" data-original-title="Supprimer">
+
+                                                        <form action="{{ route('management.purchase.delete') }}" method="post">
+                                                            @csrf
+                                                            <input type="hidden" name="purchase_id" value="{{$item->purchase_id}}">
                                                             <button class="btn btn-danger">
                                                                 <i class="fa fa-trash fa-2x"></i>
                                                             </button>
-                                                        </a>
+
+                                                        </form>
                                                     </td>
 
                                                 </tr>
@@ -256,7 +255,5 @@
         <!-- Row -->
     </div>
     </div>
-
-    @include('admin.components.settings')
 
 @endsection

@@ -16,6 +16,8 @@ class FeedBack extends Model
      */
     protected $fillable = [
         'user_id',
-        'content'
+        'content',
+        'objet',
+        'service'
     ];
 }

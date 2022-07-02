@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Article;
-
+use DB;
 class SearchController extends Controller
 {
     /**
@@ -24,12 +24,12 @@ class SearchController extends Controller
             $amount = 550;
         }
         $expression = $request->get("searchText");
-        $results = Article::query()
-        ->when($expression, fn ($query) => $query->where('tag', 'like', "%{$expression}%"))->Where('price', '<=', (int) $amount + 50)
-        ->simplePaginate(6);
+        $result1 = Article::where('tag', 'like', "%{$expression}%")->simplePaginate();
+        $result2 = Article::where('price', '<=', (int) $amount + 50)->simplePaginate();
 
         return view('layouts.search.index', [
-            'results' => $results,
+            'results' => $result1,
+            'result2' => $result2,
             'searchText' => $expression
         ]);
 /*

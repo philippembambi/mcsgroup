@@ -107,7 +107,7 @@
 
     <!-- End of Content Wrapper -->
 
-    <div class="container" style="visibility: hidden;">
+    <div class="container" style="display: none;">
 
 
     <div class="row">

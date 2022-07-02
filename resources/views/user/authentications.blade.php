@@ -52,6 +52,7 @@ function changephonecode() {
     }
 </style>
 
+
 <div id="page">
     @component('components.fixed-header')
     @endcomponent
@@ -62,7 +63,7 @@ function changephonecode() {
         </div>
         <!-- /sub_header -->
 
-        <main class="pattern">
+        <main>
 
 <br>
 <br>
@@ -70,6 +71,14 @@ function changephonecode() {
                 <div class="row justify-content-center">
 
                     <div class="col-lg-9 col-md-9">
+
+
+        <a href="{{ url('auth/facebook')}}">
+        <div class="alert alert-info" role="alert">
+            <strong><i class="icon-facebook-7" style="font-size: 25px; color: rgb(3, 119, 196);"></i></strong> <span  style="font-size: 15px;text-align: center;color: black;">Vous pouvez uniquement utiliser votre compte facebook !</span>
+        </div>
+        </a>
+
                         <div class="step first">
                         <ul class="nav nav-tabs" id="tab_checkout" role="tablist">
                           <li class="nav-item">

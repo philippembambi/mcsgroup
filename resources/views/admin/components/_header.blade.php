@@ -1,3 +1,5 @@
+@inject('cmd', App\Utilities\Cmd::class)
+
 <style>
 #entete{
     background-color: rgb(197, 6, 6);
@@ -17,7 +19,7 @@
                 <!-- Logo text -->
                 <span class="logo-text" style="font-weight: bold;">
                     <!-- Light Logo text -->
-                    <strong style="font-family: persofont;font-size: 30px;">Mcs Group Admin</strong>
+                    <img src="{{ asset('image/logo1.png')}}" style="height: 50px;" alt="">
                 </span>
             </a>
             <!-- ============================================================== -->
@@ -88,32 +90,36 @@
                                     <!-- Message -->
                                     <a href="javascript:void(0)" class="message-item d-flex align-items-center border-bottom px-3 py-2">
                                         <span class="btn btn-danger rounded-circle btn-circle"><i class="fa fa-link"></i></span>
+                                        @if (  (int) $cmd->cmd_data < 1)
+                                            <h5 class="message-title mb-0 mt-1">Aucune commande en cours</h5> 
+                                            <span style="text-align:justify;" class="font-12 text-nowrap d-block text-muted text-truncate">
+                                            La liste des commandes est vide</span>
+                                        @else
                                         <div class="w-75 d-inline-block v-middle pl-2">
-                                            <h5 class="message-title mb-0 mt-1">Message 1</h5> <span class="font-12 text-nowrap d-block text-muted text-truncate">Just see the my new admin!</span> <span class="font-12 text-nowrap d-block text-muted">9:30 AM</span> </div>
+                                                <h5 class="message-title mb-0 mt-1">{{  $cmd->cmd_data   }} commandes en cours</h5> 
+                                                    <span style="text-align:justify;" class="font-12 text-nowrap d-block text-muted text-truncate">
+                                                    Veillez examiner la liste des <br>commandes non validées</span> 
+                                            </div>
+    
+                                        @endif
                                     </a>
                                     <!-- Message -->
                                     <a href="javascript:void(0)" class="message-item d-flex align-items-center border-bottom px-3 py-2">
                                         <span class="btn btn-success rounded-circle btn-circle"><i class="ti-calendar"></i></span>
                                         <div class="w-75 d-inline-block v-middle pl-2">
-                                            <h5 class="message-title mb-0 mt-1">Message 2</h5> <span class="font-12 text-nowrap d-block text-muted text-truncate">Just a reminder that you have event</span> <span class="font-12 text-nowrap d-block text-muted">9:10 AM</span> </div>
+                                                @if (  (int) $cmd->feedback_data <= 1)
+                                                    <h5 class="message-title mb-0 mt-1">
+                                                    {{ $cmd->feedback_data  }} Message reçu</h5> 
+                                                @else
+                                                <h5 class="message-title mb-0 mt-1"> {{ $feedback->count()  }} Messages reçus</h5> 
+                                                @endif                                     
+                                                <span class="font-12 text-nowrap d-block text-muted text-truncate">Vous avez des nouveaux messages</span>
+                                        </div>
                                     </a>
-                                    <!-- Message -->
-                                    <a href="javascript:void(0)" class="message-item d-flex align-items-center border-bottom px-3 py-2">
-                                        <span class="btn btn-info rounded-circle btn-circle"><i class="ti-settings"></i></span>
-                                        <div class="w-75 d-inline-block v-middle pl-2">
-                                            <h5 class="message-title mb-0 mt-1">Message 3</h5> <span class="font-12 text-nowrap d-block text-muted text-truncate">You can customize this template as you want</span> <span class="font-12 text-nowrap d-block text-muted">9:08 AM</span> </div>
-                                    </a>
-                                    <!-- Message -->
-                                    <a href="javascript:void(0)" class="message-item d-flex align-items-center border-bottom px-3 py-2">
-                                        <span class="btn btn-primary rounded-circle btn-circle"><i class="ti-user"></i></span>
-                                        <div class="w-75 d-inline-block v-middle pl-2">
-                                            <h5 class="message-title mb-0 mt-1">Message 4</h5> <span class="font-12 text-nowrap d-block text-muted text-truncate">Just see the my admin!</span> <span class="font-12 text-nowrap d-block text-muted">9:02 AM</span> </div>
-                                    </a>
+                                
                                 </div>
                             </li>
-                            <li>
-                                <a class="nav-link border-top text-center text-dark pt-3" href="javascript:void(0);"> <strong>Check all notifications</strong> <i class="fa fa-angle-right"></i> </a>
-                            </li>
+
                         </ul>
                     </div>
                 </li>

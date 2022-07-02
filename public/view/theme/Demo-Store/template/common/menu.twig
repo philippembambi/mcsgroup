@@ -1,0 +1,88 @@
+<nav class="nav-container" role="navigation">
+<div class="nav-inner">
+<!-- ======= Menu Code START ========= -->
+{% if categories %}
+<!-- Opencart 3 level Category Menu-->
+<div id="menu" class="main-menu">
+<div id="res-menu" class="main-menu nav-container1 responsive-menu">
+<div class="nav-responsive"><span>Menu</span> </div>
+ 
+ 
+	<ul class="main-navigation"><div class="menu expandable"><span>Menu</span></div>
+	  	<li><a href="{{ home }}">{{ name }}</a></li>
+    	{% for category in categories %}
+        {% if category.children %}
+			<li><a href="{{ category.href }}">{{ category.name }}</a>
+
+			  {% for children in category.children|batch(category.children|length / category.column|round(1, 'ceil')) %}
+				<ul>
+                {% for child in children %}
+					<!-- 2 Level Sub Categories START -->
+					{% if child.childs %}
+					  <li class="dropdown"><a href="{{ child.href }}">{{ child.name }}</a>
+								{% if child.image %}<img src="{{ child.image }}"  alt="{{ child.name }}" />{% endif %}
+						
+			              {% for childs_col in child.childs|batch(child.childs|length / child.column|round(1, 'ceil')) %}
+							<ul class="col14">
+							  {% for childs_2 in childs_col %}
+								<li><a href="{{ childs_2.href }}">{{ childs_2.name }}</a></li>
+							  {% endfor %}
+							</ul>
+						  {% endfor %}
+						
+					  </li>
+					{% else %}
+					  <li><a href="{{ child.href }}">{{ child.name }}</a></li>
+					{% endif %}
+					<!-- 2 Level Sub Categories END -->
+                {% endfor %}
+              
+			    </ul>
+              {% endfor %}
+            
+
+			</li>
+        {% else %}
+			<li><a href="{{ category.href }}">{{ category.name }}</a></li>
+       {% endif %}
+        {% endfor %}
+  </ul>
+  
+</div>
+<div class="static-menu">
+	<ul id="static-menu">
+		<li><a href="{{ home }}">{{ name }}</a></li>
+		<li class="dropdown"><a href="#">{{ text_manufacturer }} <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+		{# brands dropdown #}
+			<div class="dropdown-menu">
+        		<div class="dropdown-inner">
+  
+  				<div class="manufacturer-content-home">
+        {% for manufacturer in manufacturers %}
+        <div class="brand-name">
+        <a href="{{ manufacturer.href }}">
+        	{% if manufacturer.thumb !='image/' %}
+        <img src="{{ manufacturer.thumb }}" alt="brands" class="img-responsive reg-image"/>
+        	{% endif %}
+        	<span>{{ manufacturer.name }}</span>
+        </a>
+    	</div>
+        {% endfor %}
+    </div>
+            <span class="more-brand"><a href="{{ manufacturer }}">{{text_all}} <i class="fa fa-angle-right"></i></a></span>
+       </div>
+        	</div>
+	{# brands dropdown #}
+		</li>
+		<li class="hot menu-item"><a href="{{ special }}">{{ text_special }}</a></li>
+		<li><a href="{{ contact }}">{{ text_contact }}</a></li>
+    	<li class="toplink"><a href="{{all_blogs}}">{{ text_blog }} </a></li>
+		
+	</ul>
+</div>
+  
+</div>
+{% endif %}
+</div>
+</nav>   
+

@@ -1,3 +1,6 @@
+@inject('adresse', App\Utilities\Adresse::class)
+@inject('contact', App\Utilities\Contact::class)
+
 @extends('layouts.app', ['title' => "Mcs Group - Détails sur ".$article[0]->libelle])
 
 @section('content')
@@ -59,9 +62,12 @@
                                     <strong>Votre commande vous sera expédiée dans les 72 h qui suivent. Merci de patienter !</strong>
                                     <br>
                                     <ul>
-                                        <li>Kinshasa-Gombe: <span class="float-right" style="font-weight: bold;">Huilleries</span></li>
-                                        <li>Kinshasa-Limete: <span class="float-right" style="font-weight: bold;">12 ième rue Limete</span></li>
-                                        <li>Kinshasa-Lemba: <span class="float-right" style="font-weight: bold;">Intedance Générale</span></li>
+                                        @foreach ($adresse as $item)
+                                        <li><i class="ti-home"></i>{{  $item[0]->nom_adr }}</li>
+                                        <li><i class="ti-home"></i>{{  $item[1]->nom_adr }}</li>
+                                        <li><i class="ti-home"></i>{{  $item[2]->nom_adr }}</li>
+                                        @endforeach
+
                                     </ul>
                                 </p>
                             </div>
@@ -69,12 +75,16 @@
                         @else
                             <div class="rev-text">
                                 <p>
-                                    <strong>Prière de passer dans un <span style="color:rgb(197, 6, 6);">délai de 72 h</span> dans l'une de nos agences ci-dessous pour retirer votre produit acheté.</strong>
+                                    <strong>Au cas où votre livraison est à domicile, le produit vous sera expédié dans un délai de 48 h.
+                                    Sinon, veillez passer dans l'une de nos adresses affichées ci-dessous pour rétirer votre commande.
+                                   </strong>
                                     <br>
                                     <ul>
-                                        <li>Kinshasa-Gombe: <span class="float-right" style="font-weight: bold;">Huilleries</span></li>
-                                        <li>Kinshasa-Limete: <span class="float-right" style="font-weight: bold;">12 ième rue Limete</span></li>
-                                        <li>Kinshasa-Lemba: <span class="float-right" style="font-weight: bold;">Intedance Générale</span></li>
+                                        @foreach ($adresse as $item)
+                                        <li><i class="ti-home"></i>&nbsp;&nbsp;&nbsp; {{  $item[0]->nom_adr }}</li>
+                                        <li><i class="ti-home"></i>&nbsp;&nbsp;&nbsp;{{  $item[1]->nom_adr }}</li>
+                                        <li><i class="ti-home"></i>&nbsp;&nbsp;&nbsp;{{  $item[2]->nom_adr }}</li>
+                                        @endforeach
                                     </ul>
                                 </p>
                             </div>
@@ -97,9 +107,7 @@
                 @if ($purchase->state=="Validé")
                     <div class="follow_us">
                         <ul style="text-align: center;">
-                            <li><a href="#0"><i class="icon-qrcode-1" style="font-size: 24px;"></i> <span style="font-size: 14px;">Code Qr de la commande</span></a></li>
                         </ul>
-                        <hr>
                     </div>
                 @else
 

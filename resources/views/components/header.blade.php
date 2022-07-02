@@ -1,6 +1,6 @@
 <header class="header menu_fixed" style="height: 80px;">
     <div id="logo">
-        <a href="{{ route('index') }}" title="Votre partenaire business">
+        <a href="{{ route('home') }}" title="Votre partenaire business">
             <strong style="font-family: persofont;">Mcs Group</strong>
         </a>
     </div>

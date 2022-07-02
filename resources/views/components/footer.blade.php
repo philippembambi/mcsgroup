@@ -1,17 +1,20 @@
+@inject('adresse', App\Utilities\Adresse::class)
+@inject('contact', App\Utilities\Contact::class)
+
 <footer class="plus_border">
     <div class="container-fluid margin_60_35">
         <div class="row">
 
             <div class="col-lg-3 col-md-6 col-sm-6">
-                <h3>Index</h3>
+                <h3>Nos Contacts</h3>
                 <div>
-                    <ul class="links">
-                        <li><i class="fa fa-tags"></i><a href=""> &nbsp;&nbsp; Mcs IT</a></li>
-                        <li><i class="fa fa-tags"></i><a href=""> &nbsp;&nbsp;<a href="">Shop Mcs</a></li>
-                        <li><i class="fa fa-tags"></i><a href=""> &nbsp;&nbsp;<a href="">Point Com Mcs</a></li>
-                        <li><i class="fa fa-tags"></i><a href=""> &nbsp;&nbsp;<a href="">Mcs Prod RDC & France</a></li>
-                        <li><i class="fa fa-tags"></i><a href=""> &nbsp;&nbsp;<a href="">Loc Mcs</a></li>
-                        <li><i class="fa fa-tags"></i><a href=""> &nbsp;&nbsp;<a href="">Mcs Invest</a></li>
+                    <ul class="contacts">
+                        @foreach ($contact as $item)
+                        <li><i class="ti-mobile"></i>{{  $item[0]->contenu }}</li>
+                        <li><i class="ti-mobile"></i>{{  $item[1]->contenu }}</li>
+                        <li><i class="ti-email"></i>{{  $item[2]->contenu }}</li>
+                        @endforeach
+                        <li><i></i></li>
                     </ul>
                 </div>
             </div>
@@ -19,14 +22,16 @@
 
 
             <div class="col-lg-3 col-md-6 col-sm-6">
-                <h3 >Nos Contacts</h3>
+                <h3 >Nos Adresses</h3>
                 <div>
                     <ul class="contacts">
-                        <li><i class="ti-home"></i>97845 Baker st. 567</li>
-                        <li><i class="ti-home"></i>97845 Baker st. 567</li>
-                        <li><i class="ti-headphone-alt"></i>+33659598750</li>
-                        <li><i class="ti-headphone-alt"></i>+243822764142</li>
-                        <li><i class="ti-email"></i><a href="#0">groupmcs.it@gmail.com</a></li>
+
+                        @foreach ($adresse as $item)
+                        <li><i class="ti-home"></i>{{  $item[0]->nom_adr }}</li>
+                        <li><i class="ti-home"></i>{{  $item[1]->nom_adr }}</li>
+                        <li><i class="ti-home"></i>{{  $item[2]->nom_adr }}</li>
+                        @endforeach
+
                         <li><i></i></li>
                     </ul>
                 </div>
@@ -49,10 +54,10 @@
                 <div  id="collapse_ft_4">
                     <div id="newsletter">
                         <div id="message-newsletter"></div>
-                        <form method="post" action="{{route('new-mail')}}" name="" id="">
+                        <form method="post" action="{{ route('feedback.post') }}" name="" id="">
                             @csrf
                             <div class="form-group">
-                                <input type="email" name="email_newsletter" id="email_newsletter" class="form-control" placeholder="Entrer votre adresse email">
+                                <input type="email" name="content" id="email_newsletter" class="form-control" placeholder="Entrer votre adresse email">
                                 <input type="submit" value="S'abonner" id="submit-newsletter">
                             </div>
                         </form>
@@ -79,7 +84,7 @@
                         <div class="styled-select" id="lang-selector">
                             <select>
                                 <option value="English" selected>Français</option>
-                                <option value="French">Anglais</option>
+                                <option value="French">English</option>
                             </select>
                         </div>
                     </li>

@@ -9,12 +9,13 @@ use Illuminate\Support\Facades\Auth;
 use DB;
 use Flashy;
 use Exception;
+use App\Mail\NotifyUserMail;
+use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
     public function __invoke()
     {
-
         $towns_and_countries = DB::table('towns')
         ->leftJoin('countries', 'towns.country_id', '=', 'countries.id')
         ->orderBy('towns.country_id')
@@ -32,6 +33,7 @@ class UserController extends Controller
     {
         $userTerminal = DB::table('terminals')
                     ->leftJoin('users', 'terminals.id_user', '=', 'users.id')
+                    ->orderBy('users.updated_at', 'DESC')
                     ->get(['terminals.id', 'fullname', 'phone_number',
                           'email', 'mac_addres', 'ip_addres', 'user_agent', 'terminals.updated_at AS lastCon'
                     ]);
@@ -156,6 +158,44 @@ class UserController extends Controller
         Flashy::primary("Vous êtes actuellement déconnecté !");
 		return view('user.authentications', ['towns_and_countries' => $towns_and_countries]);
 //        return redirect()->route('login');
+    }
+
+    public function notify($id)
+    {
+        $userInfo = DB::table('users')
+        ->leftJoin('purchases', 'purchases.user_id', '=', 'users.id')
+        ->where('purchases.id', $id)
+        ->get();
+        return view('admin.user.notify', [
+            'userInfo' => $userInfo
+        ]);
+
+    }
+
+        /**
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function notified(Request $request)
+    {
+        $purchaseInfo = DB::table('purchases')
+        ->leftJoin('articles', 'purchases.article_id', '=', 'articles.id')
+        ->where('purchases.code_purchase', $request->code)
+        ->get();
+
+        $details = [
+            'title' => $request->title,
+            'description' => $request->description,
+            'article' => $purchaseInfo[0]->tag
+        ];
+
+        try {
+            Mail::to($request->email)->send(new NotifyUserMail($details));
+        } catch (Exception $ex) {
+            //throw $th;
+        }
+        return redirect()->route("management");
     }
 
 }

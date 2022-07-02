@@ -225,7 +225,7 @@
 		center: true,
 		items: 2,
 		autoplay: true,
-		autoplayTimeout: 500,
+		autoplayTimeout: 1500,
 		loop: true,
 		margin: 10,
 		responsive: {
@@ -242,7 +242,7 @@
 		},
 		transition: {
 
-			transitionDuration:20
+			transitionDuration:50
 		},
 
 	});
@@ -250,12 +250,12 @@
 		center: true,
 		items: 2,
 		autoplay: true,
-		autoplayTimeout: 1500,
+        autoplayTimeout: 3500,
 		loop: true,
 		margin: 0,
 		responsive: {
 			0: {
-				items: 1
+				items: 2
 			},
 			600: {
 				items: 2

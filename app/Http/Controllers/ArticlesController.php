@@ -120,7 +120,7 @@ class ArticlesController extends Controller
     public function buy(Request $request)
     {
         $total_price = $request->qte * $request->prixUnitaire;
-        $code = substr(md5(time()), 0, 10);
+        $code = strtoupper(substr(md5(time()), 0, 10));
         $mcs_adresses = DB::table("mcs_adresses")->get();
         $article_details = Article::where("id", "=", $request->articleId)->get();
 
@@ -168,20 +168,28 @@ class ArticlesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        //
+    {       $article = Article::where('id', $id)->get();
+            return view("admin.articles.edit", ['article' => $article]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        dd($request);
+        DB::update('UPDATE SET tag = ?, price = ?, solde_price = ?, desc = ?, 
+                    nbre_exemplaire = ?, disk = ?, pouce = ?, ram = ?, processor = ?
+                    WHERE id = ?', [
+                        $request->label, $request->price, $request->soldprice,
+                        $request->description, $request->itemNumber, $request->disk,
+                        $request->pouce, $request->ram, $request->processeur, $request->id
+                    ]);
+            Flashy::primary("Vous venez d'ajouter un nouveau produit !");
+            return redirect()->url("backoffice/article/show/$request->id");
+
     }
 
     /**

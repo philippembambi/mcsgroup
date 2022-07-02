@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Purchase;
 use DB;
+use Flashy;
 
 class PurchasesController extends Controller
 {
@@ -72,7 +73,7 @@ class PurchasesController extends Controller
     public function update(Request $request)
     {
         DB::insert("UPDATE purchases SET state = 'Validé' WHERE id = $request->purchase_id");
-
+        Flashy::success("Vous venez de valider la commande n° ".$request->purchase_id);
         return redirect()->back();
     }
 
@@ -82,8 +83,16 @@ class PurchasesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        DB::insert("DELETE FROM purchases WHERE id = $request->purchase_id");
+        Flashy::success("Vous venez de supprimer la commande n° ".$request->purchase_id);
+        return redirect()->back();
+    }
+    public function delete($id)
+    {
+        DB::insert("DELETE FROM purchases WHERE id = $id");
+        Flashy::success("Vous venez de supprimer la commande n° ".$id);
+        return redirect()->back();
     }
 }

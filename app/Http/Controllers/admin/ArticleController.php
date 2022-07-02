@@ -8,6 +8,7 @@ use App\Models\Article;
 use App\Models\Category;
 use App\Models\Purchase;
 use DB;
+use Flashy;
 
 class ArticleController extends Controller
 {
@@ -109,7 +110,15 @@ class ArticleController extends Controller
      */
     public function update(Request $request)
     {
-
+        $data = $request->only([
+            'tag', 'price', 'solde_price', 'desc', 'nbre_exemplaire', 'disk',
+            'pouce', 'ram', 'processor'
+            ]);
+        $article = Article::find($request->id);
+        $article->update($data);
+        
+        Flashy::success("Vous venez de mettre à jour les informations de ".$request->label);
+        return redirect()->route("management.articles.index");
     }
 
     /**

@@ -5,8 +5,8 @@
     {{$details['body']}}
 @endcomponent
 
-@component('mail::button', ['url' => 'https://www.group-mcs', 'color'=>'blue'])
-Découvrir nos produits
+@component('mail::button', ['url' => 'https://www.mcsgroupe.com', 'color'=>'blue'])
+Découvrir plus de produits
 @endcomponent
 
 Votre partenaire business,<br>

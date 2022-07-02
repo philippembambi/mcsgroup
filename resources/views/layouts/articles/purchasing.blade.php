@@ -18,6 +18,18 @@
     }
 </style>
 
+<script>
+    function PrintDiv() {
+        var divToPrint = document.getElementById('billet');
+        var popupWin = window.open('', '_blank', 'width=1500,height=1500');
+        popupWin.document.open();
+        popupWin.document.write('<html><head><link rel="stylesheet" href="css/bootstrap.min.css"><link rel="stylesheet" href="./css/style.css"><link rel="stylesheet" href="./css/vendors.css"><link rel="stylesheet" href="./css/custom.css"> </head><body onload="window.print()">' +
+        divToPrint.innerHTML + '</body></html>');
+        popupWin.document.close();
+        }
+
+</script>
+
 <div id="page">
     @component('components.fixed-header')
     @endcomponent
@@ -35,10 +47,37 @@
                            </g>
                        </svg>
                    </div>
-               <h3 style="welcome_message">Commande effectuée avec succès !</h3>
-               <p>Votre achat est en cours de validation. <i class="icon-hourglass-1"></i></p>
+               <h3 style="welcome_message">Commande en cours de validation <i class="icon-hourglass-1"></i> !</h3>
+                @if ($article->modePaiement == "carteCredit")
+                <p class="text-center" style="text-align: justify;">
+                    Vous devez payer la facture de la commande pour la valider, au cas contraire, votre commande sera annulée dans les 24h qui suivent.
+                </p>
 
-               <p class="text-center add_top_30 wow bounceIn" data-wow-delay="0.5"><a href="{{   route("basket.purchases") }}" class="btn_1 rounded"><i class="fa fa-shopping-bag"></i> Mes achats effectués</a></p>
+                <form action="{{ url('paypal/charge') }}" method="post" name="formulaire">
+                    {{ csrf_field() }}
+
+                    <input type="hidden" name="amount" value="{{ (int) $article->qte * (int) $article->prixUnitaire }}">
+                    <input type="hidden" name="article_tag" value="{{  $article->tag  }}">
+                    <input type="hidden" name="article_code" value="{{  $code  }}">
+
+                    <p class="text-center add_top_30 wow bounceIn" data-wow-delay="0.5">
+                        <a href="#" onclick="document.formulaire.submit()" class="btn_1 rounded">
+                            <i class="fa fa-exchange"></i>
+                            Payer la facture
+                        </a>
+                    </p>
+                </form>
+                @else
+                <p class="text-center" style="text-align: justify;">
+                    Vous avez choisi le mode paiement <strong>"En Espèce"</strong>. Pour ce faire, vous devez passer dans l'une de nos adresses affichées dans le détail pour payer la facture de la commande afin de la valider, au cas contraire, votre commande sera annulée dans les 48h qui suivent.
+                </p>
+                    <p class="text-center add_top_30 wow bounceIn" data-wow-delay="0.5">
+                        <a href="{{ route("basket.purchases")   }}" class="btn_1 rounded">
+                            <i class="fa fa-shopping-bag"></i>
+                            Revenir à mes commandes
+                        </a>
+                    </p>
+                @endif
                </div>
            </div>
 
@@ -47,7 +86,8 @@
                 <h3>Bon de commande</h3>
 
             <div class="box_general summary">
-                <ul>
+                <ul id="printable">
+                    <li>Code de la commande <span class="float-right">{{    $code   }}</span></li>
                     <li>Produit <span class="float-right">{{    $article->tag   }}</span></li>
 
                     <li>Prix unitaire <span class="float-right">{{  $article->prixUnitaire    }} $</span></li>
@@ -57,16 +97,27 @@
                     <li>Prix total <span class="float-right">{{ $article->qte * $article->prixUnitaire }} $</span></li>
 
                     <li>Date <span class="float-right"><?php echo date("d-m-Y", time()); ?></span></li>
+
+                    @if ($article->modeLivraison == "pointDeVente")
+                    <strong>Nos adresses</strong>
+                    @foreach ($adresses as $adresse)
+                            <li>{{    $adresse->nom_adr    }}</li>
+                        @endforeach
+                    @endif
                 </ul>
-                <textarea class="form-control add_bottom_15" placeholder="Joindre une notice..." style="height: 100px;"></textarea>
                 <div class="form-group">
-                        <label class="container_check">Recevoir des messages de confirmation.
-                          <input type="checkbox" checked>
+                        <label class="container_check">Imprimer le bon de commande
+                          <input type="checkbox" onclick="PrintDiv()">
                           <span class="checkmark"></span>
                         </label>
                     </div>
 
-                <a href="#" class="btn_1 full-width cart">Envoyer le commentaire</a>
+                        <img src="qr-codes/{{ $code }}.svg" alt="" style="height: 80px;margin-left: 35%;">
+                      <br><br>
+                        <p>
+                            <a href="qr-codes/{{ $code }}.svg" download="qr-codes/{{ $code }}.svg" class="btn_1 full-width cart"><i class="fa fa-cloud-download"></i> Télécharger le code QR</a>
+                        </p>
+
             </div>
             <!-- /box_general -->
             </div>

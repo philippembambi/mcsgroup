@@ -28,7 +28,7 @@
     @component('components.fixed-header')
     @endcomponent
 
-    <main class="pattern">
+    <main class="pattern" id="main">
 <br><br>
 
 		<div class="container margin_60_35">
@@ -49,7 +49,7 @@
                         <div class="item" id="{{ $article->id }}">
                             <div>
                                 <div>
-                                    <img src="{{ asset("uploadedFiles/$article->picture_2") }}" style="height: 350px;">
+                                    <img src="{{ asset("uploadedFiles/$article->picture_2") }}" style="height: 250px;">
                                 </div>
 
                             </div>
@@ -59,7 +59,7 @@
                         <div class="item" id="{{ $article->id }}">
                             <div style="">
                                 <div>
-                                    <img src="{{ asset("uploadedFiles/$article->picture_1") }}" style="height: 350px;">
+                                    <img src="{{ asset("uploadedFiles/$article->picture_1") }}" style="height: 250px;">
                                 </div>
 
                             </div>
@@ -154,8 +154,7 @@
                                 <label for="modePaiement" style="font-weight: bold;">* Mode de paiement</label>
                                 <select class="wide" name="modePaiement">
                                     <option value="espece">En espèce</option>
-                                    <option value="carteCredit">Par carte de crédit</option>
-                                    <option value="paypal">Via PayPal</option>
+                                    <option value="carteCredit">Par carte de crédit / débit</option>
                                 </select>
                             </div>
                         </div>
@@ -164,7 +163,7 @@
                         <input type="hidden" name="prixUnitaire" value="{{  $article->price   }}">
                         <input type="hidden" name="tag" value="{{ $article->tag }}">
                         @auth
-                        <input type="submit" value="Soumettre la commande" class=" add_top_30 btn_1 full-width purchase">
+                        <input type="submit" value="Commander" class=" add_top_30 btn_1 full-width purchase">
                         @endauth
 
                         @guest

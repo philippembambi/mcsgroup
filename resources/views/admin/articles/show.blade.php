@@ -149,7 +149,7 @@
                                         <div class="p-2 bg-inverse">
                                             <h3 class="text-white p-2 mb-0"><i class="ti-timer"></i></h3></div>
                                         <div class="p-2">
-                                            <button class="btn btn-default"><i class="fa fa-edit"></i> Modifier</button>
+                                        <a href="{{ url("backoffice/article/edit/$article->id") }}" class="btn btn-success" style="color: white;"><i class="fa fa-edit"></i> Modifier</a>
                                         </div>
                                         <div class="align-self-center mr-3 ml-auto">
                                             <button class="btn btn-info"><i class="fa fa-trash"></i> Supprimer</button>

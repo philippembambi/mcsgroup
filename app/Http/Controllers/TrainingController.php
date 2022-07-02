@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Training;
+use Flashy;
 class TrainingController extends Controller
 {
     /**
@@ -34,7 +35,17 @@ class TrainingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Training::create([
+            'formule' => $request->formule,
+            'duree' => $request->duree,
+            'domain' => $request->domain,
+            'branch' => $request->branch,
+            'comment' => $request->comment,
+            'id_user' => auth()->user()->id
+        ]);
+
+        Flashy::success("Votre souscription à la formation a été envoyée avec succès !");
+        return redirect()->back();
     }
 
     /**

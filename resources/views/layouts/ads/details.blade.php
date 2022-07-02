@@ -3,7 +3,25 @@
 @section('content')
 
 <link rel="stylesheet" href="{{ asset('css/blog.css') }}">
+<style>
+    .arTitle{
+            font-size: 22px;
+        }
+    @media (max-width: 576px)  {
 
+    .extraArtcile{
+        width: 50%;
+    }
+    .arTitle{
+        font-size: 13px;
+    }
+    .extraArtcile img{
+        object-fit:fill;
+        width: 100%;
+    }
+    }
+
+</style>
 <style>
 
    @media (max-width: 767px) {
@@ -32,7 +50,7 @@
 <br>
 <br>
 <br>
-	<main>
+	<main id="main">
 		<div class="container margin_60_35">
 			<div class="row">
 				<div class="col-lg-8">
@@ -53,55 +71,38 @@
 					</div>
 					<!-- /single-post -->
 
-                    <div class="main_title_2">
-                        <span><em></em></span>
-                        <h2>Produits en vente</h2>
-                        <p>Faites des achats aux prix du grand marché</p>
-                    </div>
+                    <div class="container" id="extraArticleContainer">
+
+                        <div class="main_title_2">
+                            <span><em></em></span>
+                            <h2>Produits en promotion</h2>
+                            <p style="font-size: 18px;">Acheter aux prix du grand marché</p>
+                        </div>
+
                         <div class="row">
-                            @if ($articles->count() > 0)
-                                @foreach ($articles as $article)
-                                <div class="col-lg-12">
-                                    <div class="strip list_view">
-                                        <div class="row no-gutters">
-                                            <div class="col-lg-5">
-                                                <figure>
-                                                    <a href="../article/{{ $article->id }}">
-                                                        <img
-                                                                src="{{  asset("uploadedFiles/$article->picture_1") }}"
-                                                                class="img-fluid" alt=""
-                                                                style="height: 250px;width: 100%;">
-                                                                <div class="read_more"><span>Plus d'informations</span>
-                                                                </div></a>
-                                                    <small><i class="fa fa-tag"></i></small>
-                                                </figure>
-                                            </div>
-                                            <div class="col-lg-7">
-                                                <div class="wrapper">
-                                                    <a href="../article/{{ $article->id }}" class="wish_bt">
-                                                        <i class="fa fa-shopping-basket" style="font-size: 18px;"></i></a>
-                                                    <h3><a href="../article/{{ $article->id }}">{{  $article->tag    }}</a></h3>
-                                                    <small>Infographie</small>
-                                                    <p>
-                                                        <?php echo substr($article->desc, 0, 80)." ...";  ?>
-                                                    </p>
+                                @if ($articles->count() > 0)
+                                @foreach ($articles as $ordi)
+                                <div id="" class="col-lg-6 col-md-6 col-sm-6 col-xs-6 extraArtcile">
+                                    <a class="box_topic" href="article/{{ $ordi->id }}">
+                                        <span>
+                                            <img src="../uploadedFiles/{{  $ordi->picture_1 }}"
+                                                    alt="" style="height: 150px;">
+                                        </span>
 
-                                                    <ul>
-                                                        <li><div class="score">
-                                                            <strong>{{$article->price}} $</strong></div></li>
-                                                    </ul>
-                                                </div>
-
-
-                                            </div>
-                                        </div>
-                                    </div>
+                                        <h5 class="arTitle">{{  substr($ordi->tag, 0, 21)    }}</h5>
+                                         <p class="artDesc">
+                                             {{ substr($ordi->desc, 0, 40)." ..."    }}
+                                         </p>
+                                    </a>
                                 </div>
                                 @endforeach
-                            @endif
-
+                                @endif
+                            </div>
                         </div>
-                        <!-- /row -->
+
+
+                    <!--
+                    -->
 
 				</div>
 				<!-- /col -->
@@ -110,12 +111,12 @@
         	<!-- /widget -->
 					<div class="widget">
 						<div class="widget-title">
-							<h4>Catégpries</h4>
+							<h4>Catégories</h4>
 						</div>
 						<div class="tags">
                             @if ($categories->count() > 0)
                                 @foreach ($categories as $category)
-                                <a href="category/{{  $category->id   }}">{{  $category->label   }}</a>
+                                <a href="../article/category/{{  $category->id   }}">{{  $category->label   }}</a>
                                 @endforeach
                             @endif
 
@@ -124,21 +125,21 @@
                     <ul class="menu_list">
 
                                         @if ($otherArticles->count() > 0)
-                                        @foreach ($otherArticles as $article)
+                                        @foreach ($otherArticles as $articles)
 
                                         <li>
-                                            <a href="../article/{{ $article->id }}">
+                                            <a href="../article/{{ $articles->id }}">
                                              <div class="thumb">
-                                                <img src="{{  asset("uploadedFiles/$article->picture_1") }}" alt="">
+                                                <img src="{{  asset("uploadedFiles/$articles->picture_1") }}" alt="">
                                             </div>
                                             </a>
-                                            <a href="../article/{{ $article->id }}">
-                                            <h6>{{$article->tag}} <span>{{$article->price}}</span></h6>
+                                            <a href="../article/{{ $articles->id }}">
+                                            <h6>{{$articles->tag}} <span>{{$articles->price}}</span></h6>
                                             </a>
 
-                                            <a href="../article/{{ $article->id }}">
+                                            <a href="../article/{{ $articles->id }}">
                                             <p>
-                                                <?php echo substr($article->desc, 0, 80)." ...";  ?>
+                                                <?php echo substr($articles->desc, 0, 80)." ...";  ?>
 
                                             </p>
                                              </a>

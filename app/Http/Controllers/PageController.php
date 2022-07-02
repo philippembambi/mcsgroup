@@ -26,7 +26,7 @@ class PageController extends Controller
                 $randomOrdi = Article::leftJoin("ordinateur", "ordinateur.id_ordi", '=', 'articles.id_ordi')->where('articles.id_ordi', '=', $randInt)->limit(8)->get();
 
                 $randInt2 = rand(3, 5);
-                $randomComputer = Article::leftJoin("ordinateur", "ordinateur.id_ordi", '=', 'articles.id_ordi')->where('articles.id_ordi', '=', $randInt2)->limit(8)->get();
+                $randomComputer = Article::leftJoin("ordinateur", "ordinateur.id_ordi", '=', 'articles.id_ordi')->where('articles.id_ordi', '=', $randInt2)->orWhere('articles.id_ordi', '=', (int) $randInt2 + 1)->orWhere('articles.id_ordi', '=', (int) $randInt2 - 2)->orWhere('articles.id_ordi', '=', (int) $randInt2 + 2)->limit(12)->get();
                 break;
             case 2:
                 $someArticles = Article::latest()->simplePaginate(3);
@@ -38,7 +38,7 @@ class PageController extends Controller
                 $randomOrdi = Article::leftJoin("ordinateur", "ordinateur.id_ordi", '=', 'articles.id_ordi')->where('articles.id_ordi', '=', $randInt)->limit(8)->get();
 
                 $randInt2 = rand(3, 5);
-                $randomComputer = Article::leftJoin("ordinateur", "ordinateur.id_ordi", '=', 'articles.id_ordi')->where('articles.id_ordi', '=', $randInt2)->limit(8)->get();
+                $randomComputer = Article::leftJoin("ordinateur", "ordinateur.id_ordi", '=', 'articles.id_ordi')->where('articles.id_ordi', '=', $randInt2)->orWhere('articles.id_ordi', '=', (int) $randInt2 + 1)->orWhere('articles.id_ordi', '=', (int) $randInt2 - 2)->orWhere('articles.id_ordi', '=', (int) $randInt2 + 2)->limit(12)->get();
                 break;
             case 3:
                 $someArticles = Article::latest()->simplePaginate(3);
@@ -50,7 +50,7 @@ class PageController extends Controller
                 $randomOrdi = Article::leftJoin("ordinateur", "ordinateur.id_ordi", '=', 'articles.id_ordi')->where('articles.id_ordi', '=', $randInt)->limit(8)->get();
 
                 $randInt2 = rand(3, 5);
-                $randomComputer = Article::leftJoin("ordinateur", "ordinateur.id_ordi", '=', 'articles.id_ordi')->where('articles.id_ordi', '=', $randInt2)->limit(8)->get();
+                $randomComputer = Article::leftJoin("ordinateur", "ordinateur.id_ordi", '=', 'articles.id_ordi')->where('articles.id_ordi', '=', $randInt2)->orWhere('articles.id_ordi', '=', (int) $randInt2 + 1)->orWhere('articles.id_ordi', '=', (int) $randInt2 - 2)->orWhere('articles.id_ordi', '=', (int) $randInt2 + 2)->limit(12)->get();
                 break;
             case 4:
                 $someArticles = Article::latest()->simplePaginate(3);
@@ -62,7 +62,7 @@ class PageController extends Controller
                 $randomOrdi = Article::leftJoin("ordinateur", "ordinateur.id_ordi", '=', 'articles.id_ordi')->where('articles.id_ordi', '=', $randInt)->limit(8)->get();
 
                 $randInt2 = rand(3, 5);
-                $randomComputer = Article::leftJoin("ordinateur", "ordinateur.id_ordi", '=', 'articles.id_ordi')->where('articles.id_ordi', '=', $randInt2)->limit(8)->get();
+                $randomComputer = Article::leftJoin("ordinateur", "ordinateur.id_ordi", '=', 'articles.id_ordi')->where('articles.id_ordi', '=', $randInt2)->orWhere('articles.id_ordi', '=', (int) $randInt2 + 1)->orWhere('articles.id_ordi', '=', (int) $randInt2 - 2)->orWhere('articles.id_ordi', '=', (int) $randInt2 + 2)->limit(12)->get();
                 break;
         }
         // 				$results = Item::where('title', 'like', '%' . $request->get("search") .'%')->paginate(10);
@@ -88,7 +88,7 @@ class PageController extends Controller
                 $randomOrdi = Article::leftJoin("ordinateur", "ordinateur.id_ordi", '=', 'articles.id_ordi')->where('articles.id_ordi', '=', $randInt)->limit(8);
 
                 $randInt2 = rand(3, 5);
-                $randomComputer = Article::leftJoin("ordinateur", "ordinateur.id_ordi", '=', 'articles.id_ordi')->where('articles.id_ordi', '=', $randInt2)->limit(8);
+                $randomComputer = Article::leftJoin("ordinateur", "ordinateur.id_ordi", '=', 'articles.id_ordi')->where('articles.id_ordi', '=', $randInt2)->orWhere('articles.id_ordi', '=', (int) $randInt2 + 1)->orWhere('articles.id_ordi', '=', (int) $randInt2 - 2)->orWhere('articles.id_ordi', '=', (int) $randInt2 + 2)->limit(12);
 
         $articles = Article::orderBy("id", 'DESC')->get();
         $ads = Advertisement::all();
@@ -107,23 +107,27 @@ class PageController extends Controller
         $purchases = DB::table('purchases')
         ->leftJoin('articles', 'purchases.article_id', '=', 'articles.id')
         ->leftJoin('users', 'users.id', '=', 'purchases.user_id')
+        ->orderBy('purchases.id', 'DESC')
         ->Where('purchases.state', '=', "Validé")
         ->get([
-            'articles.tag', 'purchases.created_at AS date_cmd',
+            'articles.tag', 'purchases.id AS id_purchase', 'purchases.created_at AS date_cmd',
             'desc', 'picture_1', 'purchases.updated_at AS date_validation',
             'delivery_mode', 'payment_mode', 'total_price', 'quantity',
-            'quantity'
+            'quantity', 'users.fullname AS client_name',
+            'users.phone_number AS client_number', 'users.email AS client_email'
             ]);
 
             $cmd = DB::table('purchases')
             ->leftJoin('articles', 'purchases.article_id', '=', 'articles.id')
             ->leftJoin('users', 'users.id', '=', 'purchases.user_id')
+            ->leftJoin('payments', 'payments.purchase_id', '=', 'purchases.id')
             ->Where('purchases.state', '=', "En attente")
             ->get([
                 'articles.tag', 'purchases.created_at AS date_cmd',
                 'desc', 'picture_1',
                 'delivery_mode', 'payment_mode', 'total_price', 'quantity',
-                'quantity', 'purchases.id AS purchase_id'
+                'quantity', 'purchases.id AS purchase_id',
+                'payments.id AS payment_id', 'payments.payment_id AS payment_code'
                 ]);
 
             $basket = DB::table('baskets')
@@ -133,30 +137,38 @@ class PageController extends Controller
                 'articles.tag', 'baskets.created_at AS date_panier',
                 'desc', 'picture_1', 'price', 'users.fullname', 'users.phone_number', 'users.email'
                 ]);
+                $feddback = DB::table('feed_backs')->get();
        // dd($purchases);
 
-        $usermail = auth()->user()->email;
-        $privatemails = [
-            "philippembambi413@gmail.com",
-            "z.dgemmanuelzwabudi@gmail.com"
-        ];
+       try {
+                $usermail = auth()->user()->email;
+                $privatemails = [
+                    "philippembambi413@gmail.com",
+                    "z.dgemmanuelzwabudi@gmail.com"
+                ];
 
-        if(in_array($usermail, $privatemails)){
-            return view('admin.index', [
-                'purchases' => $purchases,
-                'basket' => $basket,
-                'cmd' => $cmd
-            ]);
-        }
+                if(in_array($usermail, $privatemails)){
+                    return view('admin.index', [
+                        'purchases' => $purchases,
+                        'basket' => $basket,
+                        'cmd' => $cmd,
+                        'feedback' => $feddback
+                    ]);
+                }
 
-        else{
+                else{
+                    Flashy::error("Vous n'avez pas l'autorisation d'acceder à l'espace admin !");
+                    return redirect()->route('user.authenticate');
+                }
+       } 
+       catch (\Exception $ex) {
             $towns_and_countries = DB::table('towns')
             ->leftJoin('countries', 'towns.country_id', '=', 'countries.id')
             ->orderBy('towns.country_id')
             ->get();
-            Flashy::error("Vous n'avez pas l'autorisation d'acceder à l'espace admin !");
-            return view('user.authentications', ['towns_and_countries' => $towns_and_countries]);
-        }
+            Flashy::error("Merci de s'authentifier avant d'acceder dans l'espace d'administration !");
+            return redirect()->route('user.authenticate');
+       }
     }
 
     public function confirm_user()

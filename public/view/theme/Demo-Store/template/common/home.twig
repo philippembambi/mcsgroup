@@ -1,0 +1,53 @@
+{{ header }}
+{{ column_left }}
+    {% if column_left and column_right %}
+    {% set class = 'col-sm-6' %}
+    {% elseif column_left or column_right %}
+    {% set class = 'col-sm-9' %}
+    {% else %}
+    {% set class = 'col-sm-12' %}
+    {% endif %}
+
+    <div id="content" class="{{ class }}">
+        <div class="content-top">   
+             {{ content_top }}
+        </div>
+        <div class="container">
+            <div class="row">
+    {{ content_bottom }}
+    </div></div>
+    {{ column_right }}
+</div>
+{{ footer }}
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $('.service-area-carousel').owlCarousel({
+            items: 4,
+            autoPlay: true,
+            singleItem: false,
+            navigation: true,
+            navigationText: ['<i class="fa fa-chevron-left fa-5x"></i>', '<i class="fa fa-chevron-right fa-5x"></i>'],
+            pagination: false,
+            itemsDesktop : [1500,4],
+            itemsDesktopSmall:[1199,3],
+            itemsTablet :	[733,2],
+            itemsTabletSmall : [575, 1],
+            // itemsMobile: [479, 2]
+        });
+
+         $('#wdcmsbanner-carousel').owlCarousel({
+            items: 5,
+            autoPlay: true,
+            singleItem: false,
+            navigation: true,
+            navigationText: ['<i class="fa fa-chevron-left fa-5x"></i>', '<i class="fa fa-chevron-right fa-5x"></i>'],
+            pagination: false,
+            itemsDesktop : [1500,5],
+            itemsDesktopSmall:[1199,4],
+            itemsTablet :	[991,3],
+            itemsTabletSmall : [543, 2],
+            itemsMobile: [479, 2]
+        });
+    });	
+</script>

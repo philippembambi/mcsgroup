@@ -15,7 +15,7 @@
 <div id="page">
     @component('components.fixed-header')
     @endcomponent
-    <main>
+    <main id="main">
 
         <div class="container" >
             <div class="basket">

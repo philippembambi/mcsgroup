@@ -8,7 +8,7 @@
 
     <div class="container-fluid">
 
-    <iframe src="{{ route('management.user/get') }}" frameborder="0" style="width: 100%; height: 500px;"></iframe>
+    <iframe src="{{ route('management.user/get') }}" frameborder="0" style="width: 100%; height: 700px;"></iframe>
 
     <script src="{{ asset('js/demo/datatables-demo.js') }}"></script>
 
