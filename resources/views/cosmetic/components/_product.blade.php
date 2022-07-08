@@ -1,17 +1,17 @@
 <link rel="stylesheet" href="{{ asset('cosmetic/css/stylesheet.css') }}">
 <style>
     .new {
-        background-color: #1d3b5f;
+        background-color: rgb(41, 62, 2);
     }
     .add_cart_btn{
-        background-color: #1d3b5f;
+        background-color: rgb(41, 62, 2);
     }
 </style>
 
 <section class="fillter_latest_product">
     <div class="container">
         <div class="single_c_title">
-            <h2 style="color: #F9BF39;">Produits promotionnels</h2>
+            <h2 style="color: black;">Produits promotionnels</h2>
         </div>
         <div class="fillter_l_p_inner">
             <ul class="fillter_l_p">
@@ -32,12 +32,12 @@
                             </div>
                         <div class="l_p_text">
                             <ul>
-                                <li class="p_icon"><a href="#" title="acheter"><i style="color: #293544;" class="fa fa-shopping-bag"></i></a></li>
-                                <li><a class="add_cart_btn" href="#">Détails</a></li>
-                                <li class="p_icon"><a href="#" title="ajouter au panier"><i style="color: #293544;" class="fa fa-heart"></i></a></li>
+                                <li class="p_icon"><a href="{{  route("cosmetic.desc")  }}" title="acheter"><i style="color: rgb(41, 62, 2);" class="fa fa-shopping-bag"></i></a></li>
+                                <li><a class="add_cart_btn" href="{{  route("cosmetic.desc")  }}">Détails</a></li>
+                                <li class="p_icon"><a href="{{  route("cosmetic.desc")  }}" title="ajouter au panier"><i style="color: rgb(41, 62, 2);" class="fa fa-heart"></i></a></li>
                             </ul>
                             <h4>Womens Libero</h4>
-                            <h5><del>$65</del> <span style="color: #F9BF39;">50$</span></h5>
+                            <h5><del>$65</del> <span style="color: black;">50$</span></h5>
                         </div>
                     </div>
                 </div>
@@ -55,12 +55,12 @@
 
                         <div class="l_p_text">
                             <ul>
-                                <li class="p_icon"><a href="#"><i style="color: #293544;" class="fa fa-shopping-bag"></i></a></li>
-                                <li><a class="add_cart_btn" href="#">Détails</a></li>
-                                <li class="p_icon"><a href="#"><i style="color: #293544;" class="fa fa-heart"></i></a></li>
+                                <li class="p_icon"><a href="{{  route("cosmetic.buy")  }}"><i style="color: rgb(41, 62, 2);" class="fa fa-shopping-bag"></i></a></li>
+                                <li><a class="add_cart_btn" href="{{  route("cosmetic.desc")  }}">Détails</a></li>
+                                <li class="p_icon"><a href="{{  route("cosmetic.desc")  }}"><i style="color: rgb(41, 62, 2);" class="fa fa-heart"></i></a></li>
                             </ul>
                             <h4>Womens Libero</h4>
-                            <h5><del>$65</del> <span style="color: #F9BF39;">50$</span></h5>
+                            <h5><del>$65</del> <span style="color: black;">50$</span></h5>
                         </div>
                     </div>
                 </div>
@@ -78,12 +78,12 @@
 
                         <div class="l_p_text">
                             <ul>
-                                <li class="p_icon"><a href="#"><i style="color: #293544;" class="fa fa-shopping-bag"></i></a></li>
-                                <li><a class="add_cart_btn" href="#">Détails</a></li>
-                                <li class="p_icon"><a href="#"><i style="color: #293544;" class="fa fa-heart"></i></a></li>
+                                <li class="p_icon"><a href="{{  route("cosmetic.buy")  }}"><i style="color: rgb(41, 62, 2);" class="fa fa-shopping-bag"></i></a></li>
+                                <li><a class="add_cart_btn" href="{{  route("cosmetic.desc")  }}">Détails</a></li>
+                                <li class="p_icon"><a href="{{  route("cosmetic.desc")  }}"><i style="color: rgb(41, 62, 2);" class="fa fa-heart"></i></a></li>
                             </ul>
                             <h4>Womens Libero</h4>
-                            <h5><del>$65</del> <span style="color: #F9BF39;">50$</span></h5>
+                            <h5><del>$65</del> <span style="color: black;">50$</span></h5>
                         </div>
                     </div>
                 </div>
@@ -102,12 +102,12 @@
 
                         <div class="l_p_text">
                             <ul>
-                                <li class="p_icon"><a href="#"><i style="color: #293544;" class="fa fa-shopping-bag"></i></a></li>
-                                <li><a class="add_cart_btn" href="#">Détails</a></li>
-                                <li class="p_icon"><a href="#"><i style="color: #293544;" class="fa fa-heart"></i></a></li>
+                                <li class="p_icon"><a href="{{  route("cosmetic.buy")  }}"><i style="color: rgb(41, 62, 2);" class="fa fa-shopping-bag"></i></a></li>
+                                <li><a class="add_cart_btn" href="{{  route("cosmetic.desc")  }}">Détails</a></li>
+                                <li class="p_icon"><a href="{{  route("cosmetic.desc")  }}"><i style="color: rgb(41, 62, 2);" class="fa fa-heart"></i></a></li>
                             </ul>
                             <h4>Womens Libero</h4>
-                            <h5><del>$65</del> <span style="color: #F9BF39;">50$</span></h5>
+                            <h5><del>$65</del> <span style="color: black;">50$</span></h5>
                         </div>
                     </div>
                 </div>
@@ -126,12 +126,12 @@
 
                         <div class="l_p_text">
                             <ul>
-                                <li class="p_icon"><a href="#"><i style="color: #293544;" class="fa fa-shopping-bag"></i></a></li>
-                                <li><a class="add_cart_btn" href="#">Détails</a></li>
-                                <li class="p_icon"><a href="#"><i style="color: #293544;" class="fa fa-heart"></i></a></li>
+                                <li class="p_icon"><a href="{{  route("cosmetic.buy")  }}"><i style="color: rgb(41, 62, 2);" class="fa fa-shopping-bag"></i></a></li>
+                                <li><a class="add_cart_btn" href="{{  route("cosmetic.desc")  }}">Détails</a></li>
+                                <li class="p_icon"><a href="{{  route("cosmetic.desc")  }}"><i style="color: rgb(41, 62, 2);" class="fa fa-heart"></i></a></li>
                             </ul>
                             <h4>Womens Libero</h4>
-                            <h5><del>$65</del> <span style="color: #F9BF39;">50$</span></h5>
+                            <h5><del>$65</del> <span style="color: black;">50$</span></h5>
                         </div>
                     </div>
                 </div>
@@ -150,12 +150,12 @@
 
                         <div class="l_p_text">
                             <ul>
-                                <li class="p_icon"><a href="#"><i style="color: #293544;" class="fa fa-shopping-bag"></i></a></li>
-                                <li><a class="add_cart_btn" href="#">Détails</a></li>
-                                <li class="p_icon"><a href="#"><i style="color: #293544;" class="fa fa-heart"></i></a></li>
+                                <li class="p_icon"><a href="{{  route("cosmetic.buy")  }}"><i style="color: rgb(41, 62, 2);" class="fa fa-shopping-bag"></i></a></li>
+                                <li><a class="add_cart_btn" href="{{  route("cosmetic.desc")  }}">Détails</a></li>
+                                <li class="p_icon"><a href="{{  route("cosmetic.desc")  }}"><i style="color: rgb(41, 62, 2);" class="fa fa-heart"></i></a></li>
                             </ul>
                             <h4>Womens Libero</h4>
-                            <h5><del>$65</del> <span style="color: #F9BF39;">50$</span></h5>
+                            <h5><del>$65</del> <span style="color: black;">50$</span></h5>
                         </div>
                     </div>
                 </div>
@@ -173,12 +173,12 @@
 
                         <div class="l_p_text">
                             <ul>
-                                <li class="p_icon"><a href="#"><i style="color: #293544;" class="fa fa-shopping-bag"></i></a></li>
-                                <li><a class="add_cart_btn" href="#">Détails</a></li>
-                                <li class="p_icon"><a href="#"><i style="color: #293544;" class="fa fa-heart"></i></a></li>
+                                <li class="p_icon"><a href="{{  route("cosmetic.buy")  }}"><i style="color: rgb(41, 62, 2);" class="fa fa-shopping-bag"></i></a></li>
+                                <li><a class="add_cart_btn" href="{{  route("cosmetic.desc")  }}">Détails</a></li>
+                                <li class="p_icon"><a href="{{  route("cosmetic.desc")  }}"><i style="color: rgb(41, 62, 2);" class="fa fa-heart"></i></a></li>
                             </ul>
                             <h4>Womens Libero</h4>
-                            <h5><del>$65</del> <span style="color: #F9BF39;">50$</span></h5>
+                            <h5><del>$65</del> <span style="color: black;">50$</span></h5>
                         </div>
                     </div>
                 </div>
@@ -196,12 +196,12 @@
 
                         <div class="l_p_text">
                             <ul>
-                                <li class="p_icon"><a href="#"><i style="color: #293544;" class="fa fa-shopping-bag"></i></a></li>
-                                <li><a class="add_cart_btn" href="#">Détails</a></li>
-                                <li class="p_icon"><a href="#"><i style="color: #293544;" class="fa fa-heart"></i></a></li>
+                                <li class="p_icon"><a href="{{  route("cosmetic.buy")  }}"><i style="color: rgb(41, 62, 2);" class="fa fa-shopping-bag"></i></a></li>
+                                <li><a class="add_cart_btn" href="{{  route("cosmetic.desc")  }}">Détails</a></li>
+                                <li class="p_icon"><a href="{{  route("cosmetic.desc")  }}"><i style="color: rgb(41, 62, 2);" class="fa fa-heart"></i></a></li>
                             </ul>
                             <h4>Womens Libero</h4>
-                            <h5><del>$65</del> <span style="color: #F9BF39;">50$</span></h5>
+                            <h5><del>$65</del> <span style="color: black;">50$</span></h5>
                         </div>
                     </div>
 
@@ -218,15 +218,115 @@
 
                 </div>
 
+                <div class="col-lg-3 col-md-4 col-sm-6 acc shoes">
+                    <div class="l_product_item">
+                        <div class="l_p_img">
+                            <img    class="img-fluid" 
+                                    style="height: 250px;"
+                                    src="{{ asset("cosmetic/image/images14.jpg") }}" alt="" 
+                                    data-pagespeed-url-hash="3082298026" 
+                                    onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+                                    <h5 class="new">New</h5>
+                        </div>
+
+                        <div class="l_p_text">
+                            <ul>
+                                <li class="p_icon"><a href="{{  route("cosmetic.buy")  }}"><i style="color: rgb(41, 62, 2);" class="fa fa-shopping-bag"></i></a></li>
+                                <li><a class="add_cart_btn" href="{{  route("cosmetic.desc")  }}">Détails</a></li>
+                                <li class="p_icon"><a href="{{  route("cosmetic.desc")  }}"><i style="color: rgb(41, 62, 2);" class="fa fa-heart"></i></a></li>
+                            </ul>
+                            <h4>Womens Libero</h4>
+                            <h5><del>$65</del> <span style="color: black;">50$</span></h5>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-3 col-md-4 col-sm-6 acc shoes">
+                    <div class="l_product_item">
+                        <div class="l_p_img">
+                            <img    class="img-fluid" 
+                                    style="height: 250px;"
+                                    src="{{ asset("cosmetic/image/images25.jpg") }}" alt="" 
+                                    data-pagespeed-url-hash="3082298026" 
+                                    onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+                                    <h5 class="new">New</h5>
+                        </div>
+
+                        <div class="l_p_text">
+                            <ul>
+                                <li class="p_icon"><a href="{{  route("cosmetic.buy")  }}"><i style="color: rgb(41, 62, 2);" class="fa fa-shopping-bag"></i></a></li>
+                                <li><a class="add_cart_btn" href="{{  route("cosmetic.desc")  }}">Détails</a></li>
+                                <li class="p_icon"><a href="{{  route("cosmetic.desc")  }}"><i style="color: rgb(41, 62, 2);" class="fa fa-heart"></i></a></li>
+                            </ul>
+                            <h4>Womens Libero</h4>
+                            <h5><del>$65</del> <span style="color: black;">50$</span></h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-sm-6 acc shoes">
+                    <div class="l_product_item">
+                        <div class="l_p_img">
+                            <img    class="img-fluid" 
+                                    style="height: 250px;"
+                                    src="{{ asset("cosmetic/image/img-5.png") }}" alt="" 
+                                    data-pagespeed-url-hash="3082298026" 
+                                    onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+                                    <h5 class="new">New</h5>
+                        </div>
+
+                        <div class="l_p_text">
+                            <ul>
+                                <li class="p_icon"><a href="{{  route("cosmetic.buy")  }}"><i style="color: rgb(41, 62, 2);" class="fa fa-shopping-bag"></i></a></li>
+                                <li><a class="add_cart_btn" href="{{  route("cosmetic.desc")  }}">Détails</a></li>
+                                <li class="p_icon"><a href="{{  route("cosmetic.desc")  }}"><i style="color: rgb(41, 62, 2);" class="fa fa-heart"></i></a></li>
+                            </ul>
+                            <h4>Womens Libero</h4>
+                            <h5><del>$65</del> <span style="color: black;">50$</span></h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-sm-6 acc shoes">
+                    <div class="l_product_item">
+                        <div class="l_p_img">
+                            <img    class="img-fluid" 
+                                    style="height: 250px;"
+                                    src="{{ asset("cosmetic/image/img-7.png") }}" alt="" 
+                                    data-pagespeed-url-hash="3082298026" 
+                                    onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+                                    <h5 class="new">New</h5>
+                        </div>
+
+                        <div class="l_p_text">
+                            <ul>
+                                <li class="p_icon"><a href="{{  route("cosmetic.buy")  }}"><i style="color: rgb(41, 62, 2);" class="fa fa-shopping-bag"></i></a></li>
+                                <li><a class="add_cart_btn" href="{{  route("cosmetic.desc")  }}">Détails</a></li>
+                                <li class="p_icon"><a href="{{  route("cosmetic.desc")  }}"><i style="color: rgb(41, 62, 2);" class="fa fa-heart"></i></a></li>
+                            </ul>
+                            <h4>Womens Libero</h4>
+                            <h5><del>$65</del> <span style="color: black;">50$</span></h5>
+                        </div>
+                    </div>
+
+                    <nav aria-label="Page navigation example" class="pagination_area">
+                        <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                        <li class="page-item"><a class="page-link" href="#">5</a></li>
+                        <li class="page-item next"><a class="page-link" href="#"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </nav>
+
+                </div>
                 
 
             </div>
         </div>
 
-
-        <div class="single_c_title">
-            <h2 style="color: #F9BF39;">Live beauty Streaming</h2>
-        </div>
     </div>
     
 </section>

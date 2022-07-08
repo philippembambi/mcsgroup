@@ -17,7 +17,7 @@ class PageController extends Controller
     public function index()
     {
         $articles = Article::orderBy("id", 'DESC')->get();
-        $arts = Article::where("id_ordi", "=", 1)->orWhere("id_ordi", "=", 5)->orderBy("id", 'ASC')->paginate(8);
+        $arts = Article::orderBy("id", 'ASC')->paginate(12);
         $ads = Advertisement::orderBy("id", 'DESC')->get();
         $bestCollection = Article::latest()->paginate(8);
 

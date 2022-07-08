@@ -8,22 +8,22 @@
         <meta name="keywords" content="Cosmetic">
 
         <link rel="shortcut icon" href="{{ asset('cosmetic/image/logo_blanc.png') }}" type="image/png">
-        <link rel="stylesheet" href="{{ asset('catalog/view/javascript/font-awesome/css/font-awesome.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('catalog/view/theme/Demo-Store/stylesheet/stylesheet.css') }}">
-        <link rel="stylesheet" href="{{ asset('catalog/view/javascript/jquery/magnific/magnific-popup.css') }}">
-        <link rel="stylesheet" href="{{ asset('catalog/view/theme/Demo-Store/stylesheet/webdigify/lightbox.css') }}">
-        <link rel="stylesheet" href="{{ asset('catalog/view/theme/Demo-Store/stylesheet/webdigify/carousel.css') }}">
-        <link rel="stylesheet" href="{{ asset('catalog/view/theme/Demo-Store/stylesheet/webdigify/custom.css') }}">
-        <link rel="stylesheet" href="{{ asset('catalog/view/theme/Demo-Store/stylesheet/webdigify/bootstrap.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('catalog/view/theme/Demo-Store/stylesheet/webdigify/animate.css') }}">
-        <link rel="stylesheet" href="{{ asset('catalog/view/javascript/jquery/owl-carousel/owl.carousel.css') }}">
-        <link rel="stylesheet" href="{{ asset('catalog/view/javascript/jquery/owl-carousel/owl.transitions.css') }}">
-        <link rel="stylesheet" href="{{ asset('catalog/view/javascript/jquery/swiper/css/swiper.min.css') }}" media="screen">
-        <link rel="stylesheet" href="{{ asset('catalog/view/javascript/jquery/swiper/css/opencart.css') }}" media="screen">
+        <link rel="stylesheet" href="{{ asset('view/javascript/font-awesome/css/font-awesome.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('view/theme/Demo-Store/stylesheet/stylesheet.css') }}">
+        <link rel="stylesheet" href="{{ asset('view/javascript/jquery/magnific/magnific-popup.css') }}">
+        <link rel="stylesheet" href="{{ asset('view/theme/Demo-Store/stylesheet/webdigify/lightbox.css') }}">
+        <link rel="stylesheet" href="{{ asset('view/theme/Demo-Store/stylesheet/webdigify/carousel.css') }}">
+        <link rel="stylesheet" href="{{ asset('view/theme/Demo-Store/stylesheet/webdigify/custom.css') }}">
+        <link rel="stylesheet" href="{{ asset('view/theme/Demo-Store/stylesheet/webdigify/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('view/theme/Demo-Store/stylesheet/webdigify/animate.css') }}">
+        <link rel="stylesheet" href="{{ asset('view/javascript/jquery/owl-carousel/owl.carousel.css') }}">
+        <link rel="stylesheet" href="{{ asset('view/javascript/jquery/owl-carousel/owl.transitions.css') }}">
+        <link rel="stylesheet" href="{{ asset('view/javascript/jquery/swiper/css/swiper.min.css') }}" media="screen">
+        <link rel="stylesheet" href="{{ asset('view/javascript/jquery/swiper/css/opencart.css') }}" media="screen">
 
-        <link rel="stylesheet" href="{{ asset('catalog/view/javascript/jquery/owl-carousel/owl.carousel.css') }}" media="screen">
-        <link rel="stylesheet" href="{{ asset('catalog/view/javascript/jquery/owl-carousel/owl.transitions.css') }}" media="screen">
-        <link rel="stylesheet" href="{{ asset('catalog/view/javascript/jquery/swiper/css/opencart.css') }}" media="screen">
+        <link rel="stylesheet" href="{{ asset('view/javascript/jquery/owl-carousel/owl.carousel.css') }}" media="screen">
+        <link rel="stylesheet" href="{{ asset('view/javascript/jquery/owl-carousel/owl.transitions.css') }}" media="screen">
+        <link rel="stylesheet" href="{{ asset('view/javascript/jquery/swiper/css/opencart.css') }}" media="screen">
 
         <link rel="stylesheet" href="{{ asset('css/custom/product.css') }}" media="screen">
         <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
@@ -47,35 +47,35 @@
 
     </body>
 
-    <script src="{{ asset('catalog/view/javascript/jquery/jquery-2.1.1.min.js') }}"></script>
-    <script src="{{ asset('catalog/view/javascript/bootstrap/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('catalog/view/javascript/jquery/owl-carousel/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('catalog/view/javascript/jquery.countdown.min.js') }}"></script>
-    <script src="{{ asset('catalog/view/javascript/jquery.countdown.js') }}"></script>
+    <script src="{{ asset('view/javascript/jquery/jquery-2.1.1.min.js') }}"></script>
+    <script src="{{ asset('view/javascript/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('view/javascript/jquery/owl-carousel/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('view/javascript/jquery.countdown.min.js') }}"></script>
+    <script src="{{ asset('view/javascript/jquery.countdown.js') }}"></script>
     <!--
-    <script src="{{ asset('catalog/view/javascript/jquery/swiper/js/swiper.jquery.js') }}"></script>
+    <script src="{{ asset('view/javascript/jquery/swiper/js/swiper.jquery.js') }}"></script>
     -->
-    <script src="{{ asset('catalog/view/javascript/jquery/owl-carousel/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('view/javascript/jquery/owl-carousel/owl.carousel.min.js') }}"></script>
 
-    <script src="{{ asset('catalog/view/javascript/datetimepicker/bootstrap-datetimepicker.min.css') }}"></script>
-    <script src="{{ asset('catalog/view/javascript/jquery/datetimepicker/moment/moment.min.js') }}"></script>
-    <script src="{{ asset('catalog/view/javascript/jquery/datetimepicker/moment/moment-with-locales.min.js') }}"></script>
-    <script src="{{ asset('catalog/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.js') }}"></script>
+    <script src="{{ asset('view/javascript/datetimepicker/bootstrap-datetimepicker.min.css') }}"></script>
+    <script src="{{ asset('view/javascript/jquery/datetimepicker/moment/moment.min.js') }}"></script>
+    <script src="{{ asset('view/javascript/jquery/datetimepicker/moment/moment-with-locales.min.js') }}"></script>
+    <script src="{{ asset('view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.js') }}"></script>
 
-    <script src="{{ asset('catalog/view/javascript/webdigify/custom.js') }}"></script>
-    <script src="{{ asset('catalog/view/javascript/webdigify/jstree.min.js') }}"></script>
-    <script src="{{ asset('catalog/view/javascript/webdigify/carousel.min.js') }}"></script>
-    <script src="{{ asset('catalog/view/javascript/webdigify/webdigify.min.js') }}"></script>
-    <script src="{{ asset('catalog/view/javascript/webdigify/jquery.formalize.min.js') }}"></script>
-    <script src="{{ asset('catalog/view/javascript/webdigify/jquery.elevatezoom.min.js') }}"></script>
-    <script src="{{ asset('catalog/view/javascript/webdigify/bootstrap-notify.min.js') }}"></script>
-    <script src="{{ asset('catalog/view/javascript/jquery/magnific/jquery.magnific-popup.min.js') }}"></script>
-    <script src="{{ asset('catalog/view/javascript/webdigify/tabs.js') }}"></script>
-    <script src="{{ asset('catalog/view/javascript/webdigify/jquery.hoverdir.js') }}"></script>
-    <script src="{{ asset('catalog/view/javascript/webdigify/modernizr.js') }}"></script>
-    <script src="{{ asset('catalog/view/javascript/lightbox/lightbox-2.6.min.js') }}"></script>
-    <script src="{{ asset('catalog/view/javascript/webdigify/inview.js') }}"></script>
-    <script src="{{ asset('catalog/view/javascript/common.js') }}"></script>
+    <script src="{{ asset('view/javascript/webdigify/custom.js') }}"></script>
+    <script src="{{ asset('view/javascript/webdigify/jstree.min.js') }}"></script>
+    <script src="{{ asset('view/javascript/webdigify/carousel.min.js') }}"></script>
+    <script src="{{ asset('view/javascript/webdigify/webdigify.min.js') }}"></script>
+    <script src="{{ asset('view/javascript/webdigify/jquery.formalize.min.js') }}"></script>
+    <script src="{{ asset('view/javascript/webdigify/jquery.elevatezoom.min.js') }}"></script>
+    <script src="{{ asset('view/javascript/webdigify/bootstrap-notify.min.js') }}"></script>
+    <script src="{{ asset('view/javascript/jquery/magnific/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ asset('view/javascript/webdigify/tabs.js') }}"></script>
+    <script src="{{ asset('view/javascript/webdigify/jquery.hoverdir.js') }}"></script>
+    <script src="{{ asset('view/javascript/webdigify/modernizr.js') }}"></script>
+    <script src="{{ asset('view/javascript/lightbox/lightbox-2.6.min.js') }}"></script>
+    <script src="{{ asset('view/javascript/webdigify/inview.js') }}"></script>
+    <script src="{{ asset('view/javascript/common.js') }}"></script>
     <!-- ======= Quick view JS ========= -->
     <script>
     function quickbox(){

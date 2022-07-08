@@ -92,7 +92,7 @@
     <div class="title">Télécharger notre application mobile :</div>
     <div class="subtitle">15% de remise pour votre premier achat</div>
 <ul class="list-unstyled">
-<li><a href="#"><img class="img-responsive" src="{{ asset("image/play.png")    }}" alt="play"></a></li>
+<li><a href="#" onclick="notify()"><img class="img-responsive" src="{{ asset("image/play.png")    }}" alt="play"></a></li>
 <li><a href="#"><img class="img-responsive" src="{{ asset("image/store.png")    }}" alt="store"></a></li>
 </ul>
 </div>

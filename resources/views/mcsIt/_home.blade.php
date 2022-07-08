@@ -197,16 +197,18 @@
 
                                     @foreach ($arts as $article)
                                     <div class="article col-lg-3 col-xs-6 col-sm-6 col-md-3">
+                                        <a href="{{ url("article/$article->id") }}">
                                         <div class="article-img">
-                                            <img src="{{  asset("uploadedFiles/$article->picture_1") }}" class="imghair" style="height: 150px;" alt="">
+                                            <img src="{{  asset("uploadedFiles/$article->picture_1") }}" class="imghair" alt="">
                                             <div class="article-label">
                                                 <span class="sale">-30%</span>
                                                 <span class="new">En vente</span>
                                             </div>
                                         </div>
+                                        </a>
                                         <div class="article-body">
                                             <p class="article-category">{{ substr($article->processor, 0, 20) }}</p>
-                                            <h3 class="article-name"><a href="./article/details/{{   $article->id    }}">{{ substr($article->tag, 0, 16) }}</a></h3>
+                                            <h3 class="article-name"><a href="{{ url("article/$article->id") }}">{{ substr($article->tag, 0, 16) }}</a></h3>
                                             <h4 class="article-price">{{ (int) $article->price }} $</h4>
                                             <div class="article-rating">
                                                 <i class="fa fa-star"></i>
@@ -216,7 +218,7 @@
                                             </div>
                                             <div class="article-btns">
                                                 <button class="add-to-wishlist" onclick="wishlist.add(2)"><i class="fa fa-shopping-bag fa-2x"></i><span class="tooltipp">Ajouter au panier</span></button>
-                                               <a class="quick-view" href="./article/details/{{   $article->id    }}">
+                                               <a class="quick-view" href="{{ url("article/$article->id") }}">
                                                     <i class="fa fa-eye fa-2x"></i><span class="tooltipp"></span>
                                                </a>
 
@@ -240,6 +242,7 @@
                 <!-- Products tab & slick -->
             </div>
         </div>
+
 
         <div class="hometab box bottom-to-top hb-animate-element">
             <div class="container">

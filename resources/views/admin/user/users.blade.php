@@ -77,8 +77,8 @@
 
                   <tbody>
 
-            @if ($userTerminal->count() > 0)
-			    @foreach ($userTerminal as $userData)
+                        @if ($userTerminal->count() > 0)
+                      @foreach ($userTerminal as $userData)
 
                     <tr>
                       <td>{{ $userData->id }} </td>
@@ -90,8 +90,8 @@
                       <td>{{    $userData->user_agent    }}</td>
                       <td>{{    $userData->lastCon      }}</td>
                     </tr>
-                @endforeach
-            @endif
+                        @endforeach
+                    @endif
 
                   </tbody>
                 </table>

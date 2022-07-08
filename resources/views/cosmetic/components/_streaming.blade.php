@@ -1,6 +1,6 @@
 <style>
     .about-video .play-icon {
-        background: #1d3b5f;
+        background: rgb(41, 62, 2);
     }
     #streaming{
         margin-top: -5%;
@@ -23,7 +23,7 @@
                     <div class="col-md-12">
                         
                         <div class="row">
-                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-md-offset-1">
+                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-md-offset-1">
                                                             <!-- Cart -->
                                 <div class="dropdown">
                                     <a class="about-video dropdown-toggle" 
@@ -37,7 +37,7 @@
                                 <br>
                             </div>
         
-                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-2 col-md-offset-1">
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-4 col-md-offset-1">
                                
                                 <div class="dropdown">
                                                                 
@@ -49,7 +49,7 @@
                                 <br>
                             </div>
 
-                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-2 col-md-offset-1">
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-4 col-md-offset-1">
                                
                                 <div class="dropdown">
                                                                 

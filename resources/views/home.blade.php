@@ -4,7 +4,7 @@
 
 <style>
      .advertimage{
-        height: 470px;
+        height: 420px;
         object-fit: cover;
         }
 
@@ -222,7 +222,7 @@
                         <div class="row no-gutters">
                             <div class="col-lg-5">
                                 <figure>
-                                    <a href="{{ url("mcsProd/index") }}">
+                                    <a href="{{ url("mcsprod/index") }}">
                                         <img
                                                 src="image/woman-1446557_1920.jpg"
                                                 class="pole" alt="">
@@ -233,9 +233,9 @@
                             </div>
                             <div class="col-lg-7">
                                 <div class="wrapper">
-                                    <a href="{{ url("mcsProd/index") }}" class="wish_bt">
+                                    <a href="{{ url("mcsprod/index") }}" class="wish_bt">
                                         <i class="icon-videocam-5" style="font-size: 18px;"></i></a>
-                                    <h3><a href="{{ url("mcsProd/index") }}" style="font-family: costafont;">MCS PROD</a></h3>
+                                    <h3><a href="{{ url("mcsprod/index") }}" style="font-family: costafont;">MCS PROD</a></h3>
                                     <p>
                                         <br>
                                         <i class="icon_info_alt"></i>
@@ -393,7 +393,7 @@
                                 alt="" style="height: 150px;">
                     </span>
 
-                    <h4 class="arTitle">{{  substr($ordi->tag, 0, 21)    }}</h4>
+                    <h4 class="arTitle">{{  substr(strtolower($ordi->tag), 0, 16)    }}</h4>
                      <p class="artDesc">
                          {{ substr($ordi->desc, 0, 40)." ..."    }}
                      </p>
@@ -422,7 +422,7 @@
                                 alt="" style="height: 150px;">
                     </span>
 
-                    <h4 class="arTitle">{{  $computer->tag    }}</h4>
+                    <h4 class="arTitle">{{  substr(strtolower($ordi->tag), 0, 16)    }}</h4>
                      <p class="artDesc">
                          {{ substr($computer->desc, 0, 40)." ..."    }}
                      </p>
@@ -445,7 +445,7 @@
 			</div>
 			<div class="row justify-content-center text-center">
 				<div class="col-md-6">
-					<img src="img/mobile.svg" alt="" class="img-fluid add_bottom_45">
+					<img src="img/mobile.svg" alt="" style="height: 200px;" class="img-fluid add_bottom_45">
 					<div class="app_icons">
 						<a href="#0" class="pr-lg-2"><img src="{{   asset("img/app_android.svg")    }}" alt=""></a>
 						<a href="#0" class="pl-lg-2"><img src="{{   asset("img/app_apple.svg")    }}" alt=""></a>
@@ -565,7 +565,6 @@
 <br>
 
 
-<img src="{{ asset("image/poles.PNG")   }}" class="img-thumbnail" alt="" id="mcsGraph">
 <br><br>
         <div class="call_section pattern">
 			<div class="wrapper">

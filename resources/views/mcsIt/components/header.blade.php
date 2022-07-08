@@ -14,7 +14,29 @@
         }
 
 
+        .search_box:after {
+    /* content: ""; */
+    content: "\f107";
+    font-family: 'FontAwesome';
+    position: absolute;
+	right: -11px;
+    top: 0;
+    z-index: 1;
+    cursor: pointer;
+    bottom: 0;
+    margin: auto;
+    height: 20px;
+    width: 20px;
+    background: #F9BF39;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    line-height: 16px;
+    color: white;
+    text-align: center;
+    box-shadow: 0 0 8px rgb(0 0 0 / 8%);
+}
 </style>
+
 
 <script>
     /*
@@ -66,7 +88,7 @@
                 </div>
                 <input type="text" name="searchText" id="search" value="" placeholder="Rechercher un article..." class="form-control input-lg" />
                 <span class="input-group-btn">
-                    <button type="button" class="btn btn-default btn-lg"><i class="fa fa-search"></i>Recherche</button>
+                    <button type="button" class="btn btn-default btn-lg" ><i style="color: white;" class="fa fa-search"></i>Recherche</button>
                 </span>
             </div>
          </div>
@@ -80,7 +102,7 @@
             <div class="container">
                 <div class="row">
                     <div class="box-category-top">
-                        <div class="box-heading">Menu déroulant <i class="fa fa-angle-down" aria-hidden="true"></i></div>
+                        <div class="box-heading">Menu</div>
                     </div>
                     <div class="box-content-category">
                         <ul id="nav-one" class="dropmenu box-category">
@@ -330,7 +352,7 @@
                                                 </div>
                                             </li>
                                             <li><a href="{{ route('mcsIt.index') }}#poles">Pôles & Activités </a></li>
-                                            <li class="hot menu-item"><a href="{{   route("mcsIt.user.login") }}">
+                                            <li class="hot menu-item"><a href="{{   url("user/authenticate") }}">
                                                 @auth
                                                    {{   '@'.auth()->user()->fullname}}
                                                 @endauth

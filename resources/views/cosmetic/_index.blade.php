@@ -97,7 +97,7 @@
     @endcomponent
 
     <div id="content" class="col-sm-12">
-        <div class="content-top" style="background-color: rgba(0, 0, 0, 0.1);">
+        <div class="content-top" style="background-color: rgb(24, 21, 21);">
             <div class="container">
                 <div class="row">
                     <div class="category_list_carousel">
@@ -109,7 +109,7 @@
                                 </a>
                             </div>
                             <div class="category_list_inner">
-                                <a href="#">Lorem ipsum dolor sit</a>
+                                <a style="color: white;" href="#">Lorem ipsum dolor sit</a>
 
                             </div>
                         </div>
@@ -121,7 +121,7 @@
                                 </a>
                             </div>
                             <div class="category_list_inner">
-                                <a href="#">Lorem ipsum dolor sit</a>
+                                <a style="color: white;" href="#">Lorem ipsum dolor sit</a>
 
                             </div>
                         </div>
@@ -133,7 +133,7 @@
                                 </a>
                             </div>
                             <div class="category_list_inner">
-                                <a href="#">Lorem ipsum dolor sit</a>
+                                <a style="color: white;" href="#">Lorem ipsum dolor sit</a>
 
                             </div>
                         </div>
@@ -145,11 +145,10 @@
                                 </a>
                             </div>
                             <div class="category_list_inner">
-                                <a href="#">Lorem ipsum dolor sit</a>
+                                <a style="color: white;" href="#">Lorem ipsum dolor sit</a>
 
                             </div>
                         </div>
-
                         
                         <div class="category_list box">
                             <div class="category_img" id="category_img">
@@ -158,11 +157,10 @@
                                 </a>
                             </div>
                             <div class="category_list_inner">
-                                <a href="#">Lorem ipsum dolor sit</a>
+                                <a style="color: white;" href="#">Lorem ipsum dolor sit</a>
 
                             </div>
                         </div>
-
                         
                         <div class="category_list box">
                             <div class="category_img" id="category_img">
@@ -171,11 +169,10 @@
                                 </a>
                             </div>
                             <div class="category_list_inner">
-                                <a href="#">Lorem ipsum dolor sit</a>
+                                <a style="color: white;" href="#">Lorem ipsum dolor sit</a>
 
                             </div>
                         </div>
-
                         
                         <div class="category_list box">
                             <div class="category_img" id="category_img">
@@ -184,11 +181,10 @@
                                 </a>
                             </div>
                             <div class="category_list_inner">
-                                <a href="#">Lorem ipsum dolor sit</a>
+                                <a style="color: white;" href="#">Lorem ipsum dolor sit</a>
 
                             </div>
                         </div>
-
                         
                         <div class="category_list box">
                             <div class="category_img" id="category_img">
@@ -197,7 +193,7 @@
                                 </a>
                             </div>
                             <div class="category_list_inner">
-                                <a href="#">Lorem ipsum dolor sit</a>
+                                <a style="color: white;" href="#">Lorem ipsum dolor sit</a>
 
                             </div>
                         </div>
@@ -268,9 +264,6 @@
         @component('cosmetic.components._product')
         @endcomponent
 
-        
-        @component('cosmetic.components._streaming')
-        @endcomponent
 
         @component('cosmetic.components._desc')
         @endcomponent
@@ -299,7 +292,7 @@
                                     <img class="image" title="topbanner-03" src="{{  asset("cosmetic/image/images12.jpg")  }}" style="height: 225px;width: 400px;" alt="topbanner-03">
                                 </a>
                                 <div class="wdtopbanner-content left">
-                                    <div class="label" style="color: white;">Mèches</div>
+                                    <div class="label" style="color: white;background-color: black;">Mèches</div>
                                     <div class="toptitle" style="color: white;">Les cheveux à mille éclats</div>
                                     <div class="offer">
                                         <a href="{{ url("article/category/2") }}" class="btn-primary">Découvrir</a></div>
@@ -312,7 +305,7 @@
                         <div class="wdtopbanner-img1 wdtopbanner ">
                             <div class="wdright-banner-content"><a href="#"> <img class="image" title="topbanner-01" src="{{  asset("cosmetic/image/images12.jpg")  }}" style="height: 225px;width: 400px;" alt="topbanner-01"> </a>
                                 <div class="wdtopbanner-content left">
-                                    <div class="label">Mèches</div>
+                                    <div class="label" style="background-color: black;">Mèches</div>
                                     <div class="title">10% de réduction</div>
                                     <div class="toptitle">Smart Mèches</div>
                                     <div class="offer"><a href="#" class="btn-primary">Découvrir</a></div>
@@ -325,7 +318,7 @@
                         <div class="wdtopbanner-img2 wdtopbanner">
                             <div class="wdright-banner-content"><a href="#"> <img class="image" title="topbanner-02" src="{{  asset("cosmetic/image/images12.jpg")  }}" style="height: 225px;width: 400px;" alt="topbanner-02"> </a>
                                 <div class="wdtopbanner-content left">
-                                    <div class="label" style="color: white;">Mèches</div>
+                                    <div class="label" style="color: white;background-color: black;">Mèches</div>
                                     <div class="title" style="color: white;">2% de réduction</div>
                                     <div class="toptitle" style="color: white;">Mèches articles</div>
                                     <div class="offer"><a href="#" class="btn-primary" style="background-color: white;color: black;">Découvrir</a></div>

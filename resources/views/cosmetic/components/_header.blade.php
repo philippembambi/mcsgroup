@@ -39,14 +39,39 @@
     });
     */
 </script>
+
+<style>
+    .search_box:after {
+    /* content: ""; */
+    content: "\f107";
+    font-family: 'FontAwesome';
+    position: absolute;
+	right: -11px;
+    top: 0;
+    z-index: 1;
+    cursor: pointer;
+    bottom: 0;
+    margin: auto;
+    height: 20px;
+    width: 20px;
+    background: black;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    line-height: 16px;
+    color: white;
+    text-align: center;
+    box-shadow: 0 0 8px rgb(0 0 0 / 8%);
+}
+
+</style>
 <header>
-    <div class="header_top">
+    <div class="header_top" style="background-color: rgb(77, 118, 1);">
       <div class="container">
         <div class="row">
 
          <div class="col-lg-4 col-sm-4 col-xs-4 header-logo">
             <div id="logo">
-                <a href="{{ route('mcsIt.index') }}">
+                <a href="{{ route('cosmetic.index') }}">
                     <img src="{{ asset('cosmetic/image/logo_blanc.png')   }}" 
                         id="logo_mcs" title="McsGroup" alt="Demo Store" 
                         class="img-responsive" style="height: 80px;" />
@@ -61,7 +86,7 @@
 
          <div class="nav2">
 
-            <div class="header_wishlist"><span>{{ $basket->countItems() }}</span><a href="{{   route("basket.show") }}" id="wishlist-total"></a></div>
+            <div class="header_wishlist"><span style="background-color: black;color: white;">{{ $basket->countItems() }}</span><a href="{{   route("basket.show") }}" id="wishlist-total"></a></div>
 
          </div>
 
@@ -69,8 +94,8 @@
             <div id="_desktop_contact_link" class="header-cms-block">
                 <div class="wdicon"></div>
                     <span class="content">
-                        <span class="service-title">Appel d'urgence :</span>
-                        <a href="tel:%phone%" class="contact-info">+33659598750</a>
+                        <span class="service-title">Appel d'urgence</span>
+                        <a href="tel:%phone%" class="contact-info" style="color: black;">+33659598750</a>
                     </span>
             </div>
          </div>
@@ -88,7 +113,7 @@
                 </div>
                 <input type="text" name="searchText" id="search" value="" placeholder="Rechercher un article..." class="form-control input-lg" />
                 <span class="input-group-btn">
-                    <button type="button" class="btn btn-default btn-lg"><i class="fa fa-search"></i>Recherche</button>
+                    <button type="button" style="background-color: rgb(24, 21, 21);color: white;" class="btn btn-default btn-lg"><i class="fa fa-search"></i>Recherche</button>
                 </span>
             </div>
          </div>
@@ -98,11 +123,11 @@
     </div>
 
     <div class="header_bottom_cover">
-        <div class="header_bottom" id="scrollableMenu">
+        <div class="header_bottom" id="scrollableMenu" style="background-color: rgb(41, 62, 2);">
             <div class="container">
                 <div class="row">
-                    <div class="box-category-top">
-                        <div class="box-heading">Menu <i class="fa fa-angle-down" aria-hidden="true"></i></div>
+                    <div class="box-category-top" style="background-color: rgb(24, 21, 21);color: white;">
+                        <div class="box-heading">Menu <i class="fa fa-bars" aria-hidden="true"></i></div>
                     </div>
                     <div class="box-content-category">
                         <ul id="nav-one" class="dropmenu box-category">
@@ -140,7 +165,7 @@
                                         <div class="nav-responsive"><span>Menu</span> </div>
                                         <ul class="main-navigation">
                                             <div class="menu expandable"><span>Menu</span></div>
-                                                <li><a href="{{ route('mcsIt.index') }}">Home</a></li>
+                                                <li><a href="{{ route('cosmetic.index') }}">Home</a></li>
                                                 <li><a href="
                                                     #20">Computers</a>
                                                     <ul>
@@ -287,7 +312,7 @@
 
                                     <div class="static-menu">
                                         <ul id="static-menu">
-                                            <li><a href="{{ route('mcsIt.index') }}">Accueil</a></li>
+                                            <li><a href="{{ route('cosmetic.index') }}">Accueil</a></li>
                                             <li class="dropdown"><a href="#">Catégories <i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                                 <div class="dropdown-menu">
                                                     <div class="dropdown-inner">
@@ -367,7 +392,7 @@
                                 <div class="cart_detail">
                                     <div class="cart_image"></div>
                                         <span id="cart-total">
-                                            <span class="item-count">{{ $purchase->countPurchases() }}</span>
+                                            <span class="item-count" style="background-color: black;color: white;">{{ $purchase->countPurchases() }}</span>
                                             <span class="mycart">Commande (s)</span>
                                         </span>
                                 </div>

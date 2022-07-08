@@ -13,14 +13,14 @@
 <footer>
     <div class="footer-top">
         <div style="text-align: center;">
-            <h3 class="title" style="color: #fcc902;font-size: 30px;font-family: persofont;font-weight: bolder;">
+            <h3 class="title" style="color: black;font-size: 30px;font-family: persofont;font-weight: bolder;">
                 BeautyCom Cosmetic
             </h3>
 
             <p style="color: white;font-size: 17px;">
                 Le soin de la beauté idéale se resume dans ces rubriques 
             </p>
-            <p style="font-size: 18px;color: #F9BF39;">
+            <p style="font-size: 18px;color: white;">
                 Vente des articles de beauté
             </p>
         </div>
@@ -31,7 +31,7 @@
                 <div id="newslatter" class="col-sm-4">
                     <div class="block_newsletter">
                         <h3 class="h3 hidden-sm-down">
-                             <span class="title">
+                             <span class="title" style="color: black;">
                                 <span>
                                     <img class="activityImage" src="{{  asset("cosmetic/image/Woman_Hair_100px.png")  }}" alt="">
                                 </span>
@@ -48,7 +48,7 @@
                 <div id="newslatter" class="col-sm-4">
                     <div class="block_newsletter">
                         <h3 class="h3 hidden-sm-down">
-                             <span class="title">
+                             <span class="title" style="color: black;">
                                 <span>
                                     <img class="activityImage" src="{{  asset("cosmetic/image/Barbershop_100px.png")  }}" alt="">
                                 </span>
@@ -65,7 +65,7 @@
                 <div id="newslatter" class="col-sm-4">
                     <div class="block_newsletter">
                         <h3 class="h3 hidden-sm-down">
-                             <span class="title">
+                             <span class="title" style="color: black;">
                                 <span>
                                     <img class="activityImage" src="{{  asset("cosmetic/image/Tube_100px.png")  }}" alt="">
                                 </span>

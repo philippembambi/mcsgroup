@@ -28,7 +28,7 @@
     @component('components.fixed-header')
     @endcomponent
 
-    <main class="pattern" id="main">
+    <main>
 <br><br>
 
 		<div class="container margin_60_35">

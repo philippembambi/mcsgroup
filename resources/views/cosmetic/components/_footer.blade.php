@@ -16,7 +16,7 @@
                     <div class="block_newsletter">
                         <h3 class="h3 hidden-sm-down">
                             <span class="subtitle" style="color: white;">5$ de remise pour votre première commande</span>
-                            <span class="title">
+                            <span class="title" style="color: black;">
                                 <span class="material-icons">drafts</span>Recevoir des annonces...
                             </span>
                             <span class="desc" style="color: white;">Via votre adresse mail.</span>
@@ -79,7 +79,7 @@
             <label class="col-sm-2 control-label">Entrer votre adresse mail</label>
             <div class="input-news">
               <input type="email" name="content" id="txtemail" value="" placeholder="E-mail" class="form-control input-lg"  />
-            <button type="submit" class="btn btn-default btn-lg" >Souscrire</button>
+            <button type="submit" class="btn btn-default btn-lg" style="background-color: rgb(24, 21, 21);color: white;">Souscrire</button>
             </div>
         </div>
         </form>
@@ -89,7 +89,7 @@
 
   <div id="block_1" class="footer-area app-social col-sm-6 column">
 <div class="footer-appinner">
-    <div class="title">Télécharger notre application mobile :</div>
+    <div class="title" style="color: black;">Télécharger notre application mobile :</div>
     <div class="subtitle">15% de remise pour votre premier achat</div>
 <ul class="list-unstyled">
 <li><a href="#"><img class="img-responsive" src="{{ asset("image/play.png")    }}" alt="play"></a></li>

@@ -187,4 +187,12 @@ Route::group(['prefix' => 'mcsProd', 'as' => 'mcsProd.'], function () {
 Route::group(['prefix' => 'cosmetic', 'as' => 'cosmetic.'], function () {
     Route::get('./', [CosmeticPageController::class, "index"]);
     Route::get('index', [CosmeticPageController::class, "index"])->name("index");
+    Route::get('desc', function(){
+        return view("cosmetic.layout.product._desc");
+    })->name("desc");
+
+    Route::get('buy', function(){
+        return view("cosmetic.layout.product.buy");
+    })->name("buy");
+
 });
